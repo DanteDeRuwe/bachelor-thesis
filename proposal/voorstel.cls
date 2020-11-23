@@ -49,7 +49,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}
 \RequirePackage{csquotes}
-\RequirePackage[english,dutch]{babel}
+\RequirePackage[english]{babel}
 \usepackage{hyperref}                      % hyperlinks
 \hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=black,citecolor=color2,linkcolor=color2,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
 
@@ -205,7 +205,7 @@ justification=raggedright]{caption}
 \fi%
 \ifx\@CoPromotor\@empty%
 \else%
-\\[4pt]\textbf{Co-promotor}\\\@CoPromotor%
+\\[4pt]\textbf{Co-promoter}\\\@CoPromotor%
 \fi%
 }%
 }%
@@ -243,7 +243,7 @@ justification=raggedright]{caption}
 %----------------------------------------------------------------------
 
 \RequirePackage[backend=biber,style=apa]{biblatex}
-\DeclareLanguageMapping{dutch}{dutch-apa}
+%\DeclareLanguageMapping{dutch}{dutch-apa}
 \addbibresource{voorstel.bib}
 
 \endinput
