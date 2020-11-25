@@ -1,11 +1,11 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LaTeX-sjabloon voorstel onderwerp Bachelorproef
-% HoGent Bedrijf en Organisatie, opleiding toegepaste informatica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bachelor Thesis Proposal Template
+% Applied Information Technology
+% Faculty of IT and Digital Transformation @ Ghent University College
+% Initial LaTeX-template by Jens Buysse and Bert Van Vreckem
 %
-% Gebaseerd op ``Stylish Article'' class
+% Based on ``Stylish Article'' class
 % Version 2.1 (1/10/15)
-%
-% This template has been downloaded from:
 % http://www.LaTeXTemplates.com
 %
 % Original author:
@@ -15,8 +15,7 @@
 %
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{proposal}

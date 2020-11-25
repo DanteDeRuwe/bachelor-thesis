@@ -1,98 +1,55 @@
 %==============================================================================
-% Sjabloon onderzoeksvoorstel bachelorproef
+% Bachelor Thesis Proposal by Dante De Ruwe
 %==============================================================================
-% Gebaseerd op LaTeX-sjabloon ‘Stylish Article’ (zie voorstel.cls)
-% Auteur: Jens Buysse, Bert Van Vreckem
-%
-% Compileren in TeXstudio:
-%
-% - Zorg dat Biber de bibliografie compileert (en niet Biblatex)
-%   Options > Configure > Build > Default Bibliography Tool: "txs:///biber"
-% - F5 om te compileren en het resultaat te bekijken.
-% - Als de bibliografie niet zichtbaar is, probeer dan F5 - F8 - F5
-%   Met F8 compileer je de bibliografie apart.
-%
-% Als je JabRef gebruikt voor het bijhouden van de bibliografie, zorg dan
-% dat je in ``biblatex''-modus opslaat: File > Switch to BibLaTeX mode.
+% Applied Information Technology 2020-2021 
+% Faculty of IT and Digital Transformation @ Ghent University College
+% Based on a LaTeX-template by Jens Buysse and Bert Van Vreckem 
 
 \documentclass{proposal}
 
-\usepackage{lipsum}
+% ----------------------------------------
+% Metadata
+% ----------------------------------------
 
-%------------------------------------------------------------------------------
-% Metadata over het voorstel
-%------------------------------------------------------------------------------
+% --- Title and Author ---
+\PaperTitle{Universal Micro Fontends with Blazor}
+\PaperType{Bachelor Thesis Proposal 2020-2021}
 
-%---------- Titel & auteur ----------------------------------------------------
-
-% TODO: geef werktitel van je eigen voorstel op
-\PaperTitle{Titel voorstel}
-\PaperType{Onderzoeksvoorstel Bachelorproef 2019-2020} % Type document
-
-% TODO: vul je eigen naam in als auteur, geef ook je emailadres mee!
-\Authors{Steven Stevens\textsuperscript{1}} % Authors
-\CoPromotor{Piet Pieters\textsuperscript{2} (Bedrijfsnaam)}
+\Authors{Dante De Ruwe\textsuperscript{1}}
+\CoPromotor{Dr. Florian Rappl\textsuperscript{2} (Solution Architect at Smapiot GmbH)}
 \affiliation{\textbf{Contact:}
-  \textsuperscript{1} \href{mailto:steven.stevens.u1234@student.hogent.be}{steven.stevens.u1234@student.hogent.be};
-  \textsuperscript{2} \href{mailto:piet.pieters@acme.be}{piet.pieters@acme.be};
+    \textsuperscript{1} \href{mailto:dantederuwe@gmail.com}{dantederuwe@gmail.com};
+    \textsuperscript{2} \href{mailto:florian.rappl@smapiot.com}{florian.rappl@smapiot.com};
 }
 
-%---------- Abstract ----------------------------------------------------------
-
-\Abstract{Hier schrijf je de samenvatting van je voorstel, als een doorlopende tekst van één paragraaf. Wat hier zeker in moet vermeld worden: \textbf{Context} (Waarom is dit werk belangrijk?); \textbf{Nood} (Waarom moet dit onderzocht worden?); \textbf{Taak} (Wat ga je (ongeveer) doen?); \textbf{Object} (Wat staat in dit document geschreven?); \textbf{Resultaat} (Wat verwacht je van je onderzoek?); \textbf{Conclusie} (Wat verwacht je van van de conclusies?); \textbf{Perspectief} (Wat zegt de toekomst voor dit werk?).
-
-Bij de sleutelwoorden geef je het onderzoeksdomein, samen met andere sleutelwoorden die je werk beschrijven.
-
-Vergeet ook niet je co-promotor op te geven.
+% --- Abstract ---
+\Abstract{
+    % TODO
 }
 
-%---------- Onderzoeksdomein en sleutelwoorden --------------------------------
-% TODO: Sleutelwoorden:
-%
-% Het eerste sleutelwoord beschrijft het onderzoeksdomein. Je kan kiezen uit
-% deze lijst:
-%
-% - Mobiele applicatieontwikkeling
-% - Webapplicatieontwikkeling
-% - Applicatieontwikkeling (andere)
-% - Systeembeheer
-% - Netwerkbeheer
-% - Mainframe
-% - E-business
-% - Databanken en big data
-% - Machineleertechnieken en kunstmatige intelligentie
-% - Andere (specifieer)
-%
-% De andere sleutelwoorden zijn vrij te kiezen
-
-\Keywords{Onderzoeksdomein. Keyword1 --- Keyword2 --- Keyword3} % Keywords
+% --- Domain and Key Words ---
 \newcommand{\keywordname}{Key Words} % Defines the keywords heading name
+\Keywords{
+    Web Development. Application Architecture --- Front-End --- Microservices
+    % TODO
+} 
 
-%---------- Titel, inhoud -----------------------------------------------------
+% ----------------------------------------
+% Document
+% ----------------------------------------
 
 \begin{document}
 
-\flushbottom % Makes all text pages the same height
-\maketitle % Print the title and abstract box
-\tableofcontents % Print the contents section
-\thispagestyle{empty} % Removes page numbering from the first page
+\flushbottom            % Makes all text pages the same height
+\maketitle              % Print the title and abstract box
+\tableofcontents        % Print the contents section
+\thispagestyle{empty}   % Removes page numbering from the first page
 
-%------------------------------------------------------------------------------
-% Hoofdtekst
-%------------------------------------------------------------------------------
 
-% De hoofdtekst van het voorstel zit in een apart bestand, zodat het makkelijk
-% kan opgenomen worden in de bijlagen van de bachelorproef zelf.
+% --- Contents ---
 \input{proposal-content}
 
-%------------------------------------------------------------------------------
-% Referentielijst
-%------------------------------------------------------------------------------
-% TODO: de gerefereerde werken moeten in BibTeX-bestand ``voorstel.bib''
-% voorkomen. Gebruik JabRef om je bibliografie bij te houden en vergeet niet
-% om compatibiliteit met Biber/BibLaTeX aan te zetten (File > Switch to
-% BibLaTeX mode)
-
+% --- References ---
 \phantomsection
 \printbibliography[heading=bibintoc]
 
