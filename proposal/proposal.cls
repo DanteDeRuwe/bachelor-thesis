@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX-sjabloon voorstel onderwerp Bachelorproef
 % HoGent Bedrijf en Organisatie, opleiding toegepaste informatica
-% 
+%
 % Gebaseerd op ``Stylish Article'' class
 % Version 2.1 (1/10/15)
 %
@@ -19,7 +19,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{voorstel}
+\ProvidesClass{proposal}
 
 \RequirePackage{ifthen}
 \RequirePackage{calc}
@@ -234,7 +234,7 @@ justification=raggedright]{caption}
 % Footers
 \lfoot{\sffamily\small\bfseries\@PaperType}%
 \cfoot{\thepage/\pageref{LastPage}}%
-\rfoot{\includegraphics[height=1.1cm]{HOGENT_Logo_Pos_rgb.png}}%
+\rfoot{\includegraphics[height=1.1cm]{img/HOGENT_Logo.png}}%
 \renewcommand{\headrulewidth}{0pt}% % No header rule
 \renewcommand{\footrulewidth}{0pt}% % No footer rule
 
@@ -244,6 +244,6 @@ justification=raggedright]{caption}
 
 \RequirePackage[backend=biber,style=apa]{biblatex}
 %\DeclareLanguageMapping{dutch}{dutch-apa}
-\addbibresource{voorstel.bib}
+\addbibresource{proposal.bib}
 
 \endinput
