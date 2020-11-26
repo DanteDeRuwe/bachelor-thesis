@@ -2,7 +2,7 @@
 [TOC]
 
 
-## Correspondence with Mr. Rappl (Co-promoter) 
+## 1. Correspondence with Mr. Rappl (Co-promoter) 
 
 ### Subjects provided
 1. The Integration of Piral Micro Fontends and Blazor
@@ -43,3 +43,86 @@ Subject 2
 - "Micro-frontends: application of microservices to web front-ends", A. Pavlenko, N. Askarbekuly, S. Megha, M. Mazzaram, preprint, 2020
 - "A Novel Application of Educational Management Information System based on Micro Frontends", D. Wang, D. Yang, H. Zhou, Y. Wang, Procedia Computer Science, 2020
 - "Plutt: A tool for creating type-safe and version-safe microfrontends", C. Celik, J. Recep, KTH, 2020
+
+
+## 2. Introductory media and webinars on the subject
+
+
+### [Florian Rappl - The Next Frontier: Microfrontends!](https://www.youtube.com/watch?v=AtUKNsdnwBc)
+> The architecture pattern of microservices can be found in many modern system landscapes, which offers flexibility for the backend services. On the other side, the frontend is very often realized as a monolith. We present an example implementation of a highly modular frontend architecture based on microfrontends running in Azure, which mirrors the dynamic of a modern microservices backend with some crucial differences. We will also introduce our concept for CI/CD with microfrontends, where Azure DevOps helps us to get from an idea to having a new feature online within minutes.
+
+
+Traditionally: 
+<img src="https://i.imgur.com/jRWx5mU.png" height="200px">
+
+Microfrontends: 
+<img src="https://i.imgur.com/nEbR8Gw.png" height="200px">
+
+
+---
+Implementation patterns (more [in this blogpost](https://blog.bitsrc.io/6-patterns-for-microfrontends-347ae0017ec0))
+- reverse proxy (like nginx)
+    - Everything server side rendered>
+- app shell approach
+
+<img src="https://i.imgur.com/7HmrYmI.png" height="200px">
+
+---
+
+But desired solution is sweet spot between monolith aspects and microservices aspect: the *modular distributed web application*.
+
+<img src="https://i.imgur.com/q4RaCBQ.png" height="300px">
+<img src="https://i.imgur.com/kSgYFWc.png" height="250px">
+
+
+What Serverless is for microservices, ***Siteless UI*** is for micro frontends
+
+Implementation:
+
+<img src="https://i.imgur.com/3FgEgct.png" height="300px">
+
+---
+---
+<br><br><br>
+
+### [Microfrontends with Blazor: Welcome to the Party! (.NET Conf 2020)](https://www.youtube.com/watch?v=npff2NjVXEE)
+
+> *Introduction is same as in previous talk*
+
+**Options in Blazor WASM:**
+
+
+1. Use packages (NuGET)
+    
+<img src="https://i.imgur.com/caYw86J.png" height="200px">
+
+```diff 
++ stays in the flow
+- recompilation
+- no cross-framework support
+- needs full reflection/inspection before starting
+```
+
+
+2. Combine with JS
+    Start with JS and use Blazor as just a component within that
+
+```diff 
++ recombine freely
++ no framework lock-in
++ Blazor part can be lazy loaded
+- difficult to publish
+- We need JS and C# (but this is a limitation with Blazor anyway at the moment)
+```
+
+
+--- 
+**Challenges**
+1. Routing
+2. DOM Projection
+3. Dynamic Registration
+4. Shared Components
+5. Lazy Loading ([solved in .NET 5 / Blazor 5](https://docs.microsoft.com/en-us/aspnet/core/blazor/webassembly-lazy-load-assemblies?view=aspnetcore-5.0))
+
+
+[**\> Reference Implementation**](https://github.com/piral-samples/azure-static-web-app)
