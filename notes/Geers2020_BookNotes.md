@@ -28,7 +28,7 @@
 
 - Need for an integration system 
 - Redundancy
---- Trade-off for autonomy
+--- Trade-off for autonomy and decoupling
 - Reduced consistency
 --- Trade-off for robustness
 - Reduced heterogeneity
@@ -76,10 +76,37 @@ Integration aspects:
 
 
 #### [2] My first micro frontends project 
+Short introduction of basic MF techniques via:
+- hyperlinks
+- iframes
 
+Both options are sub-optimal
+
+---
 ### [Part 2] Routing, composition, and communication 
 #### [3] Composition with Ajax and server-side routing 
+Getting a HTML fragment from one source and appending it to a DOM node of the overarching fragment. Using a reverse proxy (nginx) to make sure we are serving from the same URL for better user experience.
+
+```diff
++ natural document flow
++ SEO friendly
++ progressive enhancement
+--- a fallback link can be provided if JS breaks
++ better way to handle errors
+---- we have JS to check the fetch and react accordingly
+- Async loading = latency
+- almost no isolation
+--- important: namespacing for scoping css and JS
+- server round-trip needed
+- inner fragment should manage JS lifecycle manually
+``` 
+=> not for complicated stateful fragments
+
+![](https://i.imgur.com/yW5hlHa.png)
+
+
 #### [4] Server-side composition 
+
 #### [5] Client-side composition 
 #### [6] Communication patterns 
 #### [7] Client-side routing and the application shell 
