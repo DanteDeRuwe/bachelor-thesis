@@ -19,20 +19,20 @@
 3. Microservices (horizontal split with backend vertical split)
 4. Micro frontends (almost entire vertical split)
 ```diff
-+ loosely coupled --> predictable: no shared state
++ loosely coupled -> predictable: no shared state
 + autonomous, technology independent and independently deployable
 + narrow in scope: easier to understand
 + smaller codebase
 + full control over tech stack and therefore changes in technology (micro arch.) 
---- as long as you stay compatible with inter-team conventions (macro arch.)
+^ As long as you stay compatible with inter-team conventions (macro arch.)
 
 - Need for an integration system 
 - Redundancy
---- Trade-off for autonomy and decoupling
+^ Trade-off for autonomy and decoupling
 - Reduced consistency
---- Trade-off for robustness
+^ Trade-off for robustness
 - Reduced heterogeneity
---- Trade-off for autonomy
+^ Trade-off for autonomy
 ```
 
 Micro frontends tackle the issue of a monolithic frontend where 1 team has to manage this whole project.
@@ -91,12 +91,12 @@ Getting a HTML fragment from one source and appending it to a DOM node of the ov
 + natural document flow
 + SEO friendly
 + progressive enhancement
---- a fallback link can be provided if JS breaks
+^ a fallback link can be provided if JS breaks
 + better way to handle errors
----- we have JS to check the fetch and react accordingly
+^  we have JS to check the fetch and react accordingly
 - Async loading = latency
 - almost no isolation
---- important: namespacing for scoping css and JS
+^  important: namespacing for scoping css and JS
 - server round-trip needed
 - inner fragment should manage JS lifecycle manually
 ``` 
@@ -106,8 +106,15 @@ Getting a HTML fragment from one source and appending it to a DOM node of the ov
 
 
 #### [4] Server-side composition 
+- Server Side Includes
 
+```diff
++ better load times
+- a slow or broken fragment can mess up load of entire page
+^ dealt with by using timeouts for upstreams and fallback content in the proxy
+```
 #### [5] Client-side composition 
+
 #### [6] Communication patterns 
 #### [7] Client-side routing and the application shell 
 #### [8] Composition and universal rendering 
