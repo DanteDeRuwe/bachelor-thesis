@@ -106,13 +106,36 @@ Getting a HTML fragment from one source and appending it to a DOM node of the ov
 
 
 #### [4] Server-side composition 
-- Server Side Includes
 
+- Server Side Includes (SSI)
+    - e.g. Nginx
 ```diff
 + better load times
 - a slow or broken fragment can mess up load of entire page
 ^ dealt with by using timeouts for upstreams and fallback content in the proxy
+- only usable for eager loading, lazy loaded parts should still happen with Ajax
 ```
+-  Edge-Side Includes (ESI) and *partial sending*
+    - e.g. Varnish, Squid, ...
+- Streaming composition
+    - e.g. Tailor, Podium... (non trivial dependencies!)
+
+
+##### Overall
+```diff
++ good first page load performance
++ good for progressive enhancement
+^ easy to add client-side JS on top
++ SSI and ESI have not a lot of maintenance after set-up
++ server side rendering is good for SEO
+- non-optimal TTFB (time to first byte)
+- no isolation --> namespacing is important
+- local development is complicated
+^ libraries make this easier though
+- not well suited for very dynamic and interactive applications
+```
+
+
 #### [5] Client-side composition 
 
 #### [6] Communication patterns 
