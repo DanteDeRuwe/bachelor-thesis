@@ -11,6 +11,36 @@
 %   - de motivatie en relevantie voor het onderzoek
 %   - de doelstelling en onderzoeksvraag/-vragen
 
+The development of applications for the web has seen some dramatic shifts over
+the years. Apart from new technologies, protocols and standards, the way web
+applications are structured have undergone some evolutions as well. ``Software
+architecture'' not only outlines the pure structure of the application, but also
+defines the responsibility of all the pieces of the application, and how these
+pieces ought to interact with each other \autocite{Fedorov_etal_1998}.\\
+In the ``early days'' of web development, nearly all applications had a
+\textit{monolithic} architecture: a single-tier architecture, where the user
+interface (UI), business logic and data storage are all managed in a single
+all-in-one solution, managed by a big team. Now, developer teams have mostly
+adopted split-stack development, where the UI is handled in the so-called
+``front end'' and the business and data logic are dealt with by a ``back end''
+system. This reduced coupling enabled specialized teams to develop
+each aspect individually, independently and therefore simultaneously
+\autocite{Dunkley_2016}. For the same reasons, \textit{microservices} started
+making an appearance when developers realized that having a single backend
+service could also be considered a monolithic approach
+\autocite{Fowler_Microservices_2014}.\\
+In 2016 the ThoughtWorks Technology Radar \autocite{ThoughtWorks_2020} coined
+the term ``\textit{Micro Frontends}'' to describe the split of the front-end
+monolith into independently deployable and maintainable pieces. This is
+especially beneficial for large-scale projects. However, enabling distributed
+development of these micro frontends is not a trivial undertaking, and naturally
+has its challenges.\\
+
+This thesis aims to be an application of this micro frontends pattern, to enable
+distributed development of large scale web applications. More specifically, this
+thesis will focus on the Blazor web framework, tackling the challenges and the
+limitations that go along with this on its way.
+
 % ---------------------------------------- 
 % State-of-the-art 
 % ----------------------------------------
