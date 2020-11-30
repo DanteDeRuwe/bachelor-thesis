@@ -12,7 +12,7 @@
 % ----------------------------------------
 
 % --- Title and Author ---
-\PaperTitle{Universal Micro Fontends with Blazor}
+\PaperTitle{Distributed Development of Blazor-based Web Applications using a Universal Micro Frontend Architecture}
 \PaperType{Bachelor Thesis Proposal 2020-2021}
 
 \Authors{Dante De Ruwe\textsuperscript{1}}
@@ -23,15 +23,31 @@
 }
 
 % --- Abstract ---
-\Abstract{
-    % TODO
+% TODO Hier schrijf je de samenvatting van je voorstel, 
+% als een doorlopende tekst van één paragraaf. Wat hier zeker in moet vermeld worden: 
+% - Context (Waarom is dit werk belangrijk?)
+% - Nood (Waarom moet dit onderzocht worden?)
+% - Taak (Wat ga je (ongeveer) doen?);
+% - Object (Wat staat in dit document geschreven?)
+% - Resultaat (Wat verwacht je van je onderzoek?)
+% - Conclusie (Wat verwacht je van van de conclusies?)
+% - Perspectief (Wat zegt de toekomst voor dit werk?).
+
+\Abstract{ 
+    With the WebAssembly \textit{(WASM)} standard a new set of web applications have been made possible. 
+    The technology stack selection no longer needs to be given as only Javascript to the browser. 
+    In the .NET ecosystem, the most popular solution for generating WASM applications is called Blazor. 
+    This framework allows writing full-stack managed code, which can then be used to make interactive clients, server-side rendering, 
+    and native mobile apps work. One challenge in this approach is that there is no direct way of enabling distributed development. 
+    While component libraries can be created independently, knowledge in the main application would be required for integration. 
+    Using a micro frontend architecture this relationship could be reversed. This thesis investigates what is needed to empower distributed 
+    development of large-scale Blazor-based web applications, tackling the individual challenges such as debugging or assembly sharing on its way.
 }
 
 % --- Domain and Key Words ---
 \newcommand{\keywordname}{Key Words} % Defines the keywords heading name
 \Keywords{
-    Web Development. Application Architecture --- Front-End --- Microservices
-    % TODO
+    Web Development. Application Architecture -- Front-End -- Blazor -- WebAssembly -- Micro Frontends
 } 
 
 % ----------------------------------------
