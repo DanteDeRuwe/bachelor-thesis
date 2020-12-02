@@ -13,7 +13,7 @@
 
 The development of applications for the web has seen some dramatic shifts over
 the years. Apart from new technologies, protocols and standards, the way web
-applications are structured have undergone some evolutions as well. ``Software
+applications are structured has undergone some evolutions as well. ``Software
 architecture'' not only outlines the pure structure of the application, but also
 defines the responsibility of all the pieces of the application, and how these
 pieces ought to interact with each other \autocite{Fedorov_etal_1998}.
@@ -42,13 +42,13 @@ This thesis aims to be an application of this micro frontends pattern, to enable
 distributed development of large scale web applications. More specifically, this
 thesis will focus on the Blazor web framework, tackling the challenges and the
 limitations that go along with this on its way.\\\\\noindent The research
-questions that will be adressed:
+questions that will be addressed:
 \begin{itemize}
     \item What is needed to be able to independently develop and deploy micro
     frontends using Blazor WebAssembly?
     \item Wat are the challenges that need to be overcome, and how would one do
     so? 
-    \item How to render Blazor-based microfrontends with the proper isolation,
+    \item How to render Blazor-based micro frontends with the proper isolation,
     performance and with progressive enhancement in mind?
     \item How can developer teams benefit from the transformation of their
     Blazor monolith into a micro frontend solution?
@@ -56,7 +56,7 @@ questions that will be adressed:
     \item[]
 \end{itemize}
 
-\noindent Aditionally, an objective of this thesis is to generate an open-source
+\noindent Additionally, an objective of this thesis is to generate an open-source
 proof-of-concept Blazor application that implements the micro frontend
 architecture pattern.
 % ---------------------------------------- 
@@ -85,8 +85,8 @@ architecture pattern.
 % Je mag gerust gebruik maken van subsecties in dit onderdeel.
 
 \subsection{Distributed development and team structure}
-As software project grow larger and larger in size, naturally more developers
-are needed to maintain them. But the effici\"ency of teams does not scale
+As software projects grow larger and larger in size, naturally more developers
+are needed to maintain them. But the efficiency of teams does not scale
 linearly. This is a wisdom that dates back to the very early days of software
 development, as proven by the still applicable quote by \textcite{Brooks_1975}:
 ``adding manpower to a late software project makes it later''.
@@ -103,20 +103,20 @@ distributed development \autocite{Yuhong_2008}.
 
 As outlined in the introduction to this proposal, there is an already widespread
 practice of splitting up projects ``horizontally'' per layer or technology. It
-makes sure that experts can co-opertate together as one team and ensure a high
+makes sure that experts can co-operate together as one team and ensure a high
 technical standard within the boundaries of their respective areas of expertise.
 
-But what if a company wants to put focus on user experience, innovation and
-features, in stead of purely on creating the most technically perfect solution?
-This is where multidisciplinar or cross-funtional ``feature teams'' can come in,
-which are grouped around a specific business case or customer need. This
+But what if a company wants to put its focus on user experience, innovation and
+features, instead of purely on creating the most technically perfect solution?
+This is where multidisciplinary or cross-functional ``feature teams'' can come in.
+These are grouped around a specific business case or customer need. This
 ``vertical slicing'' has major benefits: it enables teams to be completely
-independent and have end-to-end responsibility of the features they have to
-develop. This aids in accelerating development speed, cutting down on intra-team
+independent and have end-to-end responsibility for the features they have to
+develop. This aids in accelerating development speed, cutting down on inter-team
 communication and enabling developers to feel a greater sense of involvement in
 the project or product \autocite{LarmanVodde_2008}.
 
-The ``micro frontends'' architecture give developers the necessary tools to be
+The ``micro frontends'' architecture gives developers the necessary tools to be
 able to organize themselves into autonomous ``feature teams'', where each team
 has a company mission they specialize in.
 \autocite{Geers_2020}
