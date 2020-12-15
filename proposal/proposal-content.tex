@@ -120,8 +120,30 @@ able to organize themselves into autonomous ``feature teams'', where each team
 has a company mission they specialize in.
 \autocite{Geers_2020}
 
-\subsection{Implementing Micro Frontends}
-...
+\subsection{Composing and integrating Micro Frontends}
+Implementing the micro frontend architecture can be done in various ways. This
+proposal will not mention all of them, nor will it provide a detailed look at
+any of these techniques. However, below some common methodologies are outlined.
+\autocite{Geers_2020} \autocite{Peltonen_etal_2020} \autocite{Pavlenko_etal_2020}
+
+\begin{itemize}
+    \item Page transitions via hyperlinks
+    \item Composition via iframe
+    \item Composition via AJAX and Web Components
+    \item Server-side rendering
+    \item Client-side rendering
+    \item Universal rendering
+    \item[]
+\end{itemize}
+
+\noindent This thesis will focus on universal (also known as
+\textit{isomorphic}) rendering. This is a rendering technique that aims to
+combine client-side and server-side rendering practices. The main concept is
+pre-rendering the application on the server, resulting in a relatively fast
+initial load, and then \textit{(re)hydrating} the pre-rendered application on the
+client side to make it fully client-side interactive. This enables progressive
+enhancement. \autocite{MillerOsmani_2019}
+
 \subsubsection{Blazor WebAssembly}
 ...
 
