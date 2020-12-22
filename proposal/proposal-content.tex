@@ -41,22 +41,24 @@ has its challenges.
 This thesis aims to be an application of this micro frontends pattern, to enable
 distributed development of large scale web applications. More specifically, this
 thesis will focus on the Blazor\hreffootnote{https://blazor.net} web framework, tackling the challenges and the
-limitations that go along with this on its way.\\
+limitations that go along with this on its way.
 
-\noindent The research questions that will be addressed:
-\begin{itemize}
-    \item[$RQ_1$] What is needed to be able to independently develop and deploy micro
-    frontends using Blazor WebAssembly?
-    \item[$RQ_2$] How to render Blazor-based micro frontends with the proper isolation,
-    performance and with progressive enhancement in mind?
-    \item[$RQ_3$] How can developer teams benefit from the transformation of their
-    Blazor monolith into a micro frontend solution?
-    \item[$RQ_4$] Wat are the challenges that need to be overcome, and how would one do
-    so? 
-    \item[]
-\end{itemize}
+\begin{minipage}{\linewidth} %to keep content together
+     The research questions that will be addressed:
+    \begin{itemize}
+        \item[$RQ_1$] What is needed to be able to independently develop and deploy micro
+        frontends using Blazor WebAssembly?
+        \item[$RQ_2$] How to render Blazor-based micro frontends with the proper isolation,
+        performance and with progressive enhancement in mind?
+        \item[$RQ_3$] How can developer teams benefit from the transformation of their
+        Blazor monolith into a micro frontend solution?
+        \item[$RQ_4$] Wat are the challenges that need to be overcome, and how would one do
+        so? 
+    \end{itemize}
+\end{minipage}
 
-\noindent Additionally, an objective of this thesis is to generate an open-source
+\blankline
+Additionally, an objective of this thesis is to generate an open-source
 proof-of-concept Blazor application that implements the micro frontend
 architecture pattern.
 % ---------------------------------------- 
@@ -134,10 +136,9 @@ any of these techniques. However, below some common methodologies are outlined.
     \item Server-side rendering
     \item Client-side rendering
     \item Universal rendering
-    \item[]
 \end{itemize}
 
-\noindent This thesis will focus on universal (also known as
+This thesis will focus on universal (also known as
 \textit{isomorphic}) rendering. This is a rendering technique that aims to
 combine client-side and server-side rendering practices. The main concept is
 pre-rendering the application on the server, resulting in a relatively fast
