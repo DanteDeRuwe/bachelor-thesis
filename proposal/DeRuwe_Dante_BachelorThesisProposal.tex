@@ -13,20 +13,25 @@
 % ----------------------------------------
 
 % --- Title and Author ---
-\PaperTitle{Distributed Development of Blazor-based Web Applications using a
-Universal Micro Frontend Architecture} \PaperType{Bachelor Thesis Proposal
-2020-2021}
+\PaperTitle{
+    Enabling the Distributed Development of Blazor-Based Web
+    Applications Using a Micro Frontend Architecture.
+}
 
-\Authors{Dante De Ruwe\textsuperscript{1}} \CoPromotor{Dr. Florian
-Rappl\textsuperscript{2} (Solution Architect at Smapiot GmbH)}
-\affiliation{\textbf{Contact:}
-    \textsuperscript{1}
-    \href{mailto:dantederuwe@gmail.com}{dantederuwe@gmail.com};
-    \textsuperscript{2}
-    \href{mailto:florian.rappl@smapiot.com}{florian.rappl@smapiot.com};}
+\PaperType{Bachelor Thesis Proposal 2020-2021}
 
-% --- Abstract --- TODO Hier schrijf je de samenvatting van je voorstel, als een
-% doorlopende tekst van één paragraaf. Wat hier zeker in moet vermeld worden: 
+\Authors{Dante De Ruwe\textsuperscript{1}} 
+
+\CoPromotor{Dr. Florian Rappl\textsuperscript{2} (Solution Architect at Smapiot GmbH)}
+\affiliation{
+    \textbf{Contact:}
+    \textsuperscript{1}\href{mailto:dantederuwe@gmail.com}{dantederuwe@gmail.com};
+    \textsuperscript{2}\href{mailto:florian.rappl@smapiot.com}{florian.rappl@smapiot.com};
+}
+
+% --- Abstract ---
+% Hier schrijf je de samenvatting van je voorstel, als een doorlopende tekst van
+% één paragraaf. Wat hier zeker in moet vermeld worden: 
 % - Context (Waarom is dit werk belangrijk?)
 % - Nood (Waarom moet dit onderzocht worden?)
 % - Taak (Wat ga je (ongeveer) doen?);
@@ -35,25 +40,37 @@ Rappl\textsuperscript{2} (Solution Architect at Smapiot GmbH)}
 % - Conclusie (Wat verwacht je van van de conclusies?)
 % - Perspectief (Wat zegt de toekomst voor dit werk?).
 
+% TODO 
 \Abstract{With the WebAssembly \textit{(WASM)} standard a new set of web
-    applications have been made possible. The technology stack selection no
-    longer needs to be given as only Javascript to the browser. In the .NET
-    ecosystem, the most popular solution for generating WASM applications is
-    called Blazor. This framework allows writing full-stack managed code, which
-    can then be used to make interactive clients, server-side rendering, and
-    native mobile apps work. One challenge in this approach is that there is no
-    direct way of enabling distributed development. While component libraries
+    applications have been made possible. Within the .NET ecosystem, the most
+    popular solution for generating WebAssembly applications is called Blazor.
+    This framework allows building interactive web UIs using client-side C\#
+    code instead of JavaScript. One challenge in this approach is that there is
+    no direct way of enabling distributed development. While component libraries
     can be created independently, knowledge in the main application would be
-    required for integration. Using a micro frontend architecture this
+    required for integration. Using a \textit{micro frontend architecture} this
     relationship could be reversed. This thesis investigates what is needed to
     empower the distributed development of large-scale Blazor-based web
-    applications, tackling the individual challenges such as debugging or
-    assembly sharing on its way.}
+    applications, tackling the individual challenges that go along with this on
+    its way. To gain insight into the domain, a theoretical study will be
+    conducted in 3 phases. Ultimately, a proof-of-concept solution will be
+    created to demonstrate the use of a micro frontend architecture in a Blazor
+    environment with an almost exclusive .NET-approach. The prediction is that
+    this should be feasible, but well-thought-out compromises will have to be
+    made regarding the limitations of the current state of the Blazor framework
+    and WebAssembly standard. As the adoption of the Blazor framework and the
+    micro frontend pattern will mature, this thesis could be a valuable resource
+    for development teams creating large-scale web applications. }
 
 % --- Domain and Key Words ---
-\newcommand{\keywordname}{Key Words} % Defines the keywords heading name
-\Keywords{Web Development. Application Architecture -- Front-End -- Blazor --
-    WebAssembly -- Micro Frontends} 
+\Keywords{
+    Web Development. 
+    Software Architecture 
+    -- Micro Frontends 
+    -- Front End 
+    -- Blazor 
+    -- WebAssembly
+} 
 
 % ----------------------------------------
 % Document

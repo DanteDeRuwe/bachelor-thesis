@@ -21,39 +21,39 @@ pieces ought to interact with each other \autocite{Fedorov_etal_1998}.
 In the ``early days'' of web development, nearly all applications had a
 \textit{monolithic} architecture: a single-tier architecture, where the user
 interface (UI), business logic and data storage are all managed in a single
-all-in-one solution, managed by a big team. Now, developer teams have mostly
-adopted split-stack development, where the UI is handled in the so-called
-``front end'' and the business and data logic are dealt with by a ``back end''
-system. This reduced coupling enabled specialized teams to develop each aspect
-individually, independently and therefore simultaneously
-\autocite{Dunkley_2016}. For the same reasons, \textit{microservices} started
-making an appearance when developers realized that having a single backend
-service could also be considered a monolithic approach
-\autocite{Fowler_Microservices_2014}.
+all-in-one solution. Now, developer teams have mostly adopted split-stack
+development, where the UI is handled in the so-called ``front end'' and the
+business and data logic are dealt with by a ``back end'' system. This reduced
+coupling enabled specialized teams to develop each aspect individually,
+independently and therefore simultaneously \autocite{Dunkley_2016}. For the same
+reasons, \textit{microservices} started making an appearance when developers
+realized that having a single back-end service could also be considered a
+monolithic approach \autocite{Fowler_Microservices_2014}.
 
 In 2016 the ThoughtWorks Technology Radar \autocite{ThoughtWorks_2020} coined
 the term ``\textit{Micro Frontends}'' to describe the split of the front-end
 monolith into independently deployable and maintainable pieces. This is
-especially beneficial for large-scale projects. However, enabling distributed
-development of these micro frontends is not a trivial undertaking, and naturally
-has its challenges.
+especially beneficial for large-scale projects, where the division of developers
+in autonomous teams is crucial. However, enabling distributed development of
+these micro frontends is not a trivial undertaking, and naturally has its
+challenges.
 
 This thesis aims to be an application of this micro frontends pattern, to enable
 distributed development of large scale web applications. More specifically, this
-thesis will focus on the Blazor\hreffootnote{https://blazor.net} web framework, tackling the challenges and the
-limitations that go along with this on its way.
+thesis will focus on the Blazor\hreffootnote{https://blazor.net} web framework,
+tackling the challenges and the limitations that go along with this on its way.
 
 \begin{minipage}{\linewidth} %to keep content together
      The research questions that will be addressed:
     \begin{itemize}
-        \item[$RQ_1$] What is needed to be able to independently develop and deploy micro
-        frontends using Blazor WebAssembly?
-        \item[$RQ_2$] How to render Blazor-based micro frontends with the proper isolation,
-        performance and with progressive enhancement in mind?
-        \item[$RQ_3$] How can developer teams benefit from the transformation of their
-        Blazor monolith into a micro frontend solution?
-        \item[$RQ_4$] Wat are the challenges that need to be overcome, and how would one do
-        so? 
+        \item[$RQ_1$] What is needed to be able to independently develop and
+        deploy micro frontends using Blazor WebAssembly?
+        \item[$RQ_2$] How to render Blazor-based micro frontends with the proper
+        isolation, performance and with progressive enhancement in mind?
+        \item[$RQ_3$] How can development teams benefit from the transformation
+        of their Blazor monolith into a micro frontend solution?
+        \item[$RQ_4$] What are the challenges that need to be overcome, and how
+        would one do so? 
     \end{itemize}
 \end{minipage}
 
@@ -76,15 +76,6 @@ architecture pattern.
 % bij elke introductie van een term of bewering over het domein naar de
 % vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke
 % werken je refereert en waarom.
-%
-% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur geen
-% onderdeel is van de zin. \textcite{KEY} => Auteur (jaartal)  Gebruik dit als
-% de auteursnaam wel een functie heeft in de zin (bv. ``Uit onderzoek door Doll
-% & Hill (1954) bleek
-%   ...'')
-%
-% Je mag gerust gebruik maken van subsecties in dit onderdeel.
 
 \subsection{Distributed development and team structure}
 As software projects grow larger and larger in size, naturally more developers
@@ -102,7 +93,6 @@ the choice of a good common architecture that is scalable and supports
 distributed development \autocite{Yuhong_2008}. 
 
 \subsection{Why Micro Frontends?}
-
 As outlined in the introduction to this proposal, there is an already widespread
 practice of splitting up projects ``horizontally'' per layer or technology. It
 makes sure that experts can co-operate together as one team and ensure a high
@@ -110,8 +100,8 @@ technical standard within the boundaries of their respective areas of expertise.
 
 But what if a company wants to put its focus on user experience, innovation and
 features, instead of purely on creating the most technically perfect solution?
-This is where multidisciplinary or cross-functional ``feature teams'' can come in.
-These are grouped around a specific business case or customer need. This
+This is where multidisciplinary or cross-functional ``feature teams'' can come
+in. These are grouped around a specific business case or customer need. This
 ``vertical slicing'' has major benefits: it enables teams to be completely
 independent and have end-to-end responsibility for the features they have to
 develop. This aids in accelerating development speed, cutting down on inter-team
@@ -138,31 +128,31 @@ any of these techniques. However, below some common methodologies are outlined.
     \item Universal rendering
 \end{itemize}
 
-This thesis will focus on universal (also known as
-\textit{isomorphic}) rendering. This is a rendering technique that aims to
-combine client-side and server-side rendering practices. The main concept is
-pre-rendering the application on the server, resulting in a relatively fast
-initial load, and then \textit{(re)hydrating} the pre-rendered application on the
-client side to make it fully client-side interactive. This enables progressive
-enhancement. \autocite{MillerOsmani_2019}
+This thesis will focus on universal (also known as \textit{isomorphic})
+rendering. This is a rendering technique that aims to combine client-side and
+server-side rendering practices. The main concept is pre-rendering the
+application on the server, resulting in a relatively fast initial load, and then
+\textit{(re)hydrating} the pre-rendered application on the client side to make
+it fully client-side interactive. This enables progressive enhancement.
+\autocite{MillerOsmani_2019}
 
 \subsection{Blazor WebAssembly}
 According to \textcite{Rappl_MunichNETMeetup_2020}, an easy and effective way to
 make distributed development possible in a Blazor WebAssembly project, is simply
-to use seperately distributed component libraries. In Blazor -- and in the .NET
+to use separately distributed component libraries. In Blazor -- and in the .NET
 ecosystem in general -- NuGet\hreffootnote{https://www.nuget.org/} is the
-standardized way of library distribution. One could then create one overaching
+standardized way of library distribution. One could then create one overarching
 web app which imports and incorporates these NuGet packages. This is often
-called the \textit{app shell} \textcite{Geers_2020}. While this implementation
+called the \textit{app shell} \autocite{Geers_2020}. While this implementation
 pattern makes development relatively straight-forward (as using libraries is a
 very common practice), it has its downsides. Any change requires full
-recompilation of the entire application, mixing different technologies across
-frontends is not possible. Alo, upon startup, all libraries have to be loaded,
-which makes this approach sub-optimal regarding scalability.
+recompilation of the entire application, and mixing different technologies
+across frontends is not possible. Also, upon startup, all libraries have to be
+loaded, which makes this approach sub-optimal regarding scalability.
 \autocite{Rappl_MunichNETMeetup_2020}
 
 
-
+% TODO
 
 
 
@@ -210,6 +200,8 @@ WebAssembly project.
 % die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data
 % gaat moeten structureren.
 
+% TODO
+
 % ---------------------------------------- 
 % Expected conclusions 
 % ----------------------------------------
@@ -222,3 +214,4 @@ WebAssembly project.
 % vloeien dan dat je hier beschrijft: het is dan juist interessant om te
 % onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
+% TODO
