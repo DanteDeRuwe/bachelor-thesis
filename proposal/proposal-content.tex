@@ -138,6 +138,7 @@ it fully client-side interactive. This enables progressive enhancement.
 \autocite{MillerOsmani_2019}
 
 \subsection{Blazor WebAssembly}
+\label{ssec:blazor-wasm}
 According to \textcite{Rappl_MunichNETMeetup_2020}, an easy and effective way to
 make distributed development possible in a Blazor WebAssembly project, is simply
 to use separately distributed component libraries. In Blazor -- and in the .NET
@@ -146,22 +147,27 @@ standardized way of library distribution. One could then create one overarching
 web app which imports and incorporates these NuGet packages. This is often
 called the \textit{app shell} \autocite{Geers_2020}. While this implementation
 pattern makes development relatively straight-forward (as using libraries is a
-very common practice), it has its downsides. Because this is build-time
-integration; any change requires full recompilation of the entire application,
-and mixing different technologies across frontends is not possible. Also, upon
-startup, all libraries have to be loaded, which makes this approach sub-optimal
-regarding scalability. This build-time integration re-introduces coupling, and
-is generally discouraged \autocite{Jackson_2019}.
+very common practice), it has its downsides. Because the integration happens at
+build-time; any change requires full recompilation of the entire application.
+Also, upon startup, all libraries have to be loaded, which makes this approach
+sub-optimal regarding scalability. This integration method re-introduces
+coupling, and is generally discouraged \autocite{Jackson_2019}.
 
 Integrating Blazor components in a JavaScript based app shell is another option.
 While this has been done succesfully\footnote{See an example here:
-\hrefself{https://github.com/lauchacarro/MicroFrontend-Blazor-React}}, this is not
-within the scope of this thesis.
+\hrefself{https://github.com/lauchacarro/MicroFrontend-Blazor-React}}, this is
+not within the scope of this thesis, as the focus is on an almost exclusive .NET
+approach.
 
-The desired solution, in contrast to the aforementioned approaches, has run-time
-integration with dynamic (lazy) loading capabilities. In this, the challenges
-may come because of the Blazor Intermediate Language linking, which trims down
-unused code and libraries in the output assemblies \autocite{Latham_2020}. 
+The desired solution, in contrast to the aforementioned approaches, uses
+\textit{``C\# all the way''} if possible, and has run-time integration with
+dynamic (lazy) loading capabilities. In this, the challenges may come because of
+the Blazor Intermediate Language trimming, which removes unused code and
+libraries in the output assemblies \autocite{Latham_2020}. It should also be
+repeated, that progressive enhancement is desired. The combination of these
+requirements will be achieved by using universal rendering, but with the focus
+on the server-side.
+
 
 % ---------------------------------------- 
 % Methodology 
@@ -182,18 +188,18 @@ conducted in 3 phases:
 \begin{itemize}
     \item Phase 1: Providing an overview of the micro frontend architecture and
     the key differences with a monolithic architecture.
-    \item Phase 2: Exploring implementation patterns and best practices of the
-    micro frontends pattern in a Blazor WebAssembly project.
-    \item Phase 3: Investigating the benefits, challenges and drawbacks of using
-    the micro frontends architecture with the goal of enabling distributed
-    development in a company context.
+    \item Phase 2: Exploring implementation patterns, challenges and best
+    practices of the micro frontends pattern in a Blazor WebAssembly project.
+    \item Phase 3: Investigating the benefits and drawbacks of using the micro
+    frontends architecture with the goal of enabling distributed development in
+    a company context.
 \end{itemize}
 
 \subsection{Proof-of-concept}
 With the gained insight of the literature and the theoretical study, a
 proof-of-concept solution around a realistic business case will be created to
 demonstrate the practical application of the micro frontends pattern in a Blazor
-WebAssembly project.
+WebAssembly project. Ideally, this PoC will be made open-source.
 
 % ---------------------------------------- 
 % Expected results 
@@ -208,21 +214,20 @@ WebAssembly project.
 % die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data
 % gaat moeten structureren.
 
-The expected results of the theoretical study are relatively straight forward.
-In \textit{phase 1}, further insight will be gained into the micro frontend
+The expected results of the theoretical study are relatively straightforward. In
+\textit{phase 1}, further insight will be gained into the micro frontend
 architecture pattern. \textit{Phase 2} is predicted to provide valuable
-knowledge for the eventual proof of concept solution. With the results of
-research \textit{phase 3}, insight can be gained into the cost-benefit balance
-of the micro frontends approach; and indicate when and for whom it is
-appropriate. Additionally, the challenges that will undoubtedly come up in this
-phase, will be important considerations for the proof-of-concept solution. Some
-expected challenges include debugging, assembly sharing, dynamic loading in
-combination with IL trimming ($\approx$ tree shaking), etc...
+knowledge for the eventual proof of concept solution. In particular, the
+challenges that will undoubtedly come up in this phase, will be important
+considerations for the proof-of-concept solution. Some expected challenges
+include debugging, assembly sharing, dynamic loading in combination with IL
+trimming ($\approx$ tree shaking), etc... With the results of research
+\textit{phase 3}, insight can be gained into the cost-benefit balance of the
+micro frontends approach; and indicate when and for whom it is appropriate. 
 
-The prediction around the proof-of-concept solution is that it should be
-feasible to create, but well-thought-out compromises will have to be made
-regarding the limitations of the current state of the Blazor framework and
-WebAssembly standard.
+The proof-of-concept should be feasible to create, but well- thought-out
+compromises will have to be made regarding the limitations of the current state
+of the Blazor framework and WebAssembly standard.
 
 % ---------------------------------------- 
 % Expected conclusions 

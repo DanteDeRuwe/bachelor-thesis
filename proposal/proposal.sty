@@ -2,7 +2,7 @@
 \newcommand{\keywordname}{Keywords} 
 
 % set hyphenation on certain words
-\hyphenation{Web-Assembly Bla-zor Sma-pi-ot}
+\hyphenation{Web-Assembly Bla-zor Sma-pi-ot .NET C\# front-ends}
 
 % hyperlink with text and target the same
 \def\hrefself#1{\href{#1}{#1}}
@@ -19,3 +19,11 @@
 
 % remove footnote indentation
 \usepackage[hang,flushmargin]{footmisc}
+
+% subsections in toc were larger than sections, change this
+\titlecontents{subsection}[\tocsep]
+{\addvspace{2pt}\footnotesize\sffamily}
+{\contentslabel[\thecontentslabel]{\tocsep}}
+{}
+{\ \titlerule*[.5pc]{.}\ \thecontentspage}
+[]
