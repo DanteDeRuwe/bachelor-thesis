@@ -40,8 +40,9 @@ challenges.
 
 This thesis aims to be an application of this micro frontends pattern, to enable
 distributed development of large scale web applications. More specifically, this
-thesis will focus on the Blazor\hreffootnote{https://blazor.net} web framework,
-tackling the challenges and the limitations that go along with this on its way.
+thesis will focus on the Blazor\hreffootnote{https://blazor.net} web framework
+that uses WebAssembly\hreffootnote{https://webassembly.org/} to execute C\# code
+in the browser.
 
 \begin{minipage}{\linewidth} %to keep content together
      The research questions that will be addressed:
@@ -145,16 +146,22 @@ standardized way of library distribution. One could then create one overarching
 web app which imports and incorporates these NuGet packages. This is often
 called the \textit{app shell} \autocite{Geers_2020}. While this implementation
 pattern makes development relatively straight-forward (as using libraries is a
-very common practice), it has its downsides. Any change requires full
-recompilation of the entire application, and mixing different technologies
-across frontends is not possible. Also, upon startup, all libraries have to be
-loaded, which makes this approach sub-optimal regarding scalability.
-\autocite{Rappl_MunichNETMeetup_2020}
+very common practice), it has its downsides. Because this is build-time
+integration; any change requires full recompilation of the entire application,
+and mixing different technologies across frontends is not possible. Also, upon
+startup, all libraries have to be loaded, which makes this approach sub-optimal
+regarding scalability. This build-time integration re-introduces coupling, and
+is generally discouraged \autocite{Jackson_2019}.
 
+Integrating Blazor components in a JavaScript based app shell is another option.
+While this has been done succesfully\footnote{See an example here:
+\hrefself{https://github.com/lauchacarro/MicroFrontend-Blazor-React}}, this is not
+within the scope of this thesis.
 
-% TODO
-
-
+The desired solution, in contrast to the aforementioned approaches, has run-time
+integration with dynamic (lazy) loading capabilities. In this, the challenges
+may come because of the Blazor Intermediate Language linking, which trims down
+unused code and libraries in the output assemblies \autocite{Latham_2020}. 
 
 % ---------------------------------------- 
 % Methodology 
@@ -170,15 +177,16 @@ loaded, which makes this approach sub-optimal regarding scalability.
 % ontwikkelen.
 
 \subsection{Theoretical study}
-To be able to answer the research questions a theoretical study will be
+To be able to answer the research questions, a theoretical study will be
 conducted in 3 phases:
 \begin{itemize}
     \item Phase 1: Providing an overview of the micro frontend architecture and
     the key differences with a monolithic architecture.
     \item Phase 2: Exploring implementation patterns and best practices of the
-    micro frontends pattern  in a Blazor WebAssembly project.
-    \item Phase 3: Investigating the benefits, challenges and drawbacks of the
-    micro service architecture in a company context.
+    micro frontends pattern in a Blazor WebAssembly project.
+    \item Phase 3: Investigating the benefits, challenges and drawbacks of using
+    the micro frontends architecture with the goal of enabling distributed
+    development in a company context.
 \end{itemize}
 
 \subsection{Proof-of-concept}
