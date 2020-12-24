@@ -200,7 +200,21 @@ WebAssembly project.
 % die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data
 % gaat moeten structureren.
 
-% TODO
+The expected results of the theoretical study are relatively straight forward.
+In \textit{phase 1}, further insight will be gained into the micro frontend
+architecture pattern. \textit{Phase 2} is predicted to provide valuable
+knowledge for the eventual proof of concept solution. With the results of
+research \textit{phase 3}, insight can be gained into the cost-benefit balance
+of the micro frontends approach; and indicate when and for whom it is
+appropriate. Additionally, the challenges that will undoubtedly come up in this
+phase, will be important considerations for the proof-of-concept solution. Some
+expected challenges include debugging, assembly sharing, dynamic loading in
+combination with IL trimming ($\approx$ tree shaking), etc...
+
+The prediction around the proof-of-concept solution is that it should be
+feasible to create, but well-thought-out compromises will have to be made
+regarding the limitations of the current state of the Blazor framework and
+WebAssembly standard.
 
 % ---------------------------------------- 
 % Expected conclusions 
@@ -214,4 +228,9 @@ WebAssembly project.
 % vloeien dan dat je hier beschrijft: het is dan juist interessant om te
 % onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
-% TODO
+The distributed development of Blazor-based web applications, using the micro
+frontends pattern, with an almost exclusive .NET approach should be possible.
+Because of the complexity of integration, this is only beneficial to large
+teams, or teams that expect scaling. Judging by the limited maturity of Blazor
+and the application of the micro frontends pattern within this tech stack, this
+thesis could provide one of the first business cases within this specific area.
