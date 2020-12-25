@@ -5,12 +5,6 @@
 \section{Introduction}
 \label{sec:introduction}
 
-% Hier introduceer je werk. Je hoeft hier nog niet te technisch te gaan. Je
-% beschrijft zeker:
-%   - de probleemstelling en context
-%   - de motivatie en relevantie voor het onderzoek
-%   - de doelstelling en onderzoeksvraag/-vragen
-
 The development of applications for the web has seen some dramatic shifts over
 the years. Apart from new technologies, protocols and standards, the way web
 applications are structured has undergone some evolutions as well. ``Software
@@ -51,17 +45,20 @@ in the browser.
         deploy micro frontends using Blazor WebAssembly?
         \item[$RQ_2$] How to render Blazor-based micro frontends with the proper
         isolation, performance and with progressive enhancement in mind?
-        \item[$RQ_3$] How can development teams benefit from the transformation
-        of their Blazor monolith into a micro frontend solution?
-        \item[$RQ_4$] What are the challenges that need to be overcome, and how
+        \item[$RQ_3$] What are the challenges that need to be overcome, and how
         would one do so? 
+        \item[$RQ_4$] How can development teams benefit from the transformation
+        of their Blazor monolith into a micro frontend solution?
     \end{itemize}
 \end{minipage}
 
 \blankline
 Additionally, an objective of this thesis is to generate an open-source
-proof-of-concept Blazor application that implements the micro frontend
+proof-of-concept Blazor web application that implements the micro frontend
 architecture pattern.
+
+
+
 % ---------------------------------------- 
 % State-of-the-art 
 % ----------------------------------------
@@ -69,29 +66,20 @@ architecture pattern.
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-% Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen
-% onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de
-% titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.).
-% Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het
-% verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek? Verwijs
-% bij elke introductie van een term of bewering over het domein naar de
-% vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke
-% werken je refereert en waarom.
-
-\subsection{Distributed development and team structure}
+\subsection{Distributed development}
 As software projects grow larger and larger in size, naturally more developers
 are needed to maintain them. But the efficiency of teams does not scale
 linearly. This is a wisdom that dates back to the very early days of software
 development, as proven by the still applicable quote by \textcite{Brooks_1975}:
-``adding manpower to a late software project makes it later''.
-
+``adding manpower to a late software project makes it later''.\\
 A solution to this is obviously to subdivide the project into chunks, managed by
 specialized teams. A company could even let these teams operate from a different
-geographical location. This has some major benefits, however, significantly
-increases the need for extensive coordination and communication between the
-teams, as well as a good company structure and strategy. This all starts with
-the choice of a good common architecture that is scalable and supports
-distributed development \autocite{Yuhong_2008}. 
+geographical location. This is called ``distributed development''. While there
+are major benefits; this significantly increases the need for extensive
+coordination and communication between the teams, as well as a good company
+structure and strategy. Making this possible all starts with the choice of a
+good common architecture that is scalable and supports distributed development
+\autocite{Yuhong_2008}. 
 
 \subsection{Why Micro Frontends?}
 As outlined in the introduction to this proposal, there is an already widespread
@@ -104,21 +92,21 @@ features, instead of purely on creating the most technically perfect solution?
 This is where multidisciplinary or cross-functional ``feature teams'' can come
 in. These are grouped around a specific business case or customer need. This
 ``vertical slicing'' has major benefits: it enables teams to be completely
-independent and have end-to-end responsibility for the features they have to
-develop. This aids in accelerating development speed, cutting down on inter-team
+independent and have end-to-end responsibility for the features they develop.
+This aids in accelerating development speed, cutting down on inter-team
 communication and enabling developers to feel a greater sense of involvement in
 the project or product \autocite{LarmanVodde_2008}.
 
 The ``micro frontends'' architecture gives developers the necessary tools to be
 able to organize themselves into autonomous ``feature teams'', where each team
-has a company mission they specialize in.
-\autocite{Geers_2020}
+has a company mission they specialize in. \autocite{Geers_2020}
 
 \subsection{Composing and integrating Micro Frontends}
-Implementing the micro frontend architecture can be done in various ways. This
-proposal will not mention all of them, nor will it provide a detailed look at
-any of these techniques. However, below some common methodologies are outlined.
-\autocite{Geers_2020} \autocite{Peltonen_etal_2020} \autocite{Pavlenko_etal_2020}
+Implementing the micro frontend architecture pattern can be done in various
+ways. This proposal will not mention all of them, nor will it provide a detailed
+look at any of these techniques. However, below some common methodologies are
+outlined. \autocite{Geers_2020} \autocite{Peltonen_etal_2020}
+\autocite{Pavlenko_etal_2020}
 
 \begin{itemize}
     \item Page transitions via hyperlinks
@@ -138,20 +126,18 @@ it fully client-side interactive. This enables progressive enhancement.
 \autocite{MillerOsmani_2019}
 
 \subsection{Blazor WebAssembly}
-\label{ssec:blazor-wasm}
 According to \textcite{Rappl_MunichNETMeetup_2020}, an easy and effective way to
 make distributed development possible in a Blazor WebAssembly project, is simply
 to use separately distributed component libraries. In Blazor -- and in the .NET
 ecosystem in general -- NuGet\hreffootnote{https://www.nuget.org/} is the
-standardized way of library distribution. One could then create one overarching
-web app which imports and incorporates these NuGet packages. This is often
-called the \textit{app shell} \autocite{Geers_2020}. While this implementation
-pattern makes development relatively straight-forward (as using libraries is a
-very common practice), it has its downsides. Because the integration happens at
-build-time; any change requires full recompilation of the entire application.
-Also, upon startup, all libraries have to be loaded, which makes this approach
-sub-optimal regarding scalability. This integration method re-introduces
-coupling, and is generally discouraged \autocite{Jackson_2019}.
+standardized way of library distribution. One could create one overarching web
+app which imports and incorporates these NuGet packages. This is often called
+the \textit{app shell} \autocite{Geers_2020}. While this implementation pattern
+makes development relatively straight-forward, it has its downsides. Because the
+integration happens at build-time; any change requires full recompilation of the
+entire application. Also, upon startup, all libraries have to be loaded, which
+makes this approach sub-optimal regarding scalability. This integration method
+re-introduces coupling, and is generally discouraged \autocite{Jackson_2019}.
 
 Integrating Blazor components in a JavaScript based app shell is another option.
 While this has been done succesfully\footnote{See an example here:
@@ -160,13 +146,15 @@ not within the scope of this thesis, as the focus is on an almost exclusive .NET
 approach.
 
 The desired solution, in contrast to the aforementioned approaches, uses
-\textit{``C\# all the way''} if possible, and has run-time integration with
+\textit{``C\#.NET all the way''} if possible, and has run-time integration with
 dynamic (lazy) loading capabilities. In this, the challenges may come because of
-the Blazor Intermediate Language trimming, which removes unused code and
-libraries in the output assemblies \autocite{Latham_2020}. It should also be
-repeated, that progressive enhancement is desired. The combination of these
-requirements will be achieved by using universal rendering, but with the focus
-on the server-side.
+the Blazor Intermediate Language (IL) trimming, which removes unused code and
+libraries in the output assemblies \autocite{Latham_2020}. \\
+It should also be repeated, that progressive enhancement is desired. The
+combination of these requirements will be achieved by using universal rendering,
+but with the focus on the server-side.
+
+
 
 
 % ---------------------------------------- 
@@ -175,12 +163,6 @@ on the server-side.
 
 \section{Methodology}
 \label{sec:methodology}
-
-% Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke
-% onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te
-% beantwoorden? Gebruik je hiervoor experimenten, vragenlijsten, simulaties? Je
-% beschrijft ook al welke tools je denkt hiervoor te gebruiken of te
-% ontwikkelen.
 
 \subsection{Theoretical study}
 To be able to answer the research questions, a theoretical study will be
@@ -198,8 +180,11 @@ conducted in 3 phases:
 \subsection{Proof-of-concept}
 With the gained insight of the literature and the theoretical study, a
 proof-of-concept solution around a realistic business case will be created to
-demonstrate the practical application of the micro frontends pattern in a Blazor
-WebAssembly project. Ideally, this PoC will be made open-source.
+demonstrate the practical application of the micro frontends architecture
+pattern in a Blazor WebAssembly project. Ideally, this PoC will be made
+open-source.
+
+
 
 % ---------------------------------------- 
 % Expected results 
@@ -207,12 +192,6 @@ WebAssembly project. Ideally, this PoC will be made open-source.
 
 \section{Expected Results}
 \label{sec:expected-results}
-
-% Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties
-% uitvoert, kan je hier al mock-ups maken van de grafieken samen met de
-% verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek
-% die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data
-% gaat moeten structureren.
 
 The expected results of the theoretical study are relatively straightforward. In
 \textit{phase 1}, further insight will be gained into the micro frontend
@@ -229,17 +208,14 @@ The proof-of-concept should be feasible to create, but well- thought-out
 compromises will have to be made regarding the limitations of the current state
 of the Blazor framework and WebAssembly standard.
 
+
+
 % ---------------------------------------- 
 % Expected conclusions 
 % ----------------------------------------
 
 \section{Expected conclusions}
 \label{sec:expected-conclusions}
-
-% Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom.
-% Het is niet erg indien uit je onderzoek andere resultaten en conclusies
-% vloeien dan dat je hier beschrijft: het is dan juist interessant om te
-% onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
 
 The distributed development of Blazor-based web applications, using the micro
 frontends pattern, with an almost exclusive .NET approach should be possible.
