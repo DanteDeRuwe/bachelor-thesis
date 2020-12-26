@@ -149,7 +149,12 @@ The desired solution, in contrast to the aforementioned approaches, uses
 \textit{``C\#.NET all the way''} if possible, and has run-time integration with
 dynamic (lazy) loading capabilities. In this, the challenges may come because of
 the Blazor Intermediate Language (IL) trimming, which removes unused code and
-libraries in the output assemblies \autocite{Latham_2020}. \\
+libraries in the output assemblies \autocite{Latham_2020}. Luckily, .NET 5
+introduces lazy loading capabilities for Blazor out of the box
+\hreffootnote{https://docs.microsoft.com/en-us/aspnet/core/blazor/webassembly-lazy-load-assemblies},
+\autocite{Kdouh_2020} \autocite{Rappl_dotNETConf_2020}, yet it is unclear if
+this is the cure-all solution.
+
 It should also be repeated, that progressive enhancement is desired. The
 combination of these requirements will be achieved by using universal rendering,
 but with the focus on the server-side.
