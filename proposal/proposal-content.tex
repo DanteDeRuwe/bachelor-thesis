@@ -32,27 +32,27 @@ in autonomous teams is crucial. However, enabling distributed development of
 these micro frontends is not a trivial undertaking, and naturally has its
 challenges.
 
-This thesis aims to be an application of this micro frontends pattern, to enable
-distributed development of large scale web applications. More specifically, this
-thesis will focus on the Blazor\hreffootnote{https://blazor.net} web framework
-that uses WebAssembly\hreffootnote{https://webassembly.org/} to execute C\# code
-in the browser.
+This thesis aims to be an application of the micro frontends architecture
+pattern, to enable distributed development of large-scale web applications. More
+specifically, this thesis will focus on the
+Blazor\hreffootnote{https://blazor.net} web framework that uses
+WebAssembly\hreffootnote{https://webassembly.org/} to execute
+C\#\hreffootnote{https://csharp.net} code in the browser.   
 
-\begin{minipage}{\linewidth} %to keep content together
-     The research questions that will be addressed:
-    \begin{itemize}
-        \item[$RQ_1$] What is needed to be able to independently develop and
-        deploy micro frontends using Blazor WebAssembly?
-        \item[$RQ_2$] How to render Blazor-based micro frontends with the proper
-        isolation, performance and with progressive enhancement in mind?
-        \item[$RQ_3$] What are the challenges that need to be overcome, and how
-        would one do so? 
-        \item[$RQ_4$] How can development teams benefit from the transformation
-        of their Blazor monolith into a micro frontend solution?
-    \end{itemize}
-\end{minipage}
+The research questions that will be addressed:
+\begin{itemize}
+    \item[$RQ_1$] What is needed to be able to independently develop and
+    deploy micro frontends using Blazor WASM?
+    \item[$RQ_2$] How to render Blazor-based micro frontends with the proper
+    isolation, performance and with progressive
+    enhancement\hreffootnote{https://wikipedia.org/wiki/Progressive\_enhancement}
+    in mind?
+    \item[$RQ_3$] What are the challenges that need to be overcome, and how
+    would one do so? 
+    \item[$RQ_4$] How can development teams benefit from the transformation
+    of their Blazor monolith into a micro frontend solution?
+\end{itemize}
 
-\blankline
 Additionally, an objective of this thesis is to generate an open-source
 proof-of-concept Blazor web application that implements the micro frontend
 architecture pattern.
@@ -73,8 +73,8 @@ linearly. This is a wisdom that dates back to the very early days of software
 development, as proven by the still applicable quote by \textcite{Brooks_1975}:
 ``adding manpower to a late software project makes it later''.\\
 A solution to this is obviously to subdivide the project into chunks, managed by
-specialized teams. A company could even let these teams operate from a different
-geographical location. This is called ``distributed development''. While there
+specialized teams. A company could even let these teams operate from different
+geographical locations. This is called ``distributed development''. While there
 are major benefits; this significantly increases the need for extensive
 coordination and communication between the teams, as well as a good company
 structure and strategy. Making this possible all starts with the choice of a
@@ -142,8 +142,8 @@ re-introduces coupling, and is generally discouraged \autocite{Jackson_2019}.
 Integrating Blazor components in a JavaScript based app shell is another option.
 While this has been done succesfully\footnote{See an example here:
 \hrefself{https://github.com/lauchacarro/MicroFrontend-Blazor-React}}, this is
-not within the scope of this thesis, as the focus is on an almost exclusive .NET
-approach.
+not within the scope of this thesis, as the focus is on an almost exclusive
+.NET-approach.
 
 The desired solution, in contrast to the aforementioned approaches, uses
 \textit{``C\#.NET all the way''} if possible, and has run-time integration with
@@ -151,13 +151,13 @@ dynamic (lazy) loading capabilities. In this, the challenges may come because of
 the Blazor Intermediate Language (IL) trimming, which removes unused code and
 libraries in the output assemblies \autocite{Latham_2020}. Luckily, .NET 5
 introduces lazy loading capabilities for Blazor out of the box
-\hreffootnote{https://docs.microsoft.com/en-us/aspnet/core/blazor/webassembly-lazy-load-assemblies},
+\hreffootnote{https://docs.microsoft.com/en-us/aspnet/core/blazor/webassembly-lazy-load-assemblies}
 \autocite{Kdouh_2020} \autocite{Rappl_dotNETConf_2020}, yet it is unclear if
 this is the cure-all solution.
 
-It should also be repeated, that progressive enhancement is desired. The
-combination of these requirements will be achieved by using universal rendering,
-but with the focus on the server-side.
+It bears repeating that progressive enhancement is desired. The combination of
+these requirements will be achieved by using universal rendering, but with the
+focus on the server-side.
 
 
 
@@ -201,15 +201,15 @@ open-source.
 The expected results of the theoretical study are relatively straightforward. In
 \textit{phase 1}, further insight will be gained into the micro frontend
 architecture pattern. \textit{Phase 2} is predicted to provide valuable
-knowledge for the eventual proof of concept solution. In particular, the
+knowledge for the eventual proof-of-concept solution. In particular, the
 challenges that will undoubtedly come up in this phase, will be important
-considerations for the proof-of-concept solution. Some expected challenges
-include debugging, assembly sharing, dynamic loading in combination with IL
-trimming ($\approx$ tree shaking), etc... With the results of research
-\textit{phase 3}, insight can be gained into the cost-benefit balance of the
-micro frontends approach; and indicate when and for whom it is appropriate. 
+considerations. Some expected challenges include debugging, assembly sharing,
+dynamic loading in combination with IL trimming ($\approx$ \textit{tree
+shaking}), etc... With the results of research \textit{phase 3}, insight can be
+gained into the cost-benefit balance of the micro frontends approach; and
+indicate when and for whom it is appropriate. 
 
-The proof-of-concept should be feasible to create, but well- thought-out
+The proof-of-concept should be feasible to create, but well-thought-out
 compromises will have to be made regarding the limitations of the current state
 of the Blazor framework and WebAssembly standard.
 
@@ -223,8 +223,9 @@ of the Blazor framework and WebAssembly standard.
 \label{sec:expected-conclusions}
 
 The distributed development of Blazor-based web applications, using the micro
-frontends pattern, with an almost exclusive .NET approach should be possible.
+frontends pattern, with an almost exclusive .NET-approach should be possible.
 Because of the complexity of integration, this is only beneficial to large
 teams, or teams that expect scaling. Judging by the limited maturity of Blazor
 and the application of the micro frontends pattern within this tech stack, this
-thesis could provide one of the first business cases within this specific area.
+thesis could provide one of the first realistic business cases within this
+specific area.
