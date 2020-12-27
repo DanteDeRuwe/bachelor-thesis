@@ -49,6 +49,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{csquotes}
 \RequirePackage[english]{babel}
+\usepackage[hang, flushmargin]{footmisc}
 \usepackage{hyperref}                      % hyperlinks
 \hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=black,citecolor=color2,linkcolor=color2,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
 
