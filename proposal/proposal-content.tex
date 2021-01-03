@@ -16,23 +16,23 @@ In the ``early days'' of web development, nearly all applications had a
 \textit{monolithic} architecture: a single-tier architecture, where the user
 interface (UI), business logic and data storage are all managed in a single
 all-in-one solution. Now, developer teams have mostly adopted split-stack
-development, where the UI is handled in the so-called ``front end'' and the
-business and data logic are dealt with by a ``back end'' system. This reduced
+development, where the UI is handled in the so-called ``frontend'' and the
+business and data logic are dealt with by a ``backend'' system. This reduced
 coupling enabled specialized teams to develop each aspect individually,
 independently and therefore simultaneously \autocite{Dunkley_2016}. For the same
 reasons, \textit{microservices} started making an appearance when developers
-realized that having a single back-end service could also be considered a
+realized that having a single backend service could also be considered a
 monolithic approach \autocite{Fowler_Microservices_2014}.
 
 In 2016 the ThoughtWorks Technology Radar \autocite{ThoughtWorks_2020} coined
-the term ``\textit{Micro Frontends}'' to describe the split of the front-end
+the term ``\textit{Micro Frontends}'' to describe the split of the frontend
 monolith into independently deployable and maintainable pieces. This is
 especially beneficial for large-scale projects, where the division of developers
 in autonomous teams is crucial. However, enabling distributed development of
-these micro frontends is not a trivial undertaking, and naturally has its
+these microfrontends is not a trivial undertaking, and naturally has its
 challenges.
 
-This thesis aims to be an application of the micro frontends architecture
+This thesis aims to be an application of the microfrontends architecture
 pattern, to enable distributed development of large-scale web applications. More
 specifically, this thesis will focus on the
 Blazor\hreffootnote{https://blazor.net} web framework that uses
@@ -42,19 +42,19 @@ C\#\hreffootnote{http://csharp.net} code in the browser.
 The research questions that will be addressed:
 \begin{itemize}
     \item[$RQ_1$] What is needed to be able to independently develop and
-    deploy micro frontends using Blazor WASM?
-    \item[$RQ_2$] How to render Blazor-based micro frontends with the proper
+    deploy microfrontends using Blazor WASM?
+    \item[$RQ_2$] How to render Blazor-based microfrontends with the proper
     isolation, performance and with progressive
     enhancement\hreffootnote{https://wikipedia.org/wiki/Progressive\_enhancement}
     in mind?
     \item[$RQ_3$] What are the challenges that need to be overcome, and how
     would one do so? 
     \item[$RQ_4$] How can development teams benefit from the transformation
-    of their Blazor monolith into a micro frontend solution?
+    of their Blazor monolith into a microfrontend solution?
 \end{itemize}
 
 Additionally, an objective of this thesis is to generate an open-source
-proof-of-concept Blazor web application that implements the micro frontend
+proof-of-concept Blazor web application that implements the microfrontend
 architecture pattern.
 
 
@@ -81,7 +81,7 @@ structure and strategy. Making this possible all starts with the choice of a
 good common architecture that is scalable and supports distributed development
 \autocite{Yuhong_2008}. 
 
-\subsection{Why Micro Frontends?}
+\subsection{Why Microfrontends?}
 As outlined in the introduction to this proposal, there is an already widespread
 practice of splitting up projects ``horizontally'' per layer or technology. It
 makes sure that experts can co-operate together as one team and ensure a high
@@ -97,12 +97,12 @@ This aids in accelerating development speed, cutting down on inter-team
 communication and enabling developers to feel a greater sense of involvement in
 the project or product \autocite{LarmanVodde_2008}.
 
-The ``micro frontends'' architecture gives developers the necessary tools to be
+The ``microfrontends'' architecture gives developers the necessary tools to be
 able to organize themselves into autonomous ``feature teams'', where each team
 has a company mission they specialize in. \autocite{Geers_2020}
 
-\subsection{Composing and Integrating Micro Frontends}
-Implementing the micro frontend architecture pattern can be done in various
+\subsection{Composing and Integrating Microfrontends}
+Implementing the microfrontend architecture pattern can be done in various
 ways. This proposal will not mention all of them, nor will it provide a detailed
 look at any of these techniques. However, below some common methodologies are
 outlined. \autocite{Geers_2020} \autocite{Peltonen_etal_2020}
@@ -173,19 +173,19 @@ focus on the server-side.
 To be able to answer the research questions, a theoretical study will be
 conducted in 3 phases:
 \begin{itemize}
-    \item Phase 1: Providing an overview of the micro frontend architecture and
+    \item Phase 1: Providing an overview of the microfrontend architecture and
     the key differences with a monolithic architecture.
     \item Phase 2: Exploring implementation patterns, challenges and best
-    practices of the micro frontends pattern in a Blazor WebAssembly project.
-    \item Phase 3: Investigating the benefits and drawbacks of using the micro
-    frontends architecture with the goal of enabling distributed development in
-    a company context.
+    practices of the microfrontends pattern in a Blazor WebAssembly project.
+    \item Phase 3: Investigating the benefits and drawbacks of using the
+    microfrontends architecture with the goal of enabling distributed
+    development in a company context.
 \end{itemize}
 
 \subsection{Proof-of-concept}
 With the gained insight of the literature and the theoretical study, a
 proof-of-concept solution around a realistic business case will be created to
-demonstrate the practical application of the micro frontends architecture
+demonstrate the practical application of the microfrontends architecture
 pattern in a Blazor WebAssembly project. Ideally, this PoC will be made
 open-source.
 
@@ -199,14 +199,14 @@ open-source.
 \label{sec:expected-results}
 
 The expected results of the theoretical study are relatively straightforward. In
-\textit{phase 1}, further insight will be gained into the micro frontend
+\textit{phase 1}, further insight will be gained into the microfrontend
 architecture pattern. \textit{Phase 2} is predicted to provide valuable
 knowledge for the eventual proof-of-concept solution. In particular, the
 challenges that will undoubtedly come up in this phase, will be important
 considerations. Some expected challenges include debugging, assembly sharing,
 dynamic loading in combination with IL trimming ($\approx$ \textit{tree
 shaking}), etc... With the results of research \textit{phase 3}, insight can be
-gained into the cost-benefit balance of the micro frontends approach; and
+gained into the cost-benefit balance of the microfrontends approach; and
 indicate when and for whom it is appropriate. 
 
 The proof-of-concept should be feasible to create, but well-thought-out
@@ -222,10 +222,10 @@ of the Blazor framework and WebAssembly standard.
 \section{Expected Conclusions}
 \label{sec:expected-conclusions}
 
-The distributed development of Blazor-based web applications, using the micro
-frontends pattern, with an almost exclusive .NET-approach should be possible.
-Because of the complexity of integration, this is only beneficial to large
-teams, or teams that expect scaling. Judging by the limited maturity of Blazor
-and the application of the micro frontends pattern within this tech stack, this
-thesis could provide one of the first realistic business cases within this
-specific area.
+The distributed development of Blazor-based web applications, using the
+microfrontends pattern, with an almost exclusive .NET-approach should be
+possible. Because of the complexity of integration, this is only beneficial to
+large teams, or teams that expect scaling. Judging by the limited maturity of
+Blazor and the application of the microfrontends pattern within this tech
+stack, this thesis could provide one of the first realistic business cases
+within this specific area.
