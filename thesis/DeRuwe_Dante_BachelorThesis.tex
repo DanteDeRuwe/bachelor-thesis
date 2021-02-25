@@ -1,0 +1,94 @@
+% ==============================================================================
+% Bachelor Thesis by Dante De Ruwe
+% ==============================================================================
+% Applied Information Technology 2020-2021 Faculty of IT and Digital
+% Transformation @ Ghent University College Based on a LaTeX-template by Jens
+% Buysse and Bert Van Vreckem 
+
+
+\documentclass{thesis}
+\usepackage{thesis}
+\usepackage{hogent-thesis-titlepage} % Titelpagina conform aan HOGENT huisstijl
+
+
+% ----------------------------------------
+% Metadata
+% ----------------------------------------
+
+\title{Enabling the Distributed Development of Blazor-Based Web Applications\\ Using a Microfrontend Architecture}
+\author{Dante De Ruwe}
+\promotor{Benjamin Vertonghen}
+\copromotor{Dr. Florian Rappl}
+\instelling{smapiot GmbH}
+\academiejaar{2020-2021}
+\examenperiode{2}
+
+% ----------------------------------------
+% Document
+% ----------------------------------------
+
+\begin{document}
+\selectlanguage{english}
+
+% --- title page ---
+
+\inserttitlepage
+
+
+% --- preface and abstract ---
+
+\usechapterimagefalse
+\input{preface}
+\input{abstract}
+
+
+% --- TOC ---
+
+\pagestyle{empty} % Geen hoofding
+\tableofcontents  % Voeg de inhoudstafel toe
+\cleardoublepage  % Zorg dat volgende hoofstuk op een oneven pagina begint
+\pagestyle{fancy} % Zet hoofding opnieuw aan
+
+
+% --- figures, tables, glossary ... ---
+
+%  \caption[korte beschrijving]{uitgebreide beschrijving} De korte beschrijving
+% wordt gebruikt voor deze lijst, de uitgebreide staat bij de figuur of tabel
+% zelf.
+
+\listoffigures
+\listoftables
+
+% Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die hier
+% thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
+
+
+% --- core sections --- 
+
+\input{introduction}
+\input{state-of-the-art}
+\input{methodology}
+\input{discussion}
+
+
+% ----------------------------------------
+% Appendix
+% ----------------------------------------
+
+\appendix
+\renewcommand{\chaptername}{Appendix}
+
+% --- proposal ---
+
+\chapter{Proposal}
+
+This bachelor thesis is based on a bachelor thesis proposal that was evaluated
+by the promotor beforehand. The proposal can be found in the appendix below.
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../proposal/DeRuwe_Dante_BachelorThesisProposal.pdf}
+
+
+% --- References ---
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

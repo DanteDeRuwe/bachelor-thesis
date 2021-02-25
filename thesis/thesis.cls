@@ -1,21 +1,23 @@
-%===============================================================================
-% LaTeX Documentklasse voor de bachelorproef toegepaste informatica aan HOGENT.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bachelor Thesis Proposal Template
+% Applied Information Technology
+% Faculty of IT and Digital Transformation @ Ghent University College
+% Initial LaTeX-template by Jens Buysse and Bert Van Vreckem
 %
-% Deze klasse bepaalt de algemene vormgeving en structuur. In principe zijn er
-% hier geen wijzigingen nodig.
-%
-% Vormgeving gebaseerd op "The Legrand Orange Book", version 2.0 (9/2/15)
-% door Mathias Legrand (legrand.mathias@gmail.com) met aanpassingen door Vel
-% (vel@latextemplates.com). Het oorspronkelijke sjabloon is te vinden op
+% Based on ``The Legrand Orange Book''
+% Version 2.0 (9/2/15)
 % http://www.LaTeXTemplates.com
 %
-% Aanpassingen voor HOGENT toegepaste informatica:
-%   Bert Van Vreckem <bert.vanvreckem@hogent.be>
-% Licentie: 
-%   CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%===============================================================================
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com)
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ProvidesClass{bachproef-tin}[2019/01/09 Bachelorproef HOGENT toegepaste informatica]
+\ProvidesClass{thesis}
 \NeedsTeXFormat{LaTeX2e}
 
 % Overerven van de ``book''-klasse
@@ -603,7 +605,7 @@ extendedchars=\true
 \RequirePackage[style=apa,backend=biber]{biblatex}
 \RequirePackage{csquotes}
 %DeclareLanguageMapping{dutch}{dutch-apa}
-\addbibresource{bachproef-tin.bib} % BibTeX bibliography file
+\addbibresource{thesis.bib} % BibTeX bibliography file
 \addbibresource{../proposal/proposal.bib}
 \defbibheading{bibempty}{}
 
