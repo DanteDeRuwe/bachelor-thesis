@@ -4,8 +4,9 @@
 %===============================================================================
 
 \documentclass{bachproef-tin}
-
+\usepackage{thesis}
 \usepackage{hogent-thesis-titlepage} % Titelpagina conform aan HOGENT huisstijl
+
 
 %%---------- Documenteigenschappen ---------------------------------------------
 % TODO: Vul dit aan met je eigen info:
@@ -48,7 +49,7 @@
 % uit commentaar. Let op: de tekst op de voorkaft blijft in het Nederlands, en
 % dat is ook de bedoeling!
 
-%\selectlanguage{english}
+\selectlanguage{english}
 
 %---------- Titelblad ----------------------------------------------------------
 \inserttitlepage
@@ -117,7 +118,7 @@
 Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
 
 % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
-\input{../voorstel/voorstel-inhoud}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{../proposal/DeRuwe_Dante_BachelorThesisProposal.pdf}
 
 %%---------- Andere bijlagen --------------------------------------------------
 % TODO: Voeg hier eventuele andere bijlagen toe

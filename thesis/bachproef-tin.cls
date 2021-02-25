@@ -602,9 +602,9 @@ extendedchars=\true
 
 \RequirePackage[style=apa,backend=biber]{biblatex}
 \RequirePackage{csquotes}
-\DeclareLanguageMapping{dutch}{dutch-apa}
+%DeclareLanguageMapping{dutch}{dutch-apa}
 \addbibresource{bachproef-tin.bib} % BibTeX bibliography file
-\addbibresource{../voorstel/voorstel.bib}
+\addbibresource{../proposal/proposal.bib}
 \defbibheading{bibempty}{}
 
 \RequirePackage{makeidx} % Required to make an index

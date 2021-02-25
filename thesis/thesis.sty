@@ -1,0 +1,26 @@
+% --- My own additions and modifications to the template ---
+
+%pdfpages
+\usepackage{pdfpages}
+
+% Mailto links
+\def\mailto#1{\href{mailto:#1}{#1}}
+
+% remove hyphenation on certain words
+\hyphenation{WebAssembly Blazor Smapiot smapiot}
+
+% hyperlink with text and target the same
+\def\hrefself#1{\href{#1}{#1}}
+
+% footnote with hyperlink
+\def\hreffootnote#1{\footnote{\hrefself{#1}}}
+
+% get rid of paragraph indents
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+% blank line
+\def\blankline{\vspace{\baselineskip}}
+
+% remove footnote indentation
+\usepackage[hang,flushmargin]{footmisc}
