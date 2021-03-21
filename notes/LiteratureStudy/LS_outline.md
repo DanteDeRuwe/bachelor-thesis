@@ -10,19 +10,25 @@
 ## LS outline draft for the final thesis
 
 1. Distributed development
-   - What is distributed development?
-   - benefits of distributed development
-   - The role of the architecture in enabling distributed development
+   1. What is distributed development?
+   2. benefits of distributed development
+   3. The role of the architecture in enabling distributed development
 2. The evolution from monolithic to distributed architectures
+   - client-server
+   - Servlets (?)
+   - MVC
+   - Rich clients (API)
+   - Microservices
+   - Cloud and Containers (?)
 3. Microfrontends
-   - What are microfrontends?
-   - How do microfrontends enable distributed development?
-     - feature teams
-   - Common implementation patterns
-   - Usage of microfrontends
-     - who is using them and why?
-     - benefits
-     - known limitations and caveats
+   1. What are microfrontends?
+   2. How do microfrontends enable distributed development?
+   - feature teams
+   3. Common implementation patterns
+   4. Usage of microfrontends
+   - who is using them and why?
+   - benefits
+   - known limitations and caveats
 4. Blazor WebAssembly
-   - Current state of Blazor and microfrontends
-   - challenges and limitations
+   1. Current state of Blazor and microfrontends
+   2. challenges and limitations
