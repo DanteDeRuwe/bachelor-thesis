@@ -34,7 +34,7 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
 
 \begin{itemize}
     \item The client tier (also known as the presentation tier), which contains
-    the graphical user interface (GUI)
+    the \gls{gui}
     \item The application tier (also known as the business tier or logic tier),
     i.e. the application servers that contain objects representing business
     entities and domain logic.
@@ -47,5 +47,25 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
 
 
 
+\subsubsection{The \gls{mvc} architecture pattern}
 
+Over an extensive period, applications built on top of the client-server model
+extensively used the \gls{mvc} pattern \autocite{Pavlenko_etal_2020}. Like the
+name suggests, this pattern describes 3 parts, that are used as conceptual and
+architectural separations in the software. The business logic of the application
+is encapsulated in the \textbf{model}, the presentation logic is the
+responsibility of the \textbf{view}, and the \textbf{controllers} handles the
+the user actions in the view, and connects these actions to the appropriate
+models and updated views.
 
+However, according to \textcite{Leff_Raylfield_2001}, implementation of the
+\gls{mvc} pattern for web applications in a client-server environment, brings up
+the question of partitioning between servers and clients. Instinctively it is
+clear that the views belong to the client and the models belong to the server,
+but for the controllers, this separation is not so clear. Assigning the
+controllers to the client-side, which results in a \textit{fat client} again,
+while assigning them to the server-side (the \textit{thin client} approach)
+would often mean to many round-trips to the server must be performed on every
+request. In practice, the workaround for this partitioning is a \textit{dual
+\gls{mvs}} approach, which partitions the controllers between the client and the
+server.
