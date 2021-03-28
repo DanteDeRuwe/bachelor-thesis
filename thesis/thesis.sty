@@ -3,12 +3,15 @@
 %pdfpages
 \usepackage{pdfpages}
 
-% Glossary 
+% Add glossary
 \usepackage[nopostdot, style=altlist]{glossaries}
-% \renewcommand*{\glstextformat}[1]{...{#1}}
+
 % show in red if glossary entry not defined
 \let\originalgls\gls
 \renewcommand{\gls}[1]{\ifglsentryexists{#1}{\originalgls{#1}}{\textcolor{red}{\underline{#1}}}}
+
+% Glossary acronymn combination
+\newcommand\glsacronymnfirst[1]{\glsentrylong{#1} (\glsentryname{#1})}
 
 % Mailto links
 \def\mailto#1{\href{mailto:#1}{#1}}
