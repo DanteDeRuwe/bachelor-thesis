@@ -9,5 +9,3 @@ fi
 
 echo -e "\e[44mbuilding thesis ...\e[49m"
 latexmk DeRuwe_Dante_BachelorThesis.tex -synctex=1 -interaction=nonstopmode -file-line-error -pdf
-makeglossaries DeRuwe_Dante_BachelorThesis
-latexmk DeRuwe_Dante_BachelorThesis.tex -synctex=1 -interaction=nonstopmode -file-line-error -pdf
