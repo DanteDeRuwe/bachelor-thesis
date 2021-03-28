@@ -1,9 +1,9 @@
 \section{The evolution from monolithic to distributed architectures}
 
 The development of applications for the web has seen some dramatic shifts over
-the years. Apart from new technologies, protocols and standards, the way web
+the years. Apart from new technologies, protocols, and standards, the way web
 applications are structured has undergone some evolutions as well. ``Software
-architecture'' not only outlines the pure structure of the application, but also
+architecture'' not only outlines the pure structure of the application but also
 defines the responsibility of all the pieces of the application, and how these
 pieces ought to interact with each other \autocite{Fedorov_etal_1998}.
 
@@ -15,7 +15,7 @@ applications was the \textbf{client-server model}. The service provider or
 \textit{server} can share its resources with service users called
 \textit{clients}. According to \textcite{Reese_2000}, at the time, most web
 applications were simple two-tier client-server applications. The web browser on
-the client-side retrieves data and files from the data store at the web server
+the client-side retrieves data and files from the data store at the webserver
 side, without much data interpretation or manipulation. The upcoming increase of
 the computing power of hardware, made it possible to execute some data
 processing on the client-side, using for example technologies like Java. 
@@ -24,7 +24,7 @@ Although two-tier server-client architectures were quick to set up and had
 robust tooling, a pretty significant downside got introduced: these so-called
 \textit{fat clients} were now not only concerned with the task of presenting
 data to the user, but are also bloated with business logic and data processing.
-Coversely, any change in business rules would also require every client to adapt
+Conversely, any change in business rules would also require every client to adapt
 to this change. \autocite{Gallaugher_Ramanathan_1996}.
 
 A three-tier architecture was conceptualized in an attempt to overcome the
@@ -36,8 +36,8 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
     \item The client tier (also known as the presentation tier), which contains
     the graphical user interface (GUI)
     \item The application tier (also known as the business tier or logic tier),
-    i.e the application servers that contain objects representing business
-    enties and domain logic.
+    i.e. the application servers that contain objects representing business
+    entities and domain logic.
     \item The data(base) tier that handles the storage of domain objects and data.
 \end{itemize}
 
