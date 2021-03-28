@@ -8,7 +8,7 @@ defines the responsibility of all the pieces of the application, and how these
 pieces ought to interact with each other \autocite{Fedorov_etal_1998}.
 
 
-\subsection{client-server model}
+\subsection{Monolithic architecture}
 
 Historically, one of the earliest architectures for implementing web
 applications was the \textbf{client-server model}. The service provider or
@@ -27,8 +27,8 @@ data to the user, but are also bloated with business logic and data processing.
 Conversely, any change in business rules would also require every client to adapt
 to this change. \autocite{Gallaugher_Ramanathan_1996}.
 
-A three-tier architecture was conceptualized in an attempt to overcome the
-downsides of the two-tier approach. The idea sounds not very groundbreaking:
+A \textbf{three-tier} architecture was conceptualized in an attempt to overcome
+the downsides of the two-tier approach. The idea sounds not very groundbreaking:
 just introduce the handling of business logic on the server-side, rather than on
 the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
 
@@ -67,5 +67,11 @@ controllers to the client-side, which results in a \textit{fat client} again,
 while assigning them to the server-side (the \textit{thin client} approach)
 would often mean to many round-trips to the server must be performed on every
 request. In practice, the workaround for this partitioning is a \textit{dual
-\gls{mvs}} approach, which partitions the controllers between the client and the
+\gls{mvc}} approach, which partitions the controllers between the client and the
 server.
+
+
+
+
+
+\subsection{The split stack development model}
