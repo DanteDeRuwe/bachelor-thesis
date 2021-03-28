@@ -45,12 +45,11 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
 
 % two-tier vs three tier figure here? 
 
-
-
-\subsubsection{The \gls{mvc} architecture pattern}
+With the introduction of this physical seperation, the next challenge was the
+structure of the sotware's code.  
 
 Over an extensive period, applications built on top of the client-server model
-extensively used the \gls{mvc} pattern \autocite{Pavlenko_etal_2020}. Like the
+extensively used the \textbf{\gls{mvc} pattern} \autocite{Pavlenko_etal_2020}. Like the
 name suggests, this pattern describes 3 parts, that are used as conceptual and
 architectural separations in the software. The business logic of the application
 is encapsulated in the \textbf{model}, the presentation logic is the
@@ -63,9 +62,9 @@ However, according to \textcite{Leff_Raylfield_2001}, implementation of the
 the question of partitioning between servers and clients. Instinctively it is
 clear that the views belong to the client and the models belong to the server,
 but for the controllers, this separation is not so clear. Assigning the
-controllers to the client-side, which results in a \textit{fat client} again,
+controllers to the client-side would result in a \textit{fat client} again,
 while assigning them to the server-side (the \textit{thin client} approach)
-would often mean to many round-trips to the server must be performed on every
+would often mean too many round-trips to the server must be performed on every
 request. In practice, the workaround for this partitioning is a \textit{dual
 \gls{mvc}} approach, which partitions the controllers between the client and the
 server.
