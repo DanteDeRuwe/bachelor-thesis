@@ -70,7 +70,59 @@ request. In practice, the workaround for this partitioning is a \textit{dual
 server.
 
 
-
+While the \gls{mvc} architecture pattern can give developers a cleaner
+seperation of concerns in their code, it still produces a \textbf{tightly
+coupled} solution. Any change would still mean the entire code would have to be
+rebuilt and redeployed \autocite{Fowler_Microservices_2014}. This significantly
+reduces development speed, as well as agility. Monoliths can also be considered
+a  ``single point of failure'': whenever one part of the software is
+malfunctioning, the whole system is crippled.
 
 
 \subsection{The split stack development model}
+
+
+
+In more recent times, developer teams started to adopt \textbf{split stack
+development}, where the \gls{gui} is handled in the so-called ``\gls{frontend}'' and
+the business and data logic are dealt with by a ``\gls{backend}'' system. The
+communication between these two parts can be carried out in multiple ways, but
+one of the most common ways is via a (RESTful) API.
+
+Decoupling the frontend presentation logic from the \gls{backend} business logic
+introduces some major benefits: \autocite{Dunkley_2016}
+\begin{itemize}
+    \item \textbf{Multiple clients}\\
+    As it is not at all concerned with presentation logic, the same
+    \gls{backend} service can now serve data to multiple different clients (e.g.
+    web, desktop, mobile,...). To support a new type of client, only
+    presentation logic has to be implemented. \\
+    %
+    \item \textbf{Specialized teams}\\
+    The split of \gls{frontend} and \gls{backend} allows developers to
+    specialize themselves in these fields, yielding a deeper knowledge of the
+    selected fields. \\
+    %
+    \item \textbf{Independent technology stacks}\\
+    Tying in with the previous point: as teams specialize, they desire and/or
+    require more specialized technologies. The decoupling of front- and
+    \gls{backend} removes any restraints on technology selection between the two
+    areas. For example, \gls{frontend} developers can use client-side
+    technologies and frameworks such as Typescript and React, while
+    \gls{backend} developers can leverage server-side technologies such as .NET
+    or Java. This also makes each individual solution more future proof. \\
+    %
+    \item \textbf{Simultaneous development}\\
+    As a result of all outlined benefits above, and the basic concept of
+    decoupling, teams can work independently, autonomously and therefore
+    simultaneously. For example, a change to the visual styling of a website,
+    will not require any of the server-side code to change, and will also not
+    trigger a rebuild there. \\
+    %
+    \item \textbf{Independent deployment and scaling}\\
+    While a monolith had to be deployed as one big program, teams could now
+    deploy the \gls{frontend} and \gls{backend} solutions according to their
+    needs. Often a static hosting solution is enough to publish a client, while
+    a \gls{backend} service might need some serious infrastructure to remain
+    operational. \\
+\end{itemize}
