@@ -8,4 +8,4 @@ if [ $# -ne 0 ] && [ $1 == "--include-proposal" ]; then
 fi
 
 echo -e "\e[44mbuilding thesis ...\e[49m"
-latexmk DeRuwe_Dante_BachelorThesis.tex -synctex=1 -interaction=nonstopmode -file-line-error -pdf
+latexmk DeRuwe_Dante_BachelorThesis.tex -synctex=1 -interaction=nonstopmode -file-line-error -pdf -auxdir=build -outdir=build
