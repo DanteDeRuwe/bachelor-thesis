@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bachelor Thesis Proposal Template
 % Applied Information Technology
-% Faculty of IT and Digital Transformation @ Ghent University College
+% Faculty of IT and Digital Innovation @ Ghent University College
 % Initial LaTeX-template by Jens Buysse and Bert Van Vreckem
 %
 % Based on ``Stylish Article'' class
