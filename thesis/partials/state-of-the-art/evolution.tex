@@ -1,4 +1,4 @@
-\section{The evolution from monolithic to distributed architectures}
+\section{The evolution from \gls{monolithic} to distributed architectures}
 
 The development of applications for the web has seen some dramatic shifts over
 the years. Apart from new technologies, protocols, and standards, the way web
@@ -8,7 +8,7 @@ defines the responsibility of all the pieces of the application, and how these
 pieces ought to interact with each other \autocite{Fedorov_etal_1998}.
 
 
-\subsection{Monolithic architecture}
+\subsection{\Gls{Monolithic} architecture}
 
 Historically, one of the earliest architectures for implementing web
 applications was the \textbf{client-server model}. The service provider or
@@ -74,7 +74,7 @@ While the \gls{mvc} architecture pattern can give developers a cleaner
 seperation of concerns in their code, it still produces a \textbf{tightly
 coupled} solution. Any change would still mean the entire code would have to be
 rebuilt and redeployed \autocite{Fowler_Microservices_2014}. This significantly
-reduces development speed, as well as agility. Monoliths can also be considered
+reduces development speed, as well as agility. \Glsplural{monolith} can also be considered
 a  ``single point of failure'': whenever one part of the software is
 malfunctioning, the whole system is crippled.
 
@@ -82,12 +82,13 @@ malfunctioning, the whole system is crippled.
 \subsection{The split stack development model}
 
 
-
 In more recent times, developer teams started to adopt \textbf{split stack
 development}, where the \gls{gui} is handled in the so-called ``\gls{frontend}'' and
 the business and data logic are dealt with by a ``\gls{backend}'' system. The
 communication between these two parts can be carried out in multiple ways, but
-one of the most common ways is via a (RESTful) API.
+one of the most common ways is via a (RESTful) \gls{api}.
+
+%TODO figure
 
 Decoupling the frontend presentation logic from the \gls{backend} business logic
 introduces some major benefits: \autocite{Dunkley_2016}
@@ -96,12 +97,12 @@ introduces some major benefits: \autocite{Dunkley_2016}
     As it is not at all concerned with presentation logic, the same
     \gls{backend} service can now serve data to multiple different clients (e.g.
     web, desktop, mobile,...). To support a new type of client, only
-    presentation logic has to be implemented. \\
+    presentation logic has to be implemented. 
     %
     \item \textbf{Specialized teams}\\
     The split of \gls{frontend} and \gls{backend} allows developers to
     specialize themselves in these fields, yielding a deeper knowledge of the
-    selected fields. \\
+    selected fields. 
     %
     \item \textbf{Independent technology stacks}\\
     Tying in with the previous point: as teams specialize, they desire and/or
@@ -110,19 +111,56 @@ introduces some major benefits: \autocite{Dunkley_2016}
     areas. For example, \gls{frontend} developers can use client-side
     technologies and frameworks such as Typescript and React, while
     \gls{backend} developers can leverage server-side technologies such as .NET
-    or Java. This also makes each individual solution more future proof. \\
+    or Java. This also makes each individual solution more future-proof. 
     %
     \item \textbf{Simultaneous development}\\
     As a result of all outlined benefits above, and the basic concept of
     decoupling, teams can work independently, autonomously and therefore
     simultaneously. For example, a change to the visual styling of a website,
     will not require any of the server-side code to change, and will also not
-    trigger a rebuild there. \\
+    trigger a rebuild there.
     %
     \item \textbf{Independent deployment and scaling}\\
-    While a monolith had to be deployed as one big program, teams could now
+    While a \gls{monolith} had to be deployed as one big program, teams could now
     deploy the \gls{frontend} and \gls{backend} solutions according to their
     needs. Often a static hosting solution is enough to publish a client, while
     a \gls{backend} service might need some serious infrastructure to remain
-    operational. \\
+    operational.
 \end{itemize}
+
+% TODO callback to distributed development?
+
+Of course, these benefits also come at the cost of some drawbacks. 
+
+Firstly, the contract between the \gls{frontend} and \gls{backend} teams is a
+well documented \gls{api} with clearly defined \glsplural{endpoint}. For RESTful
+web \gls{api} \textbf{documentation}, the OpenAPI
+specification\hreffootnote{https://www.openapis.org/}, which is also known as
+\textit{Swagger} documentation, provides a standardized way of defining this
+contract \autocite{Koren_Klamma_2018}. Of course, time and effort needs to be
+spent creating robust documentation. 
+
+Secondly, breaking changes have to be avoided at all times. \Gls{frontend} code
+might depend on backend \glsplural{endpoint} that will get deleted in an
+upcoming update. This is not acceptable.
+\textbf{Versioning}\hreffootnote{https://restfulapi.net/versioning/} provides a
+way to keep supporting clients that rely on a version of the \gls{api} before
+the breaking change was made.
+
+Lastly, more relevant in the context of this thesis: while dividing the
+\gls{frontend} from the \gls{backend} does provide benefits; in large, rapidly
+scaling applications, it simply isn't enough. After a
+\gls{frontend}-\gls{backend} split, one does still end up with a both a
+\textbf{\gls{monolithic} \gls{backend}} and a \textbf{\gls{monolithic}
+\gls{frontend}}. 
+
+Shifting the frame of reference to the server-side: the \gls{backend}
+\gls{monolith} still posesses the same downsides the overall \gls{monolith} had
+introduced: one change in the logic and the entire application has to be
+rebuilt and redeployed. Also, the issue of scaling still persists: the server
+can be updated with more powerful hardware (vertical scaling) or the \textit{entire}
+server-sice application can be replicated on different servers, with a
+\gls{load-balancer} deciding how to distribute incoming requests (horizontal scaling).
+Keyword here is \textit{``entire''}, as no specific part of the server-side
+application can be scaled up indendently. 
+
