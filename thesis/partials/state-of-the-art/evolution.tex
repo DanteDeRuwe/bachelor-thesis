@@ -1,5 +1,9 @@
 \section{The evolution from monolithic to distributed architectures}
 
+% TODO
+% - reference figures from text?
+% - rewrite bullet points to fulltext?
+
 The development of applications for the web has seen some dramatic shifts over
 the years. Apart from new technologies, protocols, and standards, the way web
 applications are structured has undergone some evolutions as well. ``Software
@@ -42,8 +46,11 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
 \end{itemize}
 
 
-
-% two-tier vs three tier figure here? 
+\begin{figure} %TODO 
+    \centering
+    \includegraphics[scale=.8]{example-image}
+    \caption[Two vs three tier architecture]{Two vs three tier architecture...}
+\end{figure}
 
 With the introduction of this physical seperation, the next challenge was the
 structure of the sotware's code.  
@@ -89,7 +96,11 @@ the business and data logic are dealt with by a ``\gls{backend}'' system. The
 communication between these two parts can be carried out in multiple ways, but
 one of the most common ways is via a (\gls{restful}) \gls{api}.
 
-%TODO figure
+\begin{figure} %TODO 
+    \centering
+    \includegraphics[scale=.8]{example-image}
+    \caption[Split stack development]{Split stack development...}
+\end{figure}
 
 Decoupling the frontend presentation logic from the \gls{backend} business logic
 introduces some major benefits: \autocite{Dunkley_2016}
@@ -186,7 +197,14 @@ the \gls{ma} as an implementation of \gls{soa} is highly debated. Read more on
 \hrefself{https://martinfowler.com/articles/microservices\#MicroservicesAndSoa}.}
 
 
-% TODO more explaining + figure?
+% TODO more explaining
+
+
+\begin{figure} %TODO 
+    \centering
+    \includegraphics[scale=.8]{example-image}
+    \caption[Microservices]{Microservices...}
+\end{figure}
 
 
 \subsubsection{Principles of the microservice architecture}
@@ -222,7 +240,7 @@ The only form of \textbf{communication} between individual
 In practice, the most commonly used mechanisms are the request-response
 mechanism using for example \gls{http} (with \gls{rest} or \gls{rpc}) or the
 event-based mechanism using an \textit{\gls{event_bus}}\footnote{e.g. Apache
-Kafka, RabbitMQ and Azure Service Bus, ...}. The latter mechanism is generally
+Kafka, RabbitMQ, Azure Service Bus, ...}. The latter mechanism is generally
 encouraged as event-based collaboration is highly decoupled
 \autocite{Newman_2015}.
 
@@ -233,7 +251,13 @@ multiple backend calls, and serve it. Whenever this layer becomes too large, or
 becomes bloated with logic, a \textit{\gls{bff}} pattern can be more useful:
 this is essentially equivalent to an \textit{\gls{api_gateway}} per client.
 
-% TODO BFF figure
+
+\begin{figure} %TODO 
+    \centering
+    \includegraphics[scale=.8]{example-image}
+    \caption[Backend for frontend pattern]{The backend for frontend pattern...}
+\end{figure}
+
 
 As for \textbf{authentication}, according to \textcite{Newman_2015}, a \gls{sso}
 solution is often used, whereby the user can authenticate with an
