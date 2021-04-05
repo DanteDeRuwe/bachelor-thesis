@@ -213,29 +213,72 @@ The \gls{ma} is built on a few basic principles \autocite{Dragoni_etal_2018}
     of the model to other contexts, is key to keeping the context \textit{pure}
     and avoiding confusion.\\
     Every \gls{microservice} can and should be built, tested and deployed
-    individually and in isolation. The only form of communication between
-    individual \glsplural{microservice} is a uniform communication mechanism via
-    network calls. In practice, the most commonly used mechanisms are \gls{http}
-    (using for example \gls{restful} \glsplural{api}) using lightweight
-    messaging using message busses. %TODO 
-    
+    individually and in isolation. 
     %
 \end{itemize}
+
+The only form of \textbf{communication} between individual
+\glsplural{microservice} is a uniform communication mechanism via network calls.
+In practice, the most commonly used mechanisms are the request-response
+mechanism using for example \gls{http} (with \gls{rest} or \gls{rpc}) or the
+event-based mechanism using an \textit{\gls{event_bus}}\footnote{e.g. Apache
+Kafka, RabbitMQ and Azure Service Bus, ...}. The latter mechanism is generally
+encouraged as event-based collaboration is highly decoupled.
+\textcite{Newman_2015}
+
+Communication with the ``outside world'' (i.e. with a client) is usually done
+using a facade over all the underlying \glsplural{microservice}: usually called
+an \textit{\gls{api_gateway}} or a \textit{\gls{bff}}.
 
 
 \subsubsection{Benefits of using a microservice architecture}
 
+Below some of the major benefits of the \gls{ma} are outlined:
+
 \begin{itemize}
     \item \textbf{Technology independence}\\
+    Explanation of this benefit can be directly borrowed from
+    \fullref{ssec:split-stack}. Choosing the right technologies for the problem
+    is obviously very beneficial. \textit{Not every problem is a nail, and not
+    every solution is a hammer} \autocite{Fowler_Microservices_2014}. 
+    %
+    \spacedItem \textbf{Scalibility and elasticity}\\
+    Scaling a \gls{ma} does not require reduplication of the entire software
+    system. Every component can be scaled as needed with respect to their
+    expected or measured load. Microservices are often deployed using
+    \textit{containers} using technologies such as
+    Docker\hreffootnote{https://docker.com}, which can be managed in
+    \textit{clusters} by other technologies such as
+    Kubernetes\hreffootnote{https://kubernetes.io}. This way, scaling can be
+    done \textit{elastically}: dynamically according to the load.
+    \autocite{Dragoni_etal_2018}
+    %
+    \spacedItem \textbf{Availibility and resilience to failure}\\
+    While the methods used for scaling can improve performance and make it
+    possible to cope with a high load on a software system, the same methods can
+    also be applied to create redundancy and therefore resilience to failure.
+    Also, because a defect in one \gls{microservice} does not lead to the
+    crashing or malfunctioning of the entire system. When errors do come
+    forward, they are easier to locate in the narrow scope of the
+    \gls{microservice}. Additionally, when upgrading a microservice,
+    instances of the old and new versions can run side by side, aiding in a
+    smooth transition between them, and less or no downtime.
+    \autocite{Dragoni_etal_2017}
     %
     \spacedItem \textbf{Better teams}\\
+    The term ``better'' here is used in place of many different adjectives.
+    Because of the limited scope a \gls{microservice} has, teams gain a deeper
+    understanding of the business domain, and feel a greater sense of ownership
+    over the features they develop. Combining this with the smaller codebases
+    and shorter release cycles, teams tend to get smaller and more productive
+    \autocite{Newman_2015}.
     %
-    \spacedItem \textbf{Scalibility}\\
-    %
-    \spacedItem \textbf{Resilience to failure}\\
-    %
-    \spacedItem \textbf{Faster and easier deployments}\\
-    %
-    \spacedItem \textbf{Decentralized data management}\\
+    \spacedItem  \textbf{Other benefits}
+    \begin{itemize}
+        \item Faster, easier and more automated deployments
+        \item Faster time to market
+        \item Faster response to changing requirements
+        \item ...
+    \end{itemize}
 \end{itemize}
 
