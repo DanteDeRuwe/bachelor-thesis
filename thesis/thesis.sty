@@ -34,3 +34,9 @@
 
 % remove footnote indentation
 \usepackage[hang,flushmargin]{footmisc}
+
+% item with vspace before it
+\def\spacedItem{\vspace{2mm}\item}
+
+% full reference
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1} (``\textit{\nameref*{#1}}'')}}

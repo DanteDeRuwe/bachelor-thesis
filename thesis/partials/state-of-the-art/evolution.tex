@@ -80,13 +80,14 @@ malfunctioning, the whole system is crippled.
 
 
 \subsection{The split stack development model}
+\label{ssec:split-stack}
 
 
 In more recent times, developer teams started to adopt \textbf{split stack
 development}, where the \gls{gui} is handled in the so-called ``\gls{frontend}'' and
 the business and data logic are dealt with by a ``\gls{backend}'' system. The
 communication between these two parts can be carried out in multiple ways, but
-one of the most common ways is via a (RESTful) \gls{api}.
+one of the most common ways is via a (\gls{restful}) \gls{api}.
 
 %TODO figure
 
@@ -97,14 +98,14 @@ introduces some major benefits: \autocite{Dunkley_2016}
     As it is not at all concerned with presentation logic, the same
     \gls{backend} service can now serve data to multiple different clients (e.g.
     web, desktop, mobile,...). To support a new type of client, only
-    presentation logic has to be implemented. 
+    presentation logic has to be implemented.
     %
-    \item \textbf{Specialized teams}\\
+    \spacedItem  \textbf{Specialized teams}\\
     The split of \gls{frontend} and \gls{backend} allows developers to
     specialize themselves in these fields, yielding a deeper knowledge of the
     selected fields. 
-    %
-    \item \textbf{Independent technology stacks}\\
+    % 
+    \spacedItem  \textbf{Independent technology stacks}\\
     Tying in with the previous point: as teams specialize, they desire and/or
     require more specialized technologies. The decoupling of front- and
     \gls{backend} removes any restraints on technology selection between the two
@@ -113,14 +114,14 @@ introduces some major benefits: \autocite{Dunkley_2016}
     \gls{backend} developers can leverage server-side technologies such as .NET
     or Java. This also makes each individual solution more future-proof. 
     %
-    \item \textbf{Simultaneous development}\\
+    \spacedItem  \textbf{Simultaneous development}\\
     As a result of all outlined benefits above, and the basic concept of
     decoupling, teams can work independently, autonomously and therefore
     simultaneously. For example, a change to the visual styling of a website,
     will not require any of the server-side code to change, and will also not
-    trigger a rebuild there.
+    trigger a rebuild there. 
     %
-    \item \textbf{Independent deployment and scaling}\\
+    \spacedItem  \textbf{Independent deployment and scaling}\\
     While a \gls{monolith} had to be deployed as one big program, teams could now
     deploy the \gls{frontend} and \gls{backend} solutions according to their
     needs. Often a static hosting solution is enough to publish a client, while
@@ -133,7 +134,7 @@ introduces some major benefits: \autocite{Dunkley_2016}
 Of course, these benefits also come at the cost of some drawbacks. 
 
 Firstly, the contract between the \gls{frontend} and \gls{backend} teams is a
-well documented \gls{api} with clearly defined \glsplural{endpoint}. For RESTful
+well documented \gls{api} with clearly defined \glsplural{endpoint}. For \gls{restful}
 web \gls{api} \textbf{documentation}, the OpenAPI
 specification\hreffootnote{https://www.openapis.org/}, which is also known as
 \textit{Swagger} documentation, provides a standardized way of defining this
@@ -185,5 +186,56 @@ the \gls{ma} as an implementation of \gls{soa} is highly debated. Read more on
 \hrefself{https://martinfowler.com/articles/microservices\#MicroservicesAndSoa}.}
 
 
+% TODO more explaing + figure?
+
+
+\subsubsection{Principles of the microservice architecture}
+
 The \gls{ma} is built on a few basic principles \autocite{Dragoni_etal_2018}
-\autocite{Dragoni_etal_2017} \autocite{Fowler_Microservices_2014} \autocite{Gysels_2020}:
+\autocite{Dragoni_etal_2017} \autocite{Fowler_Microservices_2014}
+\autocite{Gysels_2020} \autocite{Newman_2015}:
+
+\begin{itemize}
+    \item \textbf{Small codebases managed by small teams}\\
+    Codebases are generally smaller in size, at least small enough to be managed
+    by a small team. 
+
+    \spacedItem \textbf{Focused on a specific business need}\\
+    Every \gls{microservice} should be centered around a specific business need
+    or domain, so that the responsibility of every \gls{microservice} is clearly
+    defined\footnote{this can be seen as the application of the Single
+    Responsibility Principle to independent services}, and there is an alignment
+    between the business capabilities and the software architecture. 
+    %
+    \spacedItem \textbf{Modular, decoupled and independent}\\
+    According to \textcite{Evans_2004}, using a software model in a a well
+    defined \textit{bounded context}, without worrying about the applicability
+    of the model to other contexts, is key to keeping the context \textit{pure}
+    and avoiding confusion.\\
+    Every \gls{microservice} can and should be built, tested and deployed
+    individually and in isolation. The only form of communication between
+    individual \glsplural{microservice} is a uniform communication mechanism via
+    network calls. In practice, the most commonly used mechanisms are \gls{http}
+    (using for example \gls{restful} \glsplural{api}) using lightweight
+    messaging using message busses. %TODO 
+    
+    %
+\end{itemize}
+
+
+\subsubsection{Benefits of using a microservice architecture}
+
+\begin{itemize}
+    \item \textbf{Technology independence}\\
+    %
+    \spacedItem \textbf{Better teams}\\
+    %
+    \spacedItem \textbf{Scalibility}\\
+    %
+    \spacedItem \textbf{Resilience to failure}\\
+    %
+    \spacedItem \textbf{Faster and easier deployments}\\
+    %
+    \spacedItem \textbf{Decentralized data management}\\
+\end{itemize}
+
