@@ -8,7 +8,7 @@ defines the responsibility of all the pieces of the application, and how these
 pieces ought to interact with each other \autocite{Fedorov_etal_1998}.
 
 
-\subsection{\Gls{Monolithic} architecture}
+\subsection{\Gls{monolithic} architecture}
 
 Historically, one of the earliest architectures for implementing web
 applications was the \textbf{client-server model}. The service provider or
@@ -164,3 +164,26 @@ server-sice application can be replicated on different servers, with a
 Keyword here is \textit{``entire''}, as no specific part of the server-side
 application can be scaled up indendently. 
 
+
+\subsection{\Glsplural{microservice}} 
+
+Due to an increased business interest in software services, the focus for
+choosing a software architectural style and paradigm shifted towards reusability
+and robustness. According to \textcite{Dragoni_etal_2018}, This was
+characterized by the shift to more modular, loosely coupled applications. The
+benefits of which were outlined in the previous section. The \gls{soa} pattern
+emerged as a step in this direction. Initially the goal was to devise software
+services as a way to interface with larger software systems (which were often
+monolithic) via messages, using common messaging protocols (e.g. \gls{http},
+\gls{soap} or \gls{xml}).
+
+Taking this approach further, by not necessarily integrating with existing
+monolithic applications, but using the service oriented approach to design,
+develop and deploy self-contained and autonomous software services, is what the
+\gls{ma} is about.\footnote{While conceptually derived from \gls{soa}, labeling
+the \gls{ma} as an implementation of \gls{soa} is highly debated. Read more on
+\hrefself{https://martinfowler.com/articles/microservices\#MicroservicesAndSoa}.}
+
+
+The \gls{ma} is built on a few basic principles \autocite{Dragoni_etal_2018}
+\autocite{Dragoni_etal_2017} \autocite{Fowler_Microservices_2014} \autocite{Gysels_2020}:
