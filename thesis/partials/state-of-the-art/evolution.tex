@@ -223,12 +223,21 @@ In practice, the most commonly used mechanisms are the request-response
 mechanism using for example \gls{http} (with \gls{rest} or \gls{rpc}) or the
 event-based mechanism using an \textit{\gls{event_bus}}\footnote{e.g. Apache
 Kafka, RabbitMQ and Azure Service Bus, ...}. The latter mechanism is generally
-encouraged as event-based collaboration is highly decoupled.
-\textcite{Newman_2015}
+encouraged as event-based collaboration is highly decoupled
+\autocite{Newman_2015}.
 
 Communication with the ``outside world'' (i.e. with a client) is usually done
 using a facade over all the underlying \glsplural{microservice}: usually called
-an \textit{\gls{api_gateway}} or a \textit{\gls{bff}}.
+an \textit{\gls{api_gateway}}. This service can aggregate content gathered from
+multiple backend calls, and serve it. Whenever this layer becomes too large, or
+becomes bloated with logic, a \textit{\gls{bff}} pattern can be more useful:
+this is essentially equivalent to an \textit{\gls{api_gateway}} per client.
+
+% TODO BFF figure
+
+As for \textbf{authentication}, according to \textcite{Newman_2015}, a \gls{sso}
+solution is often used, whereby the user can authenticate with an
+\textit{identity provider}.
 
 
 \subsubsection{Benefits of using a microservice architecture}
@@ -282,3 +291,43 @@ Below some of the major benefits of the \gls{ma} are outlined:
     \end{itemize}
 \end{itemize}
 
+\subsubsection{Challenges and limitations of the microservice architecture}
+
+While lots of the benefits of the \gls{ma} are clearly beneficial to enabling
+distributed development, it cannot be regarded as a silver bullet. In what
+follows, some of the challenges of the \gls{ma} are outlined, based in part on a
+literature review by \textcite{Soldani_2018}.
+Depending on the perspective of the reader, some of these can also be considered
+to be drawbacks.
+
+\textbf{Partitioning the services} tends to be a big challenge in the design
+phase of \gls{microservice} development. It is often difficult to slice up the
+business capabilities into well defined categories. Another challenge in the
+conceptual phase is establishing a clear strategy for \textbf{communication}
+mechanisms: \gls{microservice} intercommunication should have clear contracts to
+ensure their compatibility.
+
+During the development phase, because of the distributed nature of the \gls{ma},
+issues concerning data come up frequently. To ensure the necessary decoupling,
+each microservice should have a dedicated data store or database. If there is
+data duplication, this can raise issues with \textbf{data consistency}.
+Operating with distributed data stores also brings up the issue of
+\textbf{distributed transactions}: if one of the services fails to perform a
+database operation, what will happen to the principle of a transaction?
+
+Another challenge in the development phase is designing and writing adequate
+\textbf{tests}. Because of their independent nature, unit tests are easier or in
+the worst case just unaffected by the \gls{ma}. Performance, integration and
+end-to-end testing, however becomes more difficult, because the system has to be
+tested from the outside, and a lot of times multiple services have to be spun up
+to be able to do a test properly, increasing the performance cost of the tests,
+and lowering their reliability.\footnote{See also
+\hrefself{https://blog.indrek.io/articles/challenges-of-testing-microservices/}}
+
+During the operation phase, most of the challenges of the \gls{ma} boil down to
+\textbf{increased operational complexity}: debugging, logging,  monitoring,
+service coordination, etc. 
+
+It is also worth noting that the \gls{ma} requires a certain \textbf{developer
+skill and knowledge}, that might not be readily available in a company or
+organization.
