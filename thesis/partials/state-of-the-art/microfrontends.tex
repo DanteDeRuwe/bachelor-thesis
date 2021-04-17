@@ -1,9 +1,90 @@
 \section{Microfrontends}
+
+With the introduction of the \gls{ma} pattern, \gls{backend} systems can be
+split up into multiple services, each with their own responsibilities. As
+previously described, this can bring great benefit. However, even after a
+transition to \glsplural{microservice} on the server-side, the client-side
+applications using these services are mostly still \gls{monolithic} in nature.
+
+A \gls{monolithic} \gls{frontend} does not have to be a problem.
+\Glsplural{monolith} are quick and easy to set up, and historically, most of the
+heavy lifting was done on the server-side anyway. However, the complexity of
+client-side applications has seen a drastic increase over the last few years.
+This can be attributed to many factors: increased hardware and web browser
+capabilities, a broad variety of client devices, a massive market growth for
+digital services, and the web transitioning from a document platform to the
+largest application platform \autocite{Ball_2019}, just to name a few.
+
+In these complex applications, the downsides of a \gls{monolithic} architecture
+come back into view: every change requires the entire \gls{frontend} application
+to be rebuilt and redeployed, codebases grow very large in size, etc... Even
+worse, because the client-side application has a functional dependency on the
+server-side application, a small change in one particular area of the
+\gls{backend} logic could also trigger a change in the \gls{frontend}, causing
+the entire \gls{frontend} to yet again be rebuilt and redeployed
+\autocite{Rappl_LogRocket_2019}.
+
+There's also the issue of \textbf{domain knowledge}: while the \gls{ma} gives
+\gls{backend} teams the possibility of focussing on one specific part of a
+business domain, teams that are developing the client-side code are still
+expected to know the entire scope of the application. Often this means a
+reliance on personal inter-team communication, which in larger organizations
+tends to be expensive \autocite{Geers_2020}. 
+
+While component-based paradigms introduced by libraries and frameworks (such as
+React\hreffootnote{https://reactjs.org},
+Angular\hreffootnote{https://angular.io} and
+Vue\hreffootnote{https://vuejs.org}) can aliviate some of the complexity of the
+current frontend systems, they still do not enable  fully autonomous, decoupled,
+modular and/or distributed development of large web applications.
+
 \subsection{What are microfrontends?}
+
+In 2016 the ThoughtWorks Technology Radar \autocite{ThoughtWorks_2020} coined
+the term ``\textit{Micro Frontends}'' to describe the split of the
+\gls{frontend} \gls{monolith} into independently deployable and maintainable
+pieces. This new architecture pattern could therefore be regarded as an
+extension of the \gls{ma} into the \gls{frontend} space.
+
+The characteristics of the \gls{mfa} pattern are therefore very closely related
+to those of the \gls{ma} pattern, as described in section
+\fullref{principles-of-the-mfa}. Every individual \gls{frontend} module has a
+relatively small codebase, is focussed around one specific domain or company
+mission, and should be modular, decoupled and independently developed; most
+optimally by autonomous teams.
+
 \subsection{How do microfrontends enable distributed development?}
-    \subsubsection{feature teams}
+
+
+
+\subsubsection{feature teams}
+\label{feature-teams}
+
+
 \subsection{Common implementation patterns}
+
+
 \subsection{Usage of microfrontends}
-    \subsubsection{who is using them and why?}
-    \subsubsection{benefits}
-    \subsubsection{known limitations and caveats}
+
+\subsubsection{who is using them and why?}
+
+\subsubsection{benefits}
+
+The \gls{mfa}  carries over a lot of the advantages of the \gls{ma}
+\autocite{Jackson_2019}: \textbf{Technology independence} is now also possible
+across different \gls{frontend} teams, allowing them to select the best tools
+and frameworks for the job. \textbf{Teams} also benefit greatly, and can be
+reorganized to even greater benefit, as was discussed in section
+\fullref{feature-teams}.
+
+% TODO more
+
+\subsubsection{known limitations and caveats}
+
+
+However, to use the words of Cam \textcite{Jackson_2019}: \textit{``there are no
+free lunches when it comes to software architecture - everything comes with a
+cost''}. The \gls{mfa} does indeed come with a significant amount of tradeoffs
+that need to be considered. 
+
+% TODO more
