@@ -1,3 +1,81 @@
 \section{Distributed development}
-    \subsection{The benefits of distributed development}
-    \subsection{The role of the architecture in enabling distributed development}
+
+In a technology landscape that has long been shifting to meet the current trends
+of economic globalization, software development has evolved from being mostly
+concentrated at a single location, to being geographically distributed around
+the globe. 
+
+According to \textcite{Yuhong_2008}, the terms \gls{gdd}, \gls{gdd2} and
+\gls{gsd} are mostly used to refer to the same distributed development model. In
+the remainder of this thesis, the term \glsacronymnfirst{gdd} will be used mainly
+when emphasis is required on the geographical aspect of the distributed
+development model.
+
+The application of \gls{gdd} can be done in many distinct ways. One way is in
+the form of \textbf{\gls{outsourcing}} agreements, often with countries where
+employment costs are more economically beneficial.
+
+Another way, is the separation of a company into different local
+\textbf{divisions} or departments in different cities. This envelops both large
+multinational companies that operate around the globe, or more
+nationally-focused companies that have different branches in different cities.
+\autocite{Kiel_2003} This also includes the practice of \textbf{\gls{offshoring}},
+which tends to have the same motivations as outsourcing, but keeps control in
+the hands of the business, and does not involve a third party \autocite{Oshri_2015}.
+
+
+\subsection{Benefits}
+
+Companies often have a plethora of different business reasons to distribute the
+development, maintenance and management of software. 
+
+\begin{itemize}
+    \item Financial benefit (labor costs, taxation, ...)
+    \item Market insight: local teams have more insight into local trends
+    \item Talent availability: a larger pool of skilled developers is available,
+    potentially even with different specializations in different locations.
+    \autocite{Conchuir_etal_2009}
+    \item Faster time-to-market: because development can be distributed across
+    multiple timezones, a \gls{fts} workflow could potentially increase
+    development speed drastically\footnote{According to
+    \textcite{Conchuir_etal_2009}, \gls{fts} workflow is however practically
+    almost inachievable, and in practice, many companies even make sure the time
+    zones overlap as much as possible, to reach better inter-team communication.
+    } \autocite{Carmel_2010}.
+\end{itemize}
+
+\subsection{Challenges}
+
+While the aforementioned benefits of \gls{gdd} appear very useful in theory, on
+the practical side, there are of course some challenges to this approach. For
+example, according to \textcite{Smite_etal_2010}, implementing an \textbf{agile
+methodology} within a distributed software development model is not
+straightforward; and the characteristics of agile and distributed development
+could be seen as polar opposites. 
+% TODO more here?
+
+
+But the ideomatic \textit{``elephant in the room''} is \textbf{communication}.
+In projects where teams are located together, communication can be rather
+informal, which helps team members more rapidly gain project and technical
+knowledge, as well as knowledge of the more human aspects of their coworkers,
+such as working style and expertise. According to \textcite{Sengupta_2006},
+frequency of communication has an inverse relationship to physical seperation of
+team-memebers, and in multi-site environments, the decrease in communication
+frequency is so sharp, that informal communication is nearly nonexistent.
+Pairing this with \textbf{cultural} and timezone differences, makes all
+communication very difficult when practicing \gls{gdd}.
+
+
+\subsection{The role of the architecture in enabling distributed development}
+
+According to \textcite{Yuhong_2008}, in a \gls{gdd} environment, establishing
+and maintaining a common software and/or solution architecture that can support
+a distributed development model, is key for the success and sustainability of
+the software project. Among other architectures, she describes a module-based
+project architecture, where self-contained software components are developed
+independently. This way, teams could develop these modules simultaneously,
+without a large interdependence on other modules. This however, requires strong
+decoupling of the software modules.
+
+%TODO more here? 
