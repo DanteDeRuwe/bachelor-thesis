@@ -24,7 +24,7 @@ side, without much data interpretation or manipulation. The upcoming increase of
 the computing power of hardware, made it possible to execute some data
 processing on the client-side, using for example technologies like Java. 
 
-Although two-tier server-client architectures were quick to set up and had
+Although two-tier client-server architectures were quick to set up and had
 robust tooling, a pretty significant downside got introduced: these so-called
 \textit{fat clients} were now not only concerned with the task of presenting
 data to the user, but are also bloated with business logic and data processing.
@@ -53,7 +53,7 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
 \end{figure}
 
 With the introduction of this physical seperation, the next challenge was the
-structure of the sotware's code.  
+structure of the software's code.  
 
 Over an extensive period, applications built on top of the client-server model
 extensively used the \textbf{\gls{mvc} pattern} \autocite{Pavlenko_etal_2020}. Like the
@@ -171,10 +171,10 @@ Shifting the frame of reference to the server-side: the \gls{backend}
 introduced: one change in the logic and the entire application has to be
 rebuilt and redeployed. Also, the issue of scaling still persists: the server
 can be updated with more powerful hardware (vertical scaling) or the \textit{entire}
-server-sice application can be replicated on different servers, with a
+server-side application can be replicated on different servers, with a
 \gls{load-balancer} deciding how to distribute incoming requests (horizontal scaling).
 Keyword here is \textit{``entire''}, as no specific part of the server-side
-application can be scaled up indendently. 
+application can be scaled up independently. 
 
 
 \subsection{Microservices} 
