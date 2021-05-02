@@ -1,3 +1,41 @@
-\section{Blazor WebAssembly}
+\section[Blazor WebAssembly]{Blazor WebAssembly\footnote{``Blazor Server'' will
+not be discussed in this thesis}}
+
+On the 6th of February 2018, Daniel Roth -- Program Manager on the ASP.NET team
+at Microsoft -- released a blog post called \textit{A new experiment:
+Browser-based web apps with .NET and Blazor}. In this post, \textcite{Roth_2018}
+announces an experimental project from the ASP.NET team: a component-ori\"ented
+web \gls{ui} framework based on C\#, .NET, HTML and so-called Razor pages. 
+
+The promise that was outlined by this post was a way to enable developers to
+write web applications using .NET technologies, rather than resorting to
+Javascript\footnote{Javascript is an implementation of the ECMAScript
+specification. Read more on \hrefself{https://ecma-international.org/tc39}}, the
+primary scripting language used on the web.
+
+Executing .NET binaries within a web browser is made possible by
+\textbf{\gls{wasm}}\hreffootnote{https://webassembly.org/}, a binary instruction format.
+\Gls{wasm} has been added to the \gls{w3c} recommendation list, and has become
+the fourth language to run natively in web browsers, alongside HTML, CSS and
+Javascript \autocite{Couriol_2019}. 
+
+Rather than \gls{transpiling} every .NET assembly to \gls{wasm}, or relying on
+plugins, Blazor just relies on this .NET runtime that can run inside the browser
+sandbox, just like regular Javascript does. Because of this applications can
+leverage all standard web technologies like websockets, the \gls{dom}, and all
+other browser \glsplural{api}, via \textbf{\gls{jsinterop}}. It also ensures the
+various security protections put in place by the sandbox environment to prevent
+malicious client-side attacks.
+
+The current implementation uses the \gls{wasm}-compiled version of the
+Mono\hreffootnote{https://mono-project.com/} platform -- an open source .NET
+runtime -- as an \gls{il} interpreter to execute managed code at runtime.
+
+
+% TODO diagram of blazor, mono, js runtime, ......
+
+
+
+
 \subsection{Current state of Blazor and microfrontends}
 \subsection{challenges and limitations}
