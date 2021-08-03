@@ -123,7 +123,7 @@ introduces some major benefits: \autocite{Dunkley_2016}
     areas. For example, \gls{frontend} developers can use client-side
     technologies and frameworks such as Typescript and React, while
     \gls{backend} developers can leverage server-side technologies such as .NET
-    or Java. This also makes each individual solution more future-proof. 
+    or Java. This also makes each individual solution more future-proof.
     %
     \spacedItem  \textbf{Simultaneous development}\\
     As a result of all outlined benefits above, and the basic concept of
@@ -144,7 +144,13 @@ introduces some major benefits: \autocite{Dunkley_2016}
 
 Of course, these benefits also come at the cost of some drawbacks. 
 
-Firstly, the contract between the \gls{frontend} and \gls{backend} teams is a
+Firstly, the fact that specialized teams can work on either the \gls{frontend}
+and \gls{backend} separately and in their own technology stack is a double-edged
+sword. While the benefits outlined above stay true; this also means that
+developers are less flexible to switch teams in times of developer shortage or
+approaching deadlines.
+
+Secondly, the contract between the \gls{frontend} and \gls{backend} teams is a
 well documented \gls{api} with clearly defined \glsplural{endpoint}. For \gls{restful}
 web \gls{api} \textbf{documentation}, the OpenAPI
 specification\hreffootnote{https://www.openapis.org/}, which is also known as
@@ -152,7 +158,7 @@ specification\hreffootnote{https://www.openapis.org/}, which is also known as
 contract \autocite{Koren_Klamma_2018}. Of course, time and effort needs to be
 spent creating robust documentation. 
 
-Secondly, breaking changes have to be avoided at all times. \Gls{frontend} code
+Thirdly, breaking changes have to be avoided at all times. \Gls{frontend} code
 might depend on backend \glsplural{endpoint} that will get deleted in an
 upcoming update. This is not acceptable.
 \textbf{Versioning}\hreffootnote{https://restfulapi.net/versioning/} provides a
@@ -217,8 +223,8 @@ The \gls{ma} is built on a few basic principles \autocite{Dragoni_etal_2018}
 \begin{itemize}
     \item \textbf{Small codebases managed by small teams}\\
     Codebases are generally smaller in size, at least small enough to be managed
-    by a small team. 
-
+    by a small team (this typically means less than 10 people).
+    % 
     \spacedItem \textbf{Focused on a specific business need}\\
     Every \gls{microservice} should be centered around a specific business need
     or domain, so that the responsibility of every \gls{microservice} is clearly
@@ -231,7 +237,7 @@ The \gls{ma} is built on a few basic principles \autocite{Dragoni_etal_2018}
     defined \textit{bounded context}, without worrying about the applicability
     of the model to other contexts, is key to keeping the context \textit{pure}
     and avoiding confusion.\\
-    Every \gls{microservice} can and should be built, tested and deployed
+    Every \gls{microservice} should be built, tested and deployed
     individually and in isolation. 
     %
 \end{itemize}
@@ -307,13 +313,6 @@ Below some of the major benefits of the \gls{ma} are outlined:
     and shorter release cycles, teams tend to get smaller and more productive
     \autocite{Newman_2015}.
     %
-    \spacedItem  \textbf{Other benefits}
-    \begin{itemize}
-        \item Faster, easier and more automated deployments
-        \item Faster time to market
-        \item Faster response to changing requirements
-        \item ...
-    \end{itemize}
 \end{itemize}
 
 \subsubsection{Challenges and limitations of the microservice architecture}
