@@ -55,9 +55,79 @@ optimally by autonomous teams.
 
 \subsection{How do microfrontends enable distributed development?}
 
+A significant difference between \glsplural{microfrontend} and other software
+architectures is the impact on \textbf{team structure} and organizational shift
+\autocite{Geers_2020}.
+
+So, while \glsplural{microfrontend} have lots of technical aspects to consider,
+it is important to reflect on the organizational aspects first.
+
+As disussed in \fullref{ssec:microservices}, when adopting the \gls{ma}, a shift
+has to be made to smaller independent teams around a specific business need.
+However, this only brings about changes in the \gls{backend} teams, while the
+\gls{frontend}-oriented development team will usually not follow suit. This
+keeps the overarching team structure ``horizontal'': divided per layer or
+technology.
+
+One of the benefits of horizontal teams is that this structure enables experts
+focussing on specific technologies to co-operate together as one team. This way
+they can ensure a high technical standard within the boundaries of their
+respective areas of expertise.
+
+In geographically distributed teams, the consequence could be that these
+technical teams operate from entirely different locations. According to
+\textcite{Smite_etal_2010}, this can result in compatibility issues between software
+layers and a less customer-focused development model. Moreover, disputes can
+arise between the different teams because no team has full responsibility over
+the delivery of any feature.
+
 \subsubsection{feature teams}
 \label{feature-teams}
-...
+
+%TODO add images?
+
+To mitigate the issues arising from geographically distributed horizontal teams;
+multidisciplinary or cross-functional ``feature teams'' can be introduced. These
+are grouped around a specific business case or customer need. This ``vertical
+slicing''  enables teams to be more independent and have end-to-end
+responsibility for the features they develop.
+
+This feature team approach has multiple advantages: \autocite{Smite_etal_2010}
+\begin{itemize} 
+  \item \textbf{Optimized feature development}\\
+  Focussing on features in stead of technical details aids in delivering the
+  highest amount of business value.
+  % 
+  \spacedItem \textbf{Decreased need for ``expensive'' communication}\\
+  Communications within a team is usually faster and more informal than
+  communications between teams, especially if teams are geographically
+  distributed. Since a feature can be developed by a single team, the need for
+  expensive communication decreases.
+  %
+  \spacedItem \textbf{Greater sense of developer involvement}\\
+  According to \autocite{LarmanVodde_2008}, developers who operate in a feature
+  team feel a greater sense of ownership and accountability for the features
+  they develop. 
+  %
+\end{itemize}
+
+It is worth mentioning that these benefits combined can result in a faster cycle
+time and thus an increase in development speed \autocite{Geers_2020}.
+
+On the other side, this approach also comes with caveats. One of them is the
+danger of compromising on the \textbf{conceptual integrity} of the software
+systems. More time will have to be spent up-front laying a solid foundation for
+conventions and standards. The effort to then maintain the consistency of the
+software system is usually where the software architect has a key role. In
+larger projects, a technical service team can be assembled to provide technical
+coherence across different distributed systems \autocite{Smite_etal_2010}. WHile
+this is something to consider, this also means an increased emphasis on better
+code quality right from the start, which could prove very beneficial in the long
+term \autocite{LarmanVodde_2008}.
+
+Antorther caveat is that, especially in large corporations, \textbf{changing the
+complicated organizational structure} might not be possible, or at the very
+least slow and difficult.
 
 \subsection{Common implementation patterns}
 
