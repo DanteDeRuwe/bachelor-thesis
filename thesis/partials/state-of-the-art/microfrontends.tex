@@ -133,16 +133,39 @@ least slow and difficult.
 
 As is the case with lots of architectural patterns, there are many ways of
 implementation possible. With the \gls{mfa}, this is no different. Various
-options differ in complexity, goal and mechanism. Below some of the most common
+options differ in complexity, goal, and mechanism. Below some of the most common
 ways of implementation are outlined.
 
 \subsubsection{The \textit{web approach}}
+
+The most straightforward way of leveraging the \gls{mfa} pattern is by not using
+any integration technique at all. In stead, there can be opted for mechanisms
+that exist in the world of the web. 
+
+As described by \textcite{Rappl_2021}, the \textit{web approach}'s main approach
+for \gls{microfrontend} referencence is by way of their \gls{url}.
+\textbf{Hyperlinks} can be used to let the user navigate between different
+\glsplural{microfrontend}. This however compromises on user experience and
+usability. With this approach, for example, elements from multiple
+\glsplural{microfrontend} cannot be rendered on the same page. 
+
+To enable visual composition of \glsplural{microfrontend} in the most
+straightforward way, \textbf{\glsplural{iframe}} can be used. By using an
+\texttt{<iframe>} tag with a \texttt{src} attribute that points to a \gls{url},
+one could embed visual components of one \gls{microfrontend} within another,
+without sacrificing on strong isolation between the two \autocite{Geers_2020}.
+The disadvantage here is the notoriously bad characteristics of
+\glsplural{iframe}. One of these is bad performance: according to
+\textcite{Souders_2013}, \glsplural{iframe} are up to 2 orders of magnitude more
+expensive to create than any other \gls{dom} element. Moreover, iframes also
+block the loading process of the rest of the page. Other suboptimal
+characteristics include accessibility, \gls{seo}, and security.
+
+\subsubsection{Server-side composition}
 ...
-\subsubsection{Server-side rendering}
+\subsubsection{Client-side composition}
 ...
-\subsubsection{Client-side rendering}
-...
-\subsubsection{Universal rendering}
+\subsubsection{Universal composition}
 ...
 
 \subsection{Usage of microfrontends}
