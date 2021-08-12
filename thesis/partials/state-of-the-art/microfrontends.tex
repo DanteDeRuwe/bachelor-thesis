@@ -161,6 +161,11 @@ expensive to create than any other \gls{dom} element. Moreover, iframes also
 block the loading process of the rest of the page. Other suboptimal
 characteristics include accessibility, \gls{seo}, and security.
 
+The simplicity of the web approach is also where it lacks applicability for
+larger projects. One of the biggest reasons to implement
+\glsplural{microservice} and \glsplural{microfrontend} is scalibility, which the
+web approach is not suitable for.
+
 \subsubsection{Server-side composition}
 ...
 \subsubsection{Client-side composition}
@@ -176,15 +181,18 @@ characteristics include accessibility, \gls{seo}, and security.
 The \gls{mfa} carries over a lot of the advantages of the \gls{ma}
 \autocite{Jackson_2019}: \textbf{Technology independence} is now also possible
 across different \gls{frontend} teams, allowing them to select the best tools
-and frameworks for the job. \textbf{Teams} also benefit greatly, and can be
-reorganized to even greater benefit, as was discussed in section
-\fullref{feature-teams}.
+and frameworks for the job. Loose coupling enables the \textbf{scalibility} of
+both the \gls{frontend} and \gls{backend}. Now, the \gls{frontend} can also
+enjoy the benefits of independent deploys, isolated risks, and smaller
+codebases.
+
+\textbf{Teams} also benefit greatly and can be reorganized to even greater
+benefit, as was discussed in section \fullref{feature-teams}.
 
 ...
 % TODO more
 
-\subsubsection{known limitations and caveats}
-
+\subsubsection{known drawbacks, limitations and caveats}
 
 However, to use the words of Cam \textcite{Jackson_2019}: \textit{``there are no
 free lunches when it comes to software architecture - everything comes with a
