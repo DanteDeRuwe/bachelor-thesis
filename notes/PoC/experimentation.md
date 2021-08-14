@@ -44,12 +44,17 @@
 - Make `ComponentCollection` a hashmap with custom names
 - Make simple feed service?
 - Route parameters
+  - support for query strings was successfully added
+  - should not be very hard.
 - More robust DI between client and server
   - to research [here](https://jonhilton.net/blazor-wasm-prerendering-missing-http-client/)
 - debugging (loading the pdbs)
+  - [see here](https://github.com/smapiot/Piral.Blazor/blob/blazor-5.0/src/Piral.Blazor.Core/JSBridge.cs)
 - Support more complicated components
   - Components with NuGet packages? -> Dependency management
   - Dependency injection
+    - Already works if dependency is registered in client app
+    - Create Configure function that app shell can call per MF?
   - static files
     - media ([see here maybe?](https://github.com/smapiot/Piral.Blazor/pull/15))
     - css ([see here maybe?](https://github.com/smapiot/Piral.Blazor/pull/28))
