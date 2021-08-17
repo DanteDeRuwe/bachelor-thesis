@@ -5,4 +5,77 @@
 \chapter{Proof of concept}
 \label{ch:proof-of-concept}
 
-\dots %TODO
+In this chapter, a proof-of-concept solution around a specific business case is
+created to demonstrate the use of th \gls{mfa} pattern.
+
+As was made apparent in chapter \fullref{ch:state-of-the-art}, there are several
+different ways of conceptualizing and creating \gls{microfrontend} solutions.
+This thesis will focus on \textbf{universal composition}, as was described in
+\fullref{sssec:universal-composition}, to be able to enable \textbf{\gls{pe}}.
+The desired solution ideally uses an exclusive \textbf{.NET approach} (i.e.
+using exclusively technologies within the .NET ecosystem), and has
+\textbf{run-time integration} with dynamic (lazy) loading capabilities.
+
+
+\section{Domain}
+\subsection{Description}
+
+This \gls{poc} is centered around an e-commerce domain. To make the
+business case more specific and tangible, the case was formulated as
+follows:
+
+\begin{quote}
+  The creation of a web application for an online store dedicated to selling
+  tabletop games (board games, card games, ...).
+\end{quote}
+
+This encompasses the following functionalities:
+\begin{itemize}
+  \item Browse games
+  \item View game details
+  \item Order games
+  % TODO?
+\end{itemize}
+
+This domain was chosen because the technical needs of e-commerce solutions tend
+to overlap with the set-out desired characteristics of the proof-of-concept
+application. The universal rendering will make sure the application has a faster
+initial load and better \gls{seo} than a purely client-side rendered
+application, while maintaining a highly dynamic nature.
+
+\subsection{Decomposition into microfrontends}
+
+According to \textcite{Rappl_2021}, the domain decomposition strategy is a
+crucial foundation for the architecture of the \gls{microfrontend} solution. In
+a real company context, both technical and organizational factors need to be
+considered to be able to split up the domain. For this \gls{poc}, the following
+modules were chosen:
+
+\begin{itemize}
+  \item The \textit{Discover} \gls{microfrontend}, containing the product
+  overview and product details pages.
+  \item The \textit{Order} \gls{microfrontend}, containing the order product
+  button and the order page.
+\end{itemize}
+
+There also is an \gls{appshell} where these \glsplural{microfrontend} will get
+integrated into. This will be discussed further in \fullref{sec:poc-development}.
+
+An overview of the resulting architecture for this solution is given in
+Figure~\ref{fig:poc-diagram}.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=.8]{example-image}  %TODO 
+  \caption[Architecture overview for proof-of-concept solution]{The architecture
+  overview for the proof-of-concept solution. In the \glsplural{microfrontend},
+  only the \gls{frontend} has been implementated in the \gls{poc}, while the
+  other elements were mocked using in-memory solutions for demonstration
+  purposes.
+  }
+  \label{fig:poc-diagram}
+\end{figure}
+
+\section{Development}
+\label{sec:poc-development}
+
