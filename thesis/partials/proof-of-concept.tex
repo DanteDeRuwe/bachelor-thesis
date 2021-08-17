@@ -81,32 +81,43 @@ mainly consists of 3 parts:
   other elements were mocked using in-memory solutions for demonstration
   purposes.
   }
-  \label{fig:poc-diagram}
+  \label{fig:poc-architecture}
 \end{figure}
 
 
 \subsection{Composition structure}
 
-A visual overview for the component and page composition for the \gls{poc} application is shown
-in Figure~\ref{fig:poc-components}.
+A visual overview for the component and page composition for the \gls{poc}
+application is shown in Figure~\ref{fig:poc-components}. Pages are registered on
+a certain route and fragments are registed into a slot (with a unique name) in
+another \gls{microfrontend} or the \gls{appshell}.
 
-\begin{keeptogether}
-  A summary of the components each \gls{microfrontend} exposes is shown below:
-
-  \begin{tabular}{ll}
-    \textit{Discover}  \gls{microfrontend}:&
-    \begin{tabular}{ll}
-      Pages & \texttt{GameDetails}\\
-      Fragments & \texttt{GameOverview}
-    \end{tabular}
-    \\
-    \textit{Order}  \gls{microfrontend}:&
-    \begin{tabular}{ll}
-      Pages & \texttt{Cart}, \texttt{OrderConfirmation}\\
-      Fragments & \texttt{AddToCartButton}
-    \end{tabular}
-  \end{tabular}
-\end{keeptogether}
+A summary of the components each \gls{microfrontend} exposes is shown below:
+\begin{framed}
+  \textit{Discover}  \gls{microfrontend}:
+    \begin{itemize}
+      \item[] Pages
+      \begin{itemize}
+        \item \texttt{GameDetails} with route \texttt{/game?id=\{id\}}
+      \end{itemize}
+      \item[] Fragments
+      \begin{itemize}
+        \item \texttt{GameOverview} for slot \texttt{homepage}
+      \end{itemize}
+    \end{itemize}
+  \textit{Order} \gls{microfrontend}:
+    \begin{itemize}
+      \item[] Pages
+      \begin{itemize}
+        \item \texttt{Cart} with route \texttt{/cart}
+        \item \texttt{OrderConfirmation} with route \texttt{/orderconfirmation}
+      \end{itemize}
+      \item[] Fragments
+      \begin{itemize}
+        \item \texttt{AddToCartButton} for slot \texttt{game-card-actions}
+      \end{itemize}
+    \end{itemize}
+\end{framed} 
 
 
 \begin{figure}
@@ -114,7 +125,7 @@ in Figure~\ref{fig:poc-components}.
   \includegraphics[scale=.8]{example-image}  %TODO 
   \caption[Architecture overview for proof-of-concept solution]{A visual
   overview for the component and page composition for the \gls{poc}
-  application}}
+  application}
   \label{fig:poc-components}
 \end{figure}
 
