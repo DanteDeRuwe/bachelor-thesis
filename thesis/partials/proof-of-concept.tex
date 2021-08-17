@@ -58,11 +58,19 @@ modules were chosen:
   button and the order page.
 \end{itemize}
 
-There also is an \gls{appshell} where these \glsplural{microfrontend} will get
-integrated into. This will be discussed further in \fullref{sec:poc-development}.
+\section{Architecture}
 
-An overview of the resulting architecture for this solution is given in
-Figure~\ref{fig:poc-diagram}.
+Using the domain decomposition results, the overall architecture of the solution
+can be determined. An overview is given in Figure~\ref{fig:poc-architecture}. It
+mainly consists of 3 parts:
+\begin{itemize}
+  \item The \gls{appshell} where these \glsplural{microfrontend}
+  will get integrated into. This will be discussed further in
+  \fullref{sec:poc-development}.
+  \item The \textit{Discover} \gls{microfrontend}
+  \item The \textit{Order} \gls{microfrontend}
+\end{itemize}
+ 
 
 \begin{figure}
   \centering
@@ -75,6 +83,43 @@ Figure~\ref{fig:poc-diagram}.
   }
   \label{fig:poc-diagram}
 \end{figure}
+
+
+\subsection{Composition structure}
+
+A visual overview for the component and page composition for the \gls{poc} application is shown
+in Figure~\ref{fig:poc-components}.
+
+\begin{keeptogether}
+  A summary of the components each \gls{microfrontend} exposes is shown below:
+
+  \begin{tabular}{ll}
+    \textit{Discover}  \gls{microfrontend}:&
+    \begin{tabular}{ll}
+      Pages & \texttt{GameDetails}\\
+      Fragments & \texttt{GameOverview}
+    \end{tabular}
+    \\
+    \textit{Order}  \gls{microfrontend}:&
+    \begin{tabular}{ll}
+      Pages & \texttt{Cart}, \texttt{OrderConfirmation}\\
+      Fragments & \texttt{AddToCartButton}
+    \end{tabular}
+  \end{tabular}
+\end{keeptogether}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=.8]{example-image}  %TODO 
+  \caption[Architecture overview for proof-of-concept solution]{A visual
+  overview for the component and page composition for the \gls{poc}
+  application}}
+  \label{fig:poc-components}
+\end{figure}
+
+
+
 
 \section{Development}
 \label{sec:poc-development}

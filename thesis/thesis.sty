@@ -45,3 +45,16 @@
 % make figure captions smaller
 \usepackage{caption}
 \captionsetup{font=footnotesize}
+
+
+% better tables
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\def\centeritem#1{\multicolumn{1}{>{\centering\arraybackslash}c}{#1}}
+
+% prevent pagebreaks and keep content together
+\newenvironment{keeptogether}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
