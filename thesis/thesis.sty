@@ -3,6 +3,12 @@
 %pdfpages
 \usepackage{pdfpages}
 
+% frames
+\usepackage[linewidth=0.5pt]{mdframed}
+{\newenvironment{framed}
+  {\begin{mdframed}[innerleftmargin=.5cm,innerrightmargin=.5cm,innertopmargin=0.5cm,innerbottommargin=0.5cm]}
+  {\end{mdframed}}}
+
 % code blocks
 \usepackage[cache=true, outputdir=build]{minted}
 \BeforeBeginEnvironment{minted}{\begin{mdframed}[backgroundcolor=black!10, hidealllines=true]}
@@ -37,9 +43,6 @@
 % blank line
 \def\blankline{\vspace{\baselineskip}}
 
-% remove footnote indentation
-\usepackage[hang,flushmargin]{footmisc}
-
 % item with vspace before it
 \def\spacedItem{\vspace{2mm}\item}
 
@@ -64,8 +67,5 @@
   {\par\xdef\tpd{\the\prevdepth}\egroup
    \prevdepth=\tpd}
 
-% frames
-\usepackage[linewidth=0.5pt]{mdframed}
-\newenvironment{framed}
-  {\begin{mdframed}[innerleftmargin=.5cm,innerrightmargin=.5cm,innertopmargin=0.5cm,innerbottommargin=0.5cm]}
-  {\end{mdframed}}
+% footnote back ref
+\usepackage{footnotebackref}
