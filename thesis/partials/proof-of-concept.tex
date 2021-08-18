@@ -86,6 +86,7 @@ mainly consists of 3 parts:
 
 
 \subsection{Composition structure}
+\label{ssec:poc-composition}
 
 A visual overview for the component and page composition for the \gls{poc}
 application is shown in Figure~\ref{fig:poc-components}. Pages are registered on
@@ -136,3 +137,110 @@ A summary of the components each \gls{microfrontend} exposes is shown below:
 \section{Development}
 \label{sec:poc-development}
 
+In what follows, more information about the development of the \gls{poc}
+solution will be given. This explanation is accompanied by code that can be
+found at
+\begin{quote}
+   \url{https://github.com/DanteDeRuwe/bachelor-thesis-code}.
+\end{quote}
+
+\subsection{Preparation}
+
+An ASP.NET hosted Blazor \gls{wasm} project was created. This can be done via
+the .NET \gls{cli}:
+
+\begin{minted}{console}
+  $ dotnet new blazorwasm --hosted
+\end{minted}
+
+This solution will serve as the \gls{appshell} of the \gls{microfrontend}
+application. It consists of a client and a server part.
+
+Next, pre-rendering was enabled in the \gls{appshell}, using a strategy outlined
+in a blogpost by Jon Hilton
+\footnote{\url{https://jonhilton.net/blazor-wasm-prerendering/}}.
+
+\subsection{Process}
+
+\subsubsection{The framework}
+
+To be able to dynamically integrate the \glsplural{microfrontend} into the
+\gls{appshell} at runtime, it is useful to create a baseline framework with
+various utilities and reusable components.
+
+This is the goal of the
+\texttt{MicrofrontendFramework.Blazor}\hreffootnote{https://github.com/DanteDeRuwe/bachelor-thesis-code/tree/main/src/framework/MicrofrontendFramework.Blazor}
+project. This framework has the following core responsibilities:
+
+\begin{itemize}
+  \item Fragment rendering: the framework exposes a
+  \mintinline{csharp}|[Fragment]| attribute to register a component as a
+  fragment with a custom name. It then also exposes a
+  \mintinline{html}|<Fragment/>| component that is used from the \gls{appshell}
+  or other \glsplural{microfrontend} to render a fragment by name.
+  \item Routing: the framework exposes a \mintinline{html}|<DynamicRouter/>|
+  component that can be used in stead of the default Blazor router to render the
+  corresponding component dynamically
+  \item \gls{di}: the framework can register the services provided by the
+  \glsplural{microfrontend} onto the \gls{di} container of the
+  \gls{appshell}\footnote{It does this by looking up a \texttt{Microfrontend}
+  class in the \gls{microfrontend} and reflectively calling its
+  \texttt{Configure} method. See
+  \href{https://github.com/DanteDeRuwe/bachelor-thesis-code/blob/main/src/framework/MicrofrontendFramework.Blazor/Extensions.cs\#L30-L39}{MicrofrontendFramework.Blazor/Extensions.cs:30-39}}
+\end{itemize}
+
+This functionality is provided to the \gls{appshell} via an extension method
+called \mintinline{csharp}|AddMicroFrontends| that, given a collection of loaded
+assemblies, can extract a collection of all components within that assembly, and
+register the fragments and pages within that assembly into the \gls{di}
+container.
+
+This framework project is only a class library. It is worth mentioning that the
+\gls{appshell} will actually execute the majority of the functionalities present
+in the framework project.
+
+\subsubsection[The application shell]{The \gls{appshell}}
+
+The main responsibility of the \gls{appshell} is to integrate the
+\glsplural{microfrontend} into itself. As mentioned, this includes executing the
+functionalities present in the framework library such as \textbf{routing} and
+\textbf{fragment rendering}. Before it can make use of the
+\mintinline{csharp}|AddMicroFrontends| extension method, it should dynamically
+load the microfrontend assemblies to be able to pass these as an argument.
+
+On the server side, as by way of proof of concept, the \gls{appshell} fetches
+the microfrontend assemblies from disk, acting as an ad hoc \gls{cdn}. The
+server then also exposes the file paths via a \gls{restful} \gls{api}. From the
+client side, the file paths are fetched via an \gls{http} call to the server
+\gls{api}, and the files themselves are then fetched via their paths.
+
+The assemblies are stored in \gls{dll} files. To also enable the debugging of
+the \glsplural{microfrontend}, another type of files are also needed: the
+\gls{pdb} files. These are also called \textit{symbol} files, and they are the
+link between the debugger and the source code \autocite{Microsoft_2021}.
+
+On both the server and the client side, each assembly and symbol definition can
+be loaded in memory using the default \mintinline{csharp}|AssemblyLoadContext|:
+
+\begin{minted}{csharp}
+  AssemblyLoadContext.Default.LoadFromStream(dllStream, pdbStream);
+\end{minted}
+
+Once these are loaded, they can be passed on to the aforementioned
+\mintinline{csharp}|AddMicroFrontends| extension method originating from the
+framework project.
+
+Next to the dynamic loading of the assemblies, the \gls{appshell} client also
+has responsibility over some {\textbf{shared capabilities} (such as navigation,
+logging, authentication, translation, ...) and basic layout.
+
+\subsubsection{The microfrontends}
+
+As mentioned in \fullref{ssec:poc-composition}, each \gls{microfrontend} exposes
+a certain set of pages and fragments, that can be picked up by the
+\gls{appshell} for integration.
+
+Each \gls{microfrontend} is also an independent owner of its own data. They are
+not strongly coupled to the \gls{appshell} in any way, and only use the
+framework library to be able to expose fragments and use placeholder slots for
+for the \gls{appshell} to integrate other fragments into.
