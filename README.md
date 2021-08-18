@@ -1,5 +1,6 @@
 # Enabling the Distributed Development of Blazor-Based Web Applications Using a Microfrontend Architecture
-> Bachelor Thesis by Dante De Ruwe 
+
+> Bachelor Thesis by Dante De Ruwe
 
 ## Reading from source
 
@@ -12,13 +13,24 @@
 
 The compile script makes use of `latexmk` and other MikTeX packages.
 
-- Make sure you have MikTeX installed. 
-- If you are having issues with `latexmk`, read the docs [here](https://mg.readthedocs.io/latexmk.html). 
-- On Windows it could be necessary to download Perl, you can find it [here](https://www.perl.org/)
+- Make sure you have MikTeX installed.
+- If you are having issues with `latexmk`, read the docs [here](https://mg.readthedocs.io/latexmk.html).
+- On Windows it could be necessary to download Perl, you can find it
+  [here](https://www.perl.org/)
+
+The LaTeX file uses `minted` for code highlighting.
+
+- make sure you have Python installed
+- make sure you have `Pygments` installed:
+  ```cmd
+  pip install Pygments
+  ```
 
 ### Compiling the full thesis PDF
+
 ```sh
 cd thesis
 bash compile.sh --include-proposal
 ```
+
 The output pdf should be in `/thesis/build/DeRuwe_Dante_BachelorThesis.pdf`.

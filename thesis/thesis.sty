@@ -3,6 +3,11 @@
 %pdfpages
 \usepackage{pdfpages}
 
+% code blocks
+\usepackage[cache=true, outputdir=build]{minted}
+\BeforeBeginEnvironment{minted}{\begin{mdframed}[backgroundcolor=black!10, hidealllines=true]}
+  \AfterEndEnvironment{minted}{\end{mdframed}}
+
 % Add glossary
 \usepackage[nopostdot, style=altlist]{glossaries}
 
