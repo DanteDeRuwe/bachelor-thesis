@@ -11,6 +11,7 @@
 
 % code blocks
 \usepackage[cache=true, outputdir=build]{minted}
+\renewcommand{\ttdefault}{lmtt}
 \BeforeBeginEnvironment{minted}{\begin{mdframed}[backgroundcolor=black!10, hidealllines=true]}
   \AfterEndEnvironment{minted}{\end{mdframed}}
 
