@@ -6,15 +6,15 @@
 \label{ch:proof-of-concept}
 
 In this chapter, a proof-of-concept solution around a specific business case is
-created to demonstrate the use of th \gls{mfa} pattern.
+created to demonstrate the practical use of the \gls{mfa} pattern.
 
-As was made apparent in chapter \fullref{ch:state-of-the-art}, there are several
-different ways of conceptualizing and creating \gls{microfrontend} solutions.
-This thesis will focus on \textbf{universal composition}, as was described in
-\fullref{sssec:universal-composition}, to be able to enable \textbf{\gls{pe}}.
-The desired solution ideally uses an exclusive \textbf{.NET approach} (i.e.
-using exclusively technologies within the .NET ecosystem), and has
-\textbf{run-time integration} with dynamic (lazy) loading capabilities.
+As was made apparent in section \fullref{ssec:mf-implementation-patterns}, there
+are several different ways of conceptualizing and creating \gls{microfrontend}
+solutions. This \gls{poc} will focus on \textbf{universal composition}, to be
+able to enable \textbf{\gls{pe}} of the resulting web application. The desired
+solution ideally uses an exclusive \textbf{.NET approach} (i.e. using
+exclusively technologies within the .NET ecosystem), and has \textbf{run-time
+integration} with dynamic (lazy) loading capabilities.
 
 
 \section{Domain}
@@ -34,28 +34,31 @@ This encompasses the following functionalities:
   \item Browse games
   \item View game details
   \item Order games
-  % TODO?
 \end{itemize}
 
 This domain was chosen because the technical needs of e-commerce solutions tend
 to overlap with the set-out desired characteristics of the proof-of-concept
-application. The universal rendering will make sure the application has a faster
-initial load and better \gls{seo} than a purely client-side rendered
-application, while maintaining a highly dynamic nature.
+application. In a real world scenario, obviously the reverse process would be
+necessary, and one would have to  pick the best suiting implementation pattern
+for the case at hand. 
+
+The universal rendering will make sure the application has a faster initial load
+and better \gls{seo} than a purely client-side rendered application, while
+maintaining a highly dynamic nature.
 
 \subsection{Decomposition into microfrontends}
 
 According to \textcite{Rappl_2021}, the domain decomposition strategy is a
-crucial foundation for the architecture of the \gls{microfrontend} solution. In
-a real company context, both technical and organizational factors need to be
-considered to be able to split up the domain. For this \gls{poc}, the following
-modules were chosen:
+crucial foundation for determining the architecture of the \gls{microfrontend}
+solution. In a real company context, both technical and organizational factors
+need to be considered to be able to split up the domain. For this \gls{poc}, the
+following modules were chosen:
 
 \begin{itemize}
   \item The \textit{Discover} \gls{microfrontend}, containing the product
-  overview and product details pages.
-  \item The \textit{Order} \gls{microfrontend}, containing the order product
-  button and the order page.
+  overviews and product details.
+  \item The \textit{Order} \gls{microfrontend}, containing everything necessary
+  for ordering products.
 \end{itemize}
 
 \section{Architecture}
@@ -64,23 +67,21 @@ Using the domain decomposition results, the overall architecture of the solution
 can be determined. An overview is given in Figure~\ref{fig:poc-architecture}. It
 mainly consists of 3 parts:
 \begin{itemize}
-  \item The \gls{appshell} where these \glsplural{microfrontend}
-  will get integrated into. This will be discussed further in
-  \fullref{sec:poc-development}.
   \item The \textit{Discover} \gls{microfrontend}
   \item The \textit{Order} \gls{microfrontend}
+  \item The \gls{appshell} where these \glsplural{microfrontend} will
+  get integrated into.
 \end{itemize}
  
 
 \begin{figure}
   \centering
-  \includegraphics[scale=.8]{example-image}  %TODO 
+  \includegraphics[width=0.8\textwidth]{poc-architecture}
   \caption[Architecture overview for proof-of-concept solution]{The architecture
   overview for the proof-of-concept solution. In the \glsplural{microfrontend},
   only the \gls{frontend} has been implementated in the \gls{poc}, while the
   other elements were mocked using in-memory solutions for demonstration
-  purposes.
-  }
+  purposes.  }
   \label{fig:poc-architecture}
 \end{figure}
 
@@ -92,6 +93,16 @@ A visual overview for the component and page composition for the \gls{poc}
 application is shown in Figure~\ref{fig:poc-components}. Pages are registered on
 a certain route and fragments are registed into a slot (with a unique name) in
 another \gls{microfrontend} or the \gls{appshell}.
+
+\begin{sidewaysfigure}
+  \centering
+  \includegraphics[width=\textwidth]{poc-components}
+  \caption[Visual overview for proof-of-concept solution]{A visual overview for
+  the component and page composition for the \gls{poc} application. The colored
+  dashed lines indicate the sources of the components (blue for
+  \textit{``Order''} \gls{microfrontend}, orange for \textit{``Discover''}).}
+  \label{fig:poc-components}
+\end{sidewaysfigure}
 
 A summary of the components each \gls{microfrontend} exposes is shown below:
 \begin{framed}
@@ -122,15 +133,6 @@ A summary of the components each \gls{microfrontend} exposes is shown below:
 \end{framed} 
 
 
-\begin{figure}
-  \centering
-  \includegraphics[scale=.8]{example-image}  %TODO 
-  \caption[Architecture overview for proof-of-concept solution]{A visual
-  overview for the component and page composition for the \gls{poc}
-  application}
-  \label{fig:poc-components}
-\end{figure}
-
 
 
 
@@ -160,9 +162,9 @@ Next, pre-rendering was enabled in the \gls{appshell}, using a strategy outlined
 in a blogpost by Jon Hilton
 \footnote{\url{https://jonhilton.net/blazor-wasm-prerendering/}}.
 
-\subsection{Process}
+\subsection{Process and results}
 
-\subsubsection{The framework}
+\subsubsection{The framework library}
 
 To be able to dynamically integrate the \glsplural{microfrontend} into the
 \gls{appshell} at runtime, it is useful to create a baseline framework with
@@ -170,7 +172,7 @@ various utilities and reusable components.
 
 This is the goal of the
 \texttt{MicrofrontendFramework.Blazor}\hreffootnote{https://github.com/DanteDeRuwe/bachelor-thesis-code/tree/main/src/framework/MicrofrontendFramework.Blazor}
-project. This framework has the following core responsibilities:
+project. It has the following functionalities:
 
 \begin{itemize}
   \item Fragment rendering: the framework exposes a
@@ -181,41 +183,37 @@ project. This framework has the following core responsibilities:
   \item Routing: the framework exposes a \mintinline{html}|<DynamicRouter/>|
   component that can be used in stead of the default Blazor router to render the
   corresponding component dynamically
-  \item \gls{di}: the framework can register the services provided by the
-  \glsplural{microfrontend} onto the \gls{di} container of the
-  \gls{appshell}\footnote{It does this by looking up a \texttt{Microfrontend}
-  class in the \gls{microfrontend} and reflectively calling its
-  \texttt{Configure} method. See
+  \item Component registration and \gls{di}: This functionality is exposed as
+  via an extension method called \mintinline{csharp}|AddMicroFrontends| that,
+  given a collection of loaded assemblies, can extract a collection of all
+  components, and register this collection onto the \gls{di} container. It also
+  will register the services that these \glsplural{microfrontend} need onto the
+  provided service collection.\footnote{It does this by looking up a
+  \texttt{Microfrontend} class in the \gls{microfrontend} and reflectively
+  calling its \texttt{Configure} method. See
   \href{https://github.com/DanteDeRuwe/bachelor-thesis-code/blob/main/src/framework/MicrofrontendFramework.Blazor/Extensions.cs\#L30-L39}{MicrofrontendFramework.Blazor/Extensions.cs:30-39}}
 \end{itemize}
 
-This functionality is provided to the \gls{appshell} via an extension method
-called \mintinline{csharp}|AddMicroFrontends| that, given a collection of loaded
-assemblies, can extract a collection of all components within that assembly, and
-register the fragments and pages within that assembly into the \gls{di}
-container.
-
-This framework project is only a class library. It is worth mentioning that the
-\gls{appshell} will actually execute the majority of the functionalities present
-in the framework project.
-
 \subsubsection[The application shell]{The \gls{appshell}}
 
-The main responsibility of the \gls{appshell} is to integrate the
-\glsplural{microfrontend} into itself. As mentioned, this includes executing the
-functionalities present in the framework library such as \textbf{routing} and
-\textbf{fragment rendering}. Before it can make use of the
-\mintinline{csharp}|AddMicroFrontends| extension method, it should dynamically
-load the microfrontend assemblies to be able to pass these as an argument.
+The main responsibility of the \gls{appshell} is to compose the
+\gls{microfrontend} components and integrate the \glsplural{microfrontend} into
+itself. This includes executing the functionalities present in the framework
+library such as \textbf{routing} and \textbf{fragment rendering}. Before it can
+make use of the \mintinline{csharp}|AddMicroFrontends| extension method, it
+should dynamically load the \gls{microfrontend} assemblies to be able to pass these as
+an argument.
 
 On the server side, as by way of proof of concept, the \gls{appshell} fetches
-the microfrontend assemblies from disk, acting as an ad hoc \gls{cdn}. The
-server then also exposes the file paths via a \gls{restful} \gls{api}. From the
-client side, the file paths are fetched via an \gls{http} call to the server
-\gls{api}, and the files themselves are then fetched via their paths.
+the \gls{microfrontend} assemblies from disk, acting as an ad hoc \gls{cdn}. The
+server then also exposes the file paths via a \gls{restful}
+\gls{api}.\footnote{In a real-world scenario, these responsibilities would
+probably be assigned to a dedicated service.} From the client side, the file
+paths are fetched via an \gls{http} call to the server \gls{api}, and the files
+themselves are then fetched via their paths.
 
 The assemblies are stored in \gls{dll} files. To also enable the debugging of
-the \glsplural{microfrontend}, another type of files are also needed: the
+the \glsplural{microfrontend}, another type of file is also needed: the
 \gls{pdb} files. These are also called \textit{symbol} files, and they are the
 link between the debugger and the source code \autocite{Microsoft_2021}.
 
@@ -223,22 +221,24 @@ On both the server and the client side, each assembly and symbol definition can
 be loaded in memory using the default \mintinline{csharp}|AssemblyLoadContext|:
 
 \begin{minted}{csharp}
-  AssemblyLoadContext.Default.LoadFromStream(dllStream, pdbStream);
+AssemblyLoadContext.Default.LoadFromStream(dllStream, pdbStream);
 \end{minted}
 
 Once these are loaded, they can be passed on to the aforementioned
 \mintinline{csharp}|AddMicroFrontends| extension method originating from the
 framework project.
 
-Next to the dynamic loading of the assemblies, the \gls{appshell} client also
-has responsibility over some {\textbf{shared capabilities} (such as navigation,
-logging, authentication, translation, ...) and basic layout.
-
+Next to fragment rendering, dynamic loading and routing, the \gls{appshell} also
+has responsibility over some {\textbf{shared capabilities} such as navigation,
+and basic \textbf{layout}.
+ 
 \subsubsection{The microfrontends}
 
-As mentioned in \fullref{ssec:poc-composition}, each \gls{microfrontend} exposes
-a certain set of pages and fragments, that can be picked up by the
-\gls{appshell} for integration.
+In this \gls{poc} solution, every \gls{microfrontend} is just a Razor class
+library exposing a certain set of pages and fragments. An overview of these
+exposed elements was shown in \fullref{ssec:poc-composition}. These exposed
+components are then picked up by the \gls{appshell} (using the framework
+library) for integration.
 
 Each \gls{microfrontend} is also an independent owner of its own data. They are
 not strongly coupled to the \gls{appshell} in any way, and only use the
