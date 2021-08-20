@@ -267,12 +267,25 @@ get the advantage of both, a hybrid approach can be achieved. Universal \em or
 
 
 \subsection{Usage of microfrontends}
-\dots %TODO
 
-\subsubsection{Benefits}
+\Glsplural{microfrontend} are being used by companies all over the world.
+Swedish furniture company IKEA mainly uses autonomous vertical teams that can
+develop in different technologies if necessary \autocite{Stenberg_2018}.
+Spotify, a music streaming service provider from that same country, uses
+\gls{iframe}-based \glsplural{microfrontend} within its desktop application to
+be able to develop different parts from the same view independently. These
+so-called \textit{Spotlets} are developed by \textit{Squads}, independent
+cross-functional teams \autocite{Gall_2018}. German e-commerce fashion retailer
+Zalando even created ``Project Mosaic''\hreffootnote{https://www.mosaic9.org/},
+which contains a plethora of libraries and services to create both
+\gls{frontend} and \gls{backend} \glsplural{microservice}.
+
+
+
+\subsection{Benefits of microfrontends}
 
 The \gls{mfa} carries over a lot of the advantages of the \gls{ma}
-\autocite{Jackson_2019}: \textbf{Technology independence} is now also possible
+\autocite{Jackson_2019}: \textbf{technology independence} is now also possible
 across different \gls{frontend} teams, allowing them to select the best tools
 and frameworks for the job. Loose coupling enables the \textbf{scalibility} of
 both the \gls{frontend} and \gls{backend}. Now, the \gls{frontend} can also
@@ -280,15 +293,36 @@ enjoy the benefits of independent deploys, isolated risks, and smaller
 codebases.
 
 \textbf{Teams} also benefit greatly and can be reorganized to even greater
-benefit, as was discussed in section \fullref{feature-teams}.
+benefit, as was discussed in detail in section \fullref{feature-teams}.
 
-\dots %TODO
+These factors can have great results for a business. Due to their loose
+coupling, isolated features and independent deployments,
+\glsplural{microfrontend} can have vastly different release cycles, and
+iteration and \textbf{feature development} is usually faster because the teams
+don't have to wait for each other \autocite{Geers_2020}. \textcite{Rappl_2021},
+because there is an existing composition mechanism, different
+\glsplural{microfrontend} can be served to different users, enabling the
+introduction of \textbf{A/B testing} without significant changes in the
+\glsplural{microfrontend} themselves.
 
-\subsubsection{Known drawbacks, limitations and caveats}
+\subsection{Downsides and challenges of microfrontends}
 
 However, to use the words of Cam \textcite{Jackson_2019}: \textit{``there are no
 free lunches when it comes to software architecture - everything comes with a
 cost''}. The \gls{mfa} does indeed come with a significant amount of tradeoffs
 that need to be considered. 
 
-\dots %TODO
+\textbf{Organizational complexity} might be one of the biggest downsides of the
+\gls{microfrontend} approach. This makes \glsplural{microfrontend} harder to
+recommend to small development teams and companies. \textbf{Domain decoposition}
+is often difficult and relies on a lot of organizational and technical factors. 
+
+\textbf{Operational complexity} also increases: debugging, logging,
+monitoring... all get a lot more complicated. Communication between the
+different \glsplural{microfrontend} is generally also way more complex. If the
+\gls{microfrontend} solution introduces the need for an \gls{appshell}, this
+needs to be closely managed since it introduces a new single point of failure.
+
+Lastly, lots of challenges are inherited from the \gls{ma}, as described in
+\textit{``\nameref{sssec:microservice-challenges}''}.
+
