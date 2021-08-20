@@ -134,8 +134,16 @@ least slow and difficult.
 
 As is the case with lots of architectural patterns, there are many ways of
 implementation possible. With the \gls{mfa}, this is no different. Various
-options differ in complexity, goal, and mechanism. Below some of the most common
-ways of implementation are outlined.
+options differ in complexity, goal, and mechanism. 
+
+\Gls{microfrontend} often need to be composed to be able to reach a coherent
+application. Every microfrontend brings it's own \textbf{pages}. Often,
+\glsplural{microfrontend} also expose reusable components to be rendered in a
+variety of locations, to provide functionality. These are often called
+\textbf{fragments}.
+
+Below some of the possible implementation and composition techniques are
+outlined.
 
 \subsubsection{The \textit{web approach}}
 
@@ -160,15 +168,53 @@ The disadvantage here is the notoriously bad characteristics of
 \textcite{Souders_2013}, \glsplural{iframe} are up to 2 orders of magnitude more
 expensive to create than any other \gls{dom} element. Moreover, iframes also
 block the loading process of the rest of the page. Other suboptimal
-characteristics include accessibility, \gls{seo}, and security.
+characteristics include accessibility and \gls{seo}.
 
 The simplicity of the web approach is also where it lacks applicability for
 larger projects. One of the biggest reasons to implement
 \glsplural{microservice} and \glsplural{microfrontend} is scalibility, which the
-web approach is not suitable for.
+web approach is often not very suitable for.
 
 \subsubsection{Server-side composition}
-\dots %TODO
+
+To accomodate for scalibility and esure higher performance, the composition of
+the \glsplural{microfrontend} can be done before even reaching the end user's
+web browser. This will require dynamically composing the application on the
+server side.
+
+According to \textcite{Geers_2020}, this server-side composition can also
+provide a solid basis to be able to enable \gls{pe}, and is a big advantage for
+\gls{seo}.
+
+There are multiple techniques to enable server-side composition. These include,
+but are not limited to:
+\begin{itemize}
+  \item \textbf{\gls{ssi}}.\\
+  This uses an \textit{\gls{ssi} directive} (a HTML comment) to signify a
+  placeholder for fragments to be rendered into.
+  \begin{minted}{html}
+<!-- #include virtual="/fragment" -->
+  \end{minted}
+  It also support the execution of commands from the server, and even some
+  conditional logic \autocite{Apache_2013}. \gls{ssi} has been around for a long
+  time, this way most web servers have support for it. Because its directives
+  are HTML comments, using these on a server that is not configured for
+  \gls{ssi} won't crash the application (the fragment will just simply not be
+  rendered).
+  %
+  \spacedItem  \textbf{\gls{esi}}.\\
+  In stead of HTML comments, \gls{esi} uses \gls{xml}-based \gls{esi} tags:
+  \begin{minted}{xml}
+<esi:include  src="/fragment" 
+              alt="/fallback" 
+              onerror="continue" />
+  \end{minted}
+  \gls{esi} has a more extensive amount of functionalities (error handling,
+  fallbacks, ...) compared to \gls{ssi}. It is however more difficult to
+  implement \autocite{Rappl_2021}.
+\end{itemize}
+
+
 \subsubsection{Client-side composition}
 \dots %TODO
 \subsubsection{Universal composition}
