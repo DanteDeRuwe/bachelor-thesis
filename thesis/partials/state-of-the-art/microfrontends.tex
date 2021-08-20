@@ -216,10 +216,55 @@ but are not limited to:
 
 
 \subsubsection{Client-side composition}
-\dots %TODO
+
+While with server-side composition, a web server was used as an aggregation
+layer for integrating the \glsplural{microfrontend}; with client-side
+composition the goal is to put this responsibility onto the end user's browser
+itself. The browser will have to render one parent HTML document which contains
+the instructions to integrate all the individual \glsplural{microfrontend} into
+itself.
+
+This parent HTML document is often called the \textbf{\gls{appshell}}
+\autocite{Geers_2020}\autocite{Rappl_2021}. 
+
+The \gls{microfrontend} scripts and resources are often served from a
+\textbf{\gls{cdn}}.
+
+Client-side composition can be done in various different ways. A selection is
+outlined below:
+\begin{itemize}
+  \item \textbf{Web Components}\\
+  According to \textcite{Mozilla_WebComponents}, this term encompasses three
+  main technologies, namely custom elements, shadow \gls{dom} (that can provide
+  reusable \gls{dom} trees to ensure isolation) and HTML templates.
+  % 
+  \spacedItem \textbf{\Gls{spa} composition}\\
+  In recent years, client-side frameworks have become the staple of fast and
+  app-like experiences on the web. Most of these frameworks introduce a custom
+  client-side routing solution. When using \gls{spa} composition, the app shell
+  needs to take responsibility for the routing. The \gls{appshell} will now not
+  just render fragments using HTML, but execute scripts defined in the
+  \glsplural{microfrontend} themselves to be able to integrate them.
+\end{itemize}
+
+Client-side composition is great for delivering highly interactive, dynamic web
+applications. However, because the application is not served to the browser in
+full, the downsides include suboptimal \gls{seo} and a increased time to first
+load.
+
 \subsubsection{Universal composition}
 \label{sssec:universal-composition}
-\dots %TODO
+
+Aiming to combine the client-side and server-side composition approaches, and
+get the advantage of both, a hybrid approach can be achieved. Universal \em or
+\textit{isomorphic} \em composition describes the process of 
+\begin{enumerate}
+  \item composing the application on the server side, providing a fast initial
+  load and thus enabling \gls{pe} and optimal \gls{seo}
+  \item \textit{hydrating} the application so it becomes fully client-side
+  interactive, providing the benefits of a highly dynamic application.
+\end{enumerate}
+
 
 \subsection{Usage of microfrontends}
 \dots %TODO
