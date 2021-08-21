@@ -214,8 +214,9 @@ themselves are then fetched via their paths.
 
 The assemblies are stored in \gls{dll} files. To also enable the debugging of
 the \glsplural{microfrontend}, another type of file is also needed: the
-\gls{pdb} files. These are also called \textit{symbol} files, and they are the
-link between the debugger and the source code \autocite{Microsoft_2021}.
+\gls{pdb} files. As mentioned before, these are also called \textit{symbol}
+files, and they are the link between the debugger and the source code
+\autocite{Microsoft_2021}.
 
 On both the server and the client side, each assembly and symbol definition can
 be loaded in memory using the default \mintinline{csharp}|AssemblyLoadContext|:
