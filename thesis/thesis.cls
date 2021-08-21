@@ -138,14 +138,14 @@
 
 % Tekststijl voor lijst van figuren
 \titlecontents{figure}[0em]
-{\addvspace{-5pt}\sffamily}
+{\sffamily}
 {\thecontentslabel\hspace*{1em}}
 {}
 {\ \titlerule*[.5pc]{.}\;\thecontentspage}
 
 % Tekststijl voor lijst van tabellen
 \titlecontents{table}[0em]
-{\addvspace{-5pt}\sffamily}
+{\sffamily}
 {\thecontentslabel\hspace*{1em}}
 {}
 {\ \titlerule*[.5pc]{.}\;\thecontentspage}
