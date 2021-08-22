@@ -223,7 +223,11 @@ be loaded in memory using the default \mintinline{csharp}|AssemblyLoadContext|:
 AssemblyLoadContext.Default.LoadFromStream(dllStream, pdbStream);
 \end{minted}
 
-Once these are loaded, they can be passed on to the aforementioned
+This will allow the debuger to communicate with the browser at runtime, and
+makes sure the standard \textbf{debugging experience} that Blazor developers
+expect will work on this \gls{microfrontend} solution.
+
+Once the assemlies are loaded, they can be passed on to the aforementioned
 \mintinline{csharp}|AddMicroFrontends| extension method originating from the
 framework project.
 
