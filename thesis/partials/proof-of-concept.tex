@@ -103,36 +103,35 @@ another \gls{microfrontend} or the \gls{appshell}.
   \label{fig:poc-components}
 \end{sidewaysfigure}
 
-A summary of the components each \gls{microfrontend} exposes is shown below:
-\begin{framed}
-  \textit{Discover}  \gls{microfrontend}:
-    \begin{itemize}
-      \item[] Pages
+\begin{keeptogether}
+  A summary of the components each \gls{microfrontend} exposes is shown below:
+  \begin{framed}
+    \textit{Discover}  \gls{microfrontend}:
       \begin{itemize}
-        \item \texttt{GameDetails} with route \texttt{/game?id=\{id\}}
+        \item[] Pages
+        \begin{itemize}
+          \item \texttt{GameDetails} with route \texttt{/game?id=\{id\}}
+        \end{itemize}
+        \item[] Fragments
+        \begin{itemize}
+          \item \texttt{GameOverview} for slot \texttt{homepage}
+        \end{itemize}
       \end{itemize}
-      \item[] Fragments
+    \textit{Order} \gls{microfrontend}:
       \begin{itemize}
-        \item \texttt{GameOverview} for slot \texttt{homepage}
+        \item[] Pages
+        \begin{itemize}
+          \item \texttt{CartOverview} with route \texttt{/cart}
+          \item \texttt{OrderConfirmation} with route \texttt{/orderconfirmation}
+        \end{itemize}
+        \item[] Fragments
+        \begin{itemize}
+          \item \texttt{AddToCartButton} for slot \texttt{game-actions}
+          \item \texttt{CartLink} for slot \texttt{top-row-items}
+        \end{itemize}
       \end{itemize}
-    \end{itemize}
-  \textit{Order} \gls{microfrontend}:
-    \begin{itemize}
-      \item[] Pages
-      \begin{itemize}
-        \item \texttt{CartOverview} with route \texttt{/cart}
-        \item \texttt{OrderConfirmation} with route \texttt{/orderconfirmation}
-      \end{itemize}
-      \item[] Fragments
-      \begin{itemize}
-        \item \texttt{AddToCartButton} for slot \texttt{game-actions}
-        \item \texttt{CartLink} for slot \texttt{top-row-items}
-      \end{itemize}
-    \end{itemize}
-\end{framed} 
-
-
-
+  \end{framed} 
+\end{keeptogether}
 
 
 \section{Development}
