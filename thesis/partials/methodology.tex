@@ -21,29 +21,43 @@ accomodate the research objective:
 
 \section{Theoretical study}
 To be able to answer the research questions, a theoretical study was conducted
-in 3 phases:
-\begin{itemize}
-    \item Phase 1: Providing an overview of the microfrontend architecture and
-    the key differences with a monolithic architecture.
-    \item Phase 2: Exploring implementation patterns, challenges and best
-    practices of the microfrontends pattern in a Blazor WebAssembly project.
-    \item Phase 3: Investigating the benefits and drawbacks of using the
-    microfrontends architecture with the goal of enabling distributed
-    development in a company context.
-\end{itemize}
+in 4 phases:\\
 
-\subsection{Phase 1}
-\dots %TODO
+\begin{tabularx}{\textwidth}{lX}
+    Phase 1: & Investigating what distributed development entails, and what
+    benefits and challenges it brings within a company context.\blankline\\
+    Phase 2: & Providing an overview of how the \gls{mfa} pattern came to
+    fruition historically, and laying out the key differences with other more
+    \gls{monolithic} architectures.\blankline\\
+    Phase 3: & Exploring characteristics, implementation patterns, benefits, challenges and
+    best practices of the \gls{mfa} pattern.\blankline\\
+    Phase 4: & Investigating the usage of the \gls{mfa} pattern in a Blazor \gls{wasm}
+    project, and also looking at the possible challenges and their probable
+    solutions.\blankline
+\end{tabularx}
 
-\subsection{Phase 2}
-\dots %TODO
+The existing literature was scoured in the form of academic papers, conferences,
+books, blogposts and talks from renowned technology evangelists, etc... 
 
-\subsection{Phase 3}
-\dots %TODO
+The results of this theoretical study were incorporated into
+Chapter~\fullref{ch:state-of-the-art}. 
 
-\subsection{Phase 4}
-\dots %TODO
 
+%%%
 
 \section{Proof of concept}
-\dots %TODO
+
+To be able to answer the research objectives, a proof-of-concept application was
+created using various online and offline resources to aid in the
+conceptualization and development process. These resources included academic
+papers, books and blogposts; as well as video presentations and conference
+talks. Even open-source code found on GitHub\footnote{Code sources include the
+ASP.NET Core repo found on \url{https://github.com/dotnet/aspnetcore} and the
+Piral.Blazor repo found on \url{https://github.com/smapiot/Piral.Blazor}} was
+used to find good solutions for the problems at hand.
+
+Some of these concepts were tested seperately in a small ``dummy'' application
+before being incorporated into the main solution, to ensure their robustness.
+
+The development process and results of the proof-of-concept application can be
+found in Chapter~\fullref{ch:proof-of-concept}.
