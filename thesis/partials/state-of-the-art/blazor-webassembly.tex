@@ -18,18 +18,19 @@ Executing .NET binaries within a web browser is made possible by
 the fourth language to run natively in web browsers, alongside HTML, CSS and
 Javascript \autocite{Couriol_2019}. 
 
-Rather than \gls{transpiling} every .NET assembly to \gls{wasm}, or relying on
-plugins, Blazor just relies on this .NET runtime that can run inside the browser
-sandbox, just like regular Javascript does. Because of this applications can
-leverage all standard web technologies like websockets, the \gls{dom}, and all
-other browser \glsplural{api}, via \textbf{\gls{jsinterop}}. It also ensures the
-various security protections put in place by the sandbox environment to prevent
-malicious client-side attacks.
+An overview of how Blazor works is provided in Figure~\ref{fig:blazor-wasm}.
 
-The current implementation uses the \gls{wasm}-compiled version of the
+Rather than \gls{transpiling} every .NET assembly to \gls{wasm}, or relying on
+plugins, Blazor just relies on a .NET runtime that can run inside the browser
+sandbox, just like regular Javascript does. The current implementation of Blazor
+uses the \gls{wasm}-compiled version of the
 Mono\hreffootnote{https://mono-project.com/} platform -- an open source .NET
 runtime -- as an \gls{il} interpreter to execute managed code at runtime.
 
+Because of this applications can leverage all standard web technologies like
+websockets, the \gls{dom}, and all other browser \glsplural{api}, via
+\textbf{\gls{jsinterop}}. It also ensures the various security protections put
+in place by the sandbox environment to prevent malicious client-side attacks.
 
 \begin{figure}
   \centering
@@ -83,11 +84,11 @@ Another challenge that can present itself is \textbf{debugging}. When running
 Blazor DLLs on a \gls{wasm} runtime, a mechanism is needed to provide the link
 between the browser and the debugging tools: the debugging proxy. According to
 \textcite{Abdalla_2020}, this is a seperate process that gets launched to load
-so-called \textit{symbol} files or \gls{pdb} files. These are also called
-\textit{symbol} files, and they are the link between the debugger and the source
-code \autocite{Microsoft_2021}. Loading the \gls{microfrontend} symbol files
-dynamically is a challenge that would need to be overcome to allow the debugging
-of Blazor applications using \glsplural{microfrontend}.
+so-called \gls{pdb} files. These are also called \textit{symbol} files, and they
+are the link between the debugger and the source code \autocite{Microsoft_2021}.
+Loading the \gls{microfrontend} symbol files dynamically is a challenge that
+would need to be overcome to allow the debugging of Blazor applications using
+\glsplural{microfrontend}.
 
 These are challenges that would not come up when the composition would be done
 at build-time like with component libraries. Luckily, the .NET 5 version of
