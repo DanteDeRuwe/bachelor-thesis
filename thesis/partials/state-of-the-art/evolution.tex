@@ -45,11 +45,17 @@ the client. This results in the following tiers \autocite{Aarsten_etal_1996}:
     \item The data(base) tier that handles the storage of domain objects and data.
 \end{itemize}
 
+These architectures are compared in Figure~\ref{fig:two-vs-three-tier-architecture}.
 
-\begin{figure} %TODO 
+\begin{figure}
     \centering
-    \includegraphics[scale=.8]{example-image}
-    \caption[Two vs three tier architecture]{Two vs three tier architecture...}
+    \includegraphics[width=\textwidth]{two-vs-three-tier-architecture.png}
+    \caption[Two vs three tier architecture]{A diagram showing the difference
+        between a two-tier \textit{(left)} and three-tier \textit{(right)}
+        architecture. The two-tier architecture communicates to the data store
+        without an intermediary application server, unlike the three-tier
+        architecture.}
+    \label{fig:two-vs-three-tier-architecture}
 \end{figure}
 
 With the introduction of this physical seperation, the next challenge was the
@@ -95,12 +101,6 @@ development}, where the \gls{gui} is handled in the so-called ``\gls{frontend}''
 the business and data logic are dealt with by a ``\gls{backend}'' system. The
 communication between these two parts can be carried out in multiple ways, but
 one of the most common ways is via a (\gls{restful}) \gls{api}.
-
-\begin{figure} %TODO 
-    \centering
-    \includegraphics[scale=.8]{example-image}
-    \caption[Split stack development]{Split stack development...}
-\end{figure}
 
 Decoupling the frontend presentation logic from the \gls{backend} business logic
 introduces some major benefits: \autocite{Dunkley_2016}
@@ -204,13 +204,15 @@ the \gls{ma} as an implementation of \gls{soa} is highly debated. Read more on
 \hrefself{https://martinfowler.com/articles/microservices\#MicroservicesAndSoa}.}
 
 
-% TODO more explaining
+A visual overview of the \gls{ma} is shown in Figure~\ref{fig:microservices}.
 
 
 \begin{figure} %TODO 
     \centering
-    \includegraphics[scale=.8]{example-image}
-    \caption[Microservices]{Microservices...}
+    \includegraphics[width=\textwidth]{microservices.png}
+    \caption[Microservices]{A diagram showing an example of a \gls{ma} with
+    services A through D.}
+    \label{fig:microservices}
 \end{figure}
 
 
@@ -257,13 +259,16 @@ using a facade over all the underlying \glsplural{microservice}: usually called
 an \textit{\gls{api_gateway}}. This service can aggregate content gathered from
 multiple backend calls, and serve it. Whenever this layer becomes too large, or
 becomes bloated with logic, a \textit{\gls{bff}} pattern can be more useful:
-this is essentially equivalent to an \textit{\gls{api_gateway}} per client.
+this is essentially equivalent to an \textit{\gls{api_gateway}} per client. This
+is shown in Figure~\ref{fig:bff}.
 
 
-\begin{figure} %TODO 
+\begin{figure}
     \centering
-    \includegraphics[scale=.8]{example-image}
-    \caption[Backend for frontend pattern]{The backend for frontend pattern...}
+    \includegraphics[width=\textwidth]{bff.png}
+    \caption[Backend for frontend pattern]{A diagram showing an example of the
+    \gls{bff} pattern with a mobile and a web client.}
+    \label{fig:bff}
 \end{figure}
 
 
