@@ -27,4 +27,30 @@
 
 \chapter*{Abstract}
 \label{ch:abstract}
-% TODO
+
+
+With the \gls{wasm} \textit{(WASM)} standard a new set of web applications have
+been made possible. Within the .NET ecosystem, the most popular solution for
+generating \gls{wasm} applications is called Blazor. This framework allows
+building interactive web UIs using C\# instead of JavaScript. One challenge in
+this approach is that there is no direct way of enabling distributed
+development. While component libraries can be created independently, knowledge
+in the main application would be required for integration. Using a \gls{mfa}
+this relationship could be inversed. 
+
+This thesis investigates what is needed to empower the distributed development
+of large-scale Blazor-based web applications. While the advantages of the
+\gls{mfa} pattern are closely related with those of other distributed
+architectures such as the \gls{ma}, a theoretical study uncovered that
+\glsplural{microfrontend} have their own specific set of challenges that need to
+be overcome. A proof-of-concept solution focussed around a realistic business
+case was constructed, focussing on \gls{pe}. To achieve this, a universal
+composition strategy was used. A reusable framework library was created that can
+provide any Blazor application with components to achieve dynamic fragment
+rendering and client-side routing, keeping also the debugging experience in
+mind.
+
+As the adoption of the Blazor framework and the \gls{mfa} pattern will mature,
+this thesis could be a valuable starting point for further research, and a
+valuable resource for .NET-focussed development teams
+creating large-scale full-stack web applications. 
