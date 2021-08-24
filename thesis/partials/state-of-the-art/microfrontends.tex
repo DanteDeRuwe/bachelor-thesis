@@ -34,7 +34,7 @@ tends to be expensive \autocite{Geers_2020}.
 While component-based paradigms introduced by libraries and frameworks (such as
 React\hreffootnote{https://reactjs.org},
 Angular\hreffootnote{https://angular.io} and
-Vue\hreffootnote{https://vuejs.org}) can aliviate some of the complexity of the
+Vue\hreffootnote{https://vuejs.org}) can alleviate some of the complexity of the
 current frontend systems, they still do not enable  fully autonomous, decoupled,
 modular and/or distributed development of large web applications.
 
@@ -53,7 +53,7 @@ relatively small codebase, is focussed around one specific domain or company
 mission, and should be modular, decoupled and independently developed; most
 optimally by autonomous teams.
 
-A visual represtation of the \gls{mfa} pattern is shown in
+A visual representation of the \gls{mfa} pattern is shown in
 Figure~\ref{fig:microfrontends}.
 
 
@@ -74,7 +74,7 @@ architectures is the impact on \textbf{team structure} and organizational shift
 So, while \glsplural{microfrontend} have lots of technical aspects to consider,
 it is important to reflect on the organizational aspects first.
 
-As disussed in \fullref{ssec:microservices}, when adopting the \gls{ma}, a shift
+As discussed in \fullref{ssec:microservices}, when adopting the \gls{ma}, a shift
 has to be made to smaller independent teams around a specific business need.
 However, this only brings about changes in the \gls{backend} teams, while the
 \gls{frontend}-oriented development team will usually not follow suit. This
@@ -82,7 +82,7 @@ keeps the overarching team structure ``horizontal'': divided per layer or
 technology.
 
 One of the benefits of horizontal teams is that this structure enables experts
-focussing on specific technologies to co-operate together as one team. This way
+focussing on specific technologies to co-operate together as one team. This way,
 they can ensure a high technical standard within the boundaries of their
 respective areas of expertise.
 
@@ -90,7 +90,7 @@ In geographically distributed teams, the consequence could be that these
 technical teams operate from entirely different locations. According to
 \textcite{Smite_etal_2010}, this can result in compatibility issues between software
 layers and a less customer-focused development model. Moreover, disputes can
-arise between the different teams because no team has full responsibility over
+arise between the different teams because no team has full responsibility for
 the delivery of any feature.
 
 \subsubsection{Feature teams}
@@ -111,7 +111,7 @@ This feature team approach has multiple advantages: \autocite{Smite_etal_2010}
   highest amount of business value.
   % 
   \spacedItem \textbf{Decreased need for ``expensive'' communication}\\
-  Communications within a team is usually faster and more informal than
+  Communication within a team is usually faster and more informal than
   communications between teams, especially if teams are geographically
   distributed. Since a feature can be developed by a single team, the need for
   expensive communication decreases.
@@ -132,7 +132,7 @@ systems. More time will have to be spent up-front laying a solid foundation for
 conventions and standards. The effort to then maintain the consistency of the
 software system is usually where the software architect has a key role. In
 larger projects, a technical service team can be assembled to provide technical
-coherence across different distributed systems \autocite{Smite_etal_2010}. WHile
+coherence across different distributed systems \autocite{Smite_etal_2010}. While
 this is something to consider, this also means an increased emphasis on better
 code quality right from the start, which could prove very beneficial in the long
 term \autocite{LarmanVodde_2008}.
@@ -149,7 +149,7 @@ implementation possible. With the \gls{mfa}, this is no different. Various
 options differ in complexity, goal, and mechanism. 
 
 \Gls{microfrontend} often need to be composed to be able to reach a coherent
-application. Every microfrontend brings it's own \textbf{pages}. Often,
+application. Every \Gls{microfrontend} brings its own \textbf{pages}. Often,
 \glsplural{microfrontend} also expose reusable components to be rendered in a
 variety of locations, to provide functionality. These are often called
 \textbf{fragments}.
@@ -160,13 +160,13 @@ outlined.
 \subsubsection{The \textit{web approach}}
 
 The most straightforward way of leveraging the \gls{mfa} pattern is by not using
-any integration technique at all. In stead, there can be opted for mechanisms
+any integration technique at all. Instead, there can be opted for mechanisms
 that exist in the world of the web. 
 
 As described by \textcite{Rappl_2021}, the \textit{web approach}'s main approach
-for \gls{microfrontend} referencence is by way of their \gls{url}.
+for \gls{microfrontend} reference is by way of their \gls{url}.
 \textbf{Hyperlinks} can be used to let the user navigate between different
-\glsplural{microfrontend}. This however compromises on user experience and
+\glsplural{microfrontend}. This however, compromises user experience and
 usability. With this approach, for example, elements from multiple
 \glsplural{microfrontend} cannot be rendered on the same page. 
 
@@ -184,15 +184,15 @@ characteristics include accessibility and \gls{seo}.
 
 The simplicity of the web approach is also where it lacks applicability for
 larger projects. One of the biggest reasons to implement
-\glsplural{microservice} and \glsplural{microfrontend} is scalibility, which the
+\glsplural{microservice} and \glsplural{microfrontend} is scalability, which the
 web approach is often not very suitable for.
 
 \subsubsection{Server-side composition}
 
-To accomodate for scalibility and esure higher performance, the composition of
+To accommodate for scalability and ensure higher performance, the composition of
 the \glsplural{microfrontend} can be done before even reaching the end user's
 web browser. This will require dynamically composing the application on the
-server side.
+server-side.
 
 According to \textcite{Geers_2020}, this server-side composition can also
 provide a solid basis to be able to enable \gls{pe}, and is a big advantage for
@@ -231,7 +231,7 @@ but are not limited to:
 
 While with server-side composition, a web server was used as an aggregation
 layer for integrating the \glsplural{microfrontend}; with client-side
-composition the goal is to put this responsibility onto the end user's browser
+composition, the goal is to put this responsibility onto the end user's browser
 itself. The browser will have to render one parent HTML document which contains
 the instructions to integrate all the individual \glsplural{microfrontend} into
 itself.
@@ -253,15 +253,16 @@ outlined below:
   \spacedItem \textbf{\gls{spa} composition}\\
   In recent years, client-side frameworks have become the staple of fast and
   app-like experiences on the web. Most of these frameworks introduce a custom
-  client-side routing solution. When using \gls{spa} composition, the app shell
-  needs to take responsibility for the routing. The \gls{appshell} will now not
-  just render fragments using HTML, but execute scripts defined in the
-  \glsplural{microfrontend} themselves to be able to integrate them.
+  client-side routing solution. When using \gls{spa} composition, the
+  \gls{appshell} needs to take responsibility for the routing. The
+  \gls{appshell} will now not just render fragments using HTML, but execute
+  scripts defined in the \glsplural{microfrontend} themselves to be able to
+  integrate them.
 \end{itemize}
 
 Client-side composition is great for delivering highly interactive, dynamic web
 applications. However, because the application is not served to the browser in
-full, the downsides include suboptimal \gls{seo} and a increased time to first
+full, the downsides include suboptimal \gls{seo} and an increased time to first
 load.
 
 \subsubsection{Universal composition}
@@ -271,7 +272,7 @@ Aiming to combine the client-side and server-side composition approaches, and
 get the advantage of both, a hybrid approach can be achieved. Universal -- or
 \textit{isomorphic} -- composition describes the process of 
 \begin{enumerate}
-  \item composing the application on the server side, providing a fast initial
+  \item composing the application on the server-side, providing a fast initial
   load and thus enabling \gls{pe} and optimal \gls{seo}
   \item \textit{hydrating} the application so it becomes fully client-side
   interactive, providing the benefits of a highly dynamic application.
@@ -308,7 +309,7 @@ codebases.
 benefit, as was discussed in detail in section \fullref{feature-teams}.
 
 These factors can have great results for a business. Due to their loose
-coupling, isolated features and independent deployments,
+coupling, isolated features, and independent deployments,
 \glsplural{microfrontend} can have vastly different release cycles, and
 iteration and \textbf{feature development} is usually faster because the teams
 don't have to wait for each other \autocite{Geers_2020}. \textcite{Rappl_2021},

@@ -27,7 +27,7 @@ uses the \gls{wasm}-compiled version of the
 Mono\hreffootnote{https://mono-project.com/} platform -- an open source .NET
 runtime -- as an \gls{il} interpreter to execute managed code at runtime.
 
-Because of this applications can leverage all standard web technologies like
+Because of this, applications can leverage all standard web technologies like
 websockets, the \gls{dom}, and all other browser \glsplural{api}, via
 \textbf{\gls{jsinterop}}. It also ensures the various security protections put
 in place by the sandbox environment to prevent malicious client-side attacks.
@@ -46,7 +46,7 @@ in place by the sandbox environment to prevent malicious client-side attacks.
 \subsection{Current state of Blazor and microfrontends}
 
 According to \textcite{Rappl_MunichNETMeetup_2020}, an easy and effective way to
-make distributed development possible in a Blazor WebAssembly project, is simply
+make distributed development possible in a Blazor \gls{wasm} project, is simply
 to use separately distributed \textbf{component libraries}. In Blazor -- and in
 the .NET ecosystem in general -- NuGet\hreffootnote{https://www.nuget.org} is
 the standardized way of library distribution. One could create an \gls{appshell}
@@ -60,7 +60,7 @@ the application to work, which makes this approach sub-optimal regarding
 scalability. This integration method re-introduces coupling, and is generally
 discouraged \autocite{Jackson_2019}.
 
-Integrating \textbf{Blazor components in a JavaScript based app shell} is
+Integrating \textbf{Blazor components in a JavaScript-based app shell} is
 another option. While this has been done succesfully\footnote{See an example
 here: \hrefself{https://github.com/lauchacarro/MicroFrontend-Blazor-React}}, and
 there are already some frameworks that support this idea\footnote{For example
@@ -75,7 +75,7 @@ the client-side \textbf{routing} starts to present a problem. When defining a
 page component in Blazor, the \texttt{@page} directive can be used. This will
 later provide the generated class with a \texttt{RouteAttribute} with a value
 that indicates the component's desired route template. The standard Blazor
-router will then use refletion on the specified \texttt{AppAssembly} to scan the
+router will then use reflection on the specified \texttt{AppAssembly} to scan the
 loaded assemblies for these \texttt{RouteAttribute}s \autocite{Sainty_2019}.
 This starts to become an issue if the assemblies are dynamically loaded -- and
 thus not present upon compilation. 
@@ -83,7 +83,7 @@ thus not present upon compilation.
 Another challenge that can present itself is \textbf{debugging}. When running
 Blazor DLLs on a \gls{wasm} runtime, a mechanism is needed to provide the link
 between the browser and the debugging tools: the debugging proxy. According to
-\textcite{Abdalla_2020}, this is a seperate process that gets launched to load
+\textcite{Abdalla_2020}, this is a separate process that gets launched to load
 so-called \gls{pdb} files. These are also called \textit{symbol} files, and they
 are the link between the debugger and the source code \autocite{Microsoft_2021}.
 Loading the \gls{microfrontend} symbol files dynamically is a challenge that

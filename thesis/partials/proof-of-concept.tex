@@ -38,9 +38,9 @@ This encompasses the following functionalities:
 
 This domain was chosen because the technical needs of e-commerce solutions tend
 to overlap with the set-out desired characteristics of the proof-of-concept
-application. In a real world scenario, obviously the reverse process would be
-necessary, and one would have to  pick the best suiting implementation pattern
-for the case at hand. 
+application. In a real-world scenario, the reverse process would be necessary,
+and one would have to  pick the best suiting implementation pattern for the case
+at hand. 
 
 The universal rendering will make sure the application has a faster initial load
 and better \gls{seo} than a purely client-side rendered application, while
@@ -90,7 +90,7 @@ mainly consists of 3 parts:
 
 A visual overview for the component and page composition for the \gls{poc}
 application is shown in Figure~\ref{fig:poc-components}. Pages are registered on
-a certain route and fragments are registed into a slot (with a unique name) in
+a certain route and fragments are registered into a slot (with a unique name) in
 another \gls{microfrontend} or the \gls{appshell}.
 
 \begin{sidewaysfigure}
@@ -157,7 +157,7 @@ This solution will serve as the \gls{appshell} of the \gls{microfrontend}
 application. It consists of a client and a server part.
 
 Next, pre-rendering was enabled in the \gls{appshell}, using a strategy outlined
-in a blogpost by Jon Hilton
+in a blog post by Jon Hilton
 \footnote{\url{https://jonhilton.net/blazor-wasm-prerendering/}}.
 
 \subsection{Process and results}
@@ -202,11 +202,11 @@ make use of the \mintinline{csharp}|AddMicroFrontends| extension method, it
 should dynamically load the \gls{microfrontend} assemblies to be able to pass these as
 an argument.
 
-On the server side, as by way of proof of concept, the \gls{appshell} fetches
+On the server-side, as by way of proof of concept, the \gls{appshell} fetches
 the \gls{microfrontend} assemblies from disk, acting as an ad hoc \gls{cdn}. The
 server then also exposes the file paths via a \gls{restful}
 \gls{api}.\footnote{In a real-world scenario, these responsibilities would
-probably be assigned to a dedicated service.} From the client side, the file
+probably be assigned to a dedicated service.} From the client-side, the file
 paths are fetched via an \gls{http} call to the server \gls{api}, and the files
 themselves are then fetched via their paths.
 
@@ -223,16 +223,16 @@ be loaded in memory using the default \mintinline{csharp}|AssemblyLoadContext|:
 AssemblyLoadContext.Default.LoadFromStream(dllStream, pdbStream);
 \end{minted}
 
-This will allow the debuger to communicate with the browser at runtime, and
+This will allow the debugger to communicate with the browser at runtime, and
 makes sure the standard \textbf{debugging experience} that Blazor developers
 expect will work on this \gls{microfrontend} solution.
 
-Once the assemlies are loaded, they can be passed on to the aforementioned
+Once the assemblies are loaded, they can be passed on to the aforementioned
 \mintinline{csharp}|AddMicroFrontends| extension method originating from the
 framework project.
 
-Next to fragment rendering, dynamic loading and routing, the \gls{appshell} also
-has responsibility over some {\textbf{shared capabilities} such as navigation,
+Next to fragment rendering, dynamic loading, and routing, the \gls{appshell} also
+has responsibility for some {\textbf{shared capabilities} such as navigation,
 and basic \textbf{layout}.
  
 \subsubsection{The microfrontends}

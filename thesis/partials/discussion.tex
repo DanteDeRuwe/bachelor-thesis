@@ -14,20 +14,20 @@
 % Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
 %onderzoek?
 
-The \gls{mfa} can provide development teams with significant benefits, if they
+The \gls{mfa} can provide development teams with significant benefits if they
 are willing to accept the drawbacks and combat the challenges that go along with
 its implementation. 
 
-The modular character of this architecture pattern can in theory be one of the
+The modular character of this architecture pattern can, in theory, be one of the
 most effective ways to achieve loosely coupled end-to-end services
 (\textit{``from database to \gls{ui}'')}, which can be developed and managed by
 autonomous cross-functional teams. This can enable development teams to be
-(geographically) distributed. Another benefit of operating autonomously, is the
+(geographically) distributed. Another benefit of operating autonomously is the
 reduced waiting time and faster release cycles for the individual modules.
 
-However, this organizational shift might in some cases not be easy or even
-possible. Especially in smaller companies, the advantages and disadvantages
-should carefully be weighed.
+However, this organizational shift might not be easy or even possible in some
+cases. Especially in smaller companies, the advantages and disadvantages should
+carefully be weighed.
 
 On the technical side, creating a solid \gls{microfrontend} solution has its
 challenges too. Creating a robust application all starts with a good conceptual
@@ -41,10 +41,10 @@ Chapter~\fullref{ch:proof-of-concept}.
 Creating a real-world \gls{microfrontend} solution within the .NET ecosystem
 using Blazor \gls{wasm} is possible, but like everything, can be improved.
 Further research and experimental work can be done on providing a way to enable
-every microfrontend to bring its own dependencies and static files, while still
-ensuring isolation and performance, and avoiding runtime conflicts. Also
-research in how to develop the microfrontends seperately from the full
-\gls{appshell} can be helpful. One way of potentially achieving this is to
+every \gls{microfrontend} to bring its own dependencies and static files, while
+still ensuring isolation and performance, and avoiding runtime conflicts. Also
+research in how to develop the \glsplural{microfrontend} separately from the
+full \gls{appshell} can be helpful. One way of potentially achieving this is to
 bundle up the \gls{appshell} into some kind of emulator to enable local
 development. This would also enable the local debugging of these
 \glsplural{microfrontend} without the need for the full \gls{appshell}.
@@ -57,5 +57,5 @@ of dynamic loading and server-side rendering are being introduced.
 While some form of \glsplural{microfrontend} have made their introduction in
 large companies recently, the architecture pattern is just slowly breaking into
 the \textit{mainstream} development community. It will be interesting to see
-what solutions and frameworks will come up to make development of these modular
-applications easier than ever before.
+what solutions and frameworks will come up to make the development of these
+modular applications easier than ever before.
