@@ -18,10 +18,42 @@
 \IfLanguageName{english}{
 \selectlanguage{dutch}
 \chapter*{Samenvatting}
+
+Door de introductie van de \gls{wasm} \textit{(WASM)} standaard is een hele
+nieuwe waaier aan webapplicaties mogelijk. Binnen het .NET ecosysteem is Blazor
+het meest gebruikte \textit{framework} om \gls{wasm} applicaties te genereren.
+Dit framework maakt het mogelijk om interactieve \textit{user interfaces} te
+bouwen, en hierbij gebruik te maken van C\# in de plaats van JavaScript. Een
+uitdaging die bij deze manier van werken komt kijken, is dat er geen
+rechtstreekse manier is om een gedistribueerde ontwikkeling mogelijk te maken.
+Er kan gebruik gemaakt worden van onafhankelijke \textit{component libraries},
+maar dan moet de uiteindelijke web applicatie kennis hebben van deze
+\textit{libraries} bij de integratie. Een \textit{\gls{microfrontend}}
+architectuur kan deze relatie potentieel omkeren.
+
+Deze bachelorproef onderzoekt wat noodzakelijk is om Blazor applicaties
+gedristibueerd en op grote schaal te ontwikkelen. Hoewel de voordelen van de
+\textit{\gls{microfrontend}} architectuur grotendeels overlappen met die van
+andere gedistribueerde architecturen zoals de \textit{\gls{microservice}}
+architectuur, heeft een theoretisch onderzoek de uitdagingen die eigen zijn aan
+de \textit{\gls{microfrontend}} architectuur kunnen blootleggen. Een
+proof-of-concept applicatie werd daarna gecre\"eerd rond een specifieke
+\textit{business case}, waarbij onder andere gefocust werd op zgn.
+\textit{\gls{pe}}. Om dit te bereiken werd een universele compositiestrategie
+gehanteerd. En herbruikbare \textit{framework library} werd ook ontwikkeld, dat
+voor een Blazor applicatie enkele nuttige componenten kan bieden om dynamisch
+zgn. \textit{fragments} weer te geven en \textit{client-side routing} mogelijk
+te maken. Ook werd hierbij gedacht aan de mogelijkheid om te debuggen.
+
+Aangezien het gebruik van Blazor en de \textit{\gls{microfrontend}} architectuur
+momenteel in de lift zit, kan deze bachelorproef een startpunt zijn voor verder
+onderzoek, of een nuttige bron van informatie voor .NET ontwikkelbedrijven en
+-teams die op grote schaal \textit{full-stack} web applicaties ontwikkelen.
+
+
 \selectlanguage{english}
 }{}
 
-% TODO
 
 % --- Abstract ---
 
