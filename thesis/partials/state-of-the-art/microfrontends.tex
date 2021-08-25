@@ -107,7 +107,7 @@ responsibility for the features they develop.
 This feature team approach has multiple advantages: \autocite{Smite_etal_2010}
 \begin{itemize} 
   \item \textbf{Optimized feature development}\\
-  Focussing on features in stead of technical details aids in delivering the
+  Focussing on features instead of technical details aids in delivering the
   highest amount of business value.
   % 
   \spacedItem \textbf{Decreased need for ``expensive'' communication}\\
@@ -163,8 +163,8 @@ The most straightforward way of leveraging the \gls{mfa} pattern is by not using
 any integration technique at all. Instead, there can be opted for mechanisms
 that exist in the world of the web. 
 
-As described by \textcite{Rappl_2021}, the \textit{web approach}'s main approach
-for \gls{microfrontend} reference is by way of their \gls{url}.
+As described by \textcite{Rappl_2021}, the \textit{web approach}'s main
+mechanism for \gls{microfrontend} reference is by way of their \gls{url}.
 \textbf{Hyperlinks} can be used to let the user navigate between different
 \glsplural{microfrontend}. This however, compromises user experience and
 usability. With this approach, for example, elements from multiple
@@ -215,7 +215,7 @@ but are not limited to:
   rendered).
   %
   \spacedItem  \textbf{\gls{esi}}.\\
-  In stead of HTML comments, \gls{esi} uses \gls{xml}-based \gls{esi} tags:
+  Instead of HTML comments, \gls{esi} uses \gls{xml}-based \gls{esi} tags:
   \begin{minted}{xml}
 <esi:include  src="/fragment" 
               alt="/fallback" 
@@ -223,7 +223,9 @@ but are not limited to:
   \end{minted}
   \gls{esi} has a more extensive amount of functionalities (error handling,
   fallbacks, ...) compared to \gls{ssi}. It is however more difficult to
-  implement \autocite{Rappl_2021}.
+  implement, because while \gls{ssi} can work for nearly all web servers,
+  \gls{esi} requires more specialized set-ups that are more complex to configure
+  \autocite{Rappl_2021}.
 \end{itemize}
 
 
