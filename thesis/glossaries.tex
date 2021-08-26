@@ -28,7 +28,7 @@
 \newglossaryentry{monolithic}
 {
     name=monolithic,
-    description={\textit{See} \gls{monolith}.}
+    description={Built as a monolith. \textit{See} \gls{monolith}.}
 }
 
 \newglossaryentry{gui}
@@ -86,7 +86,7 @@
 {
     name=API,
     long={application programming interface},
-    description={An API or \Glsentrylong{api} describes a set of commmands and
+    description={An API or \glsentrylong{api} describes a set of commands and
     protocols for the communication between software systems without having to
     know their exact implementation. },
     first=\glsacronymnfirst{api}
@@ -104,8 +104,8 @@
     long={representational state transfer},
     description={
     \Glsentrylong{rest} is an architectural style for distributed hypermedia
-    systems. When a RESTful \gls{api} is called, a transfer between the server
-    and the client will occur that represents the state of the requested
+    systems. When a RESTful \glsentryname{api} is called, a transfer between the
+    server and the client will occur that represents the state of the requested
     resource \autocite{Avraham_2017}.
     }
     first=REST % no full mention
@@ -116,11 +116,10 @@
     name=RPC,
     long={remote procedure call},
     description={
-    A \Glsentrylong{rpc} is an interprocess communication mechanism for
-    client-server applications. It is also known as a subroutine call or a
-    function call. 
+    A \Glsentrylong{rpc}, also known as a subroutine call or a function call, is
+    a communication mechanism for client-server applications.
     },
-    first=\glsacronymnfirst{rpc} % no full mention
+    first=\glsacronymnfirst{rpc}
 }
 
 \newglossaryentry{endpoint}
@@ -190,8 +189,9 @@
     name=SOAP, 
     long={simple object access protocol},
     description={
-    \Glsentrylong{soap}. SOAP is a method of transferring messages formatted in
-    XML over the Internet.},
+    \Glsentrylong{soap}, a method of transferring messages formatted in XML over
+    the Internet.
+    },
     first=SOAP
 }
 
@@ -208,10 +208,11 @@
 \newglossaryentry{api_gateway}
 {  
     name=API gateway, 
-    description={An API gateway accepts API requests from a
-    client, directs them to the appropriate services. Typically it handles a
-    request by invoking multiple microservices and aggregating the results
-    \autocite{Nginx_2021}.}
+    description={
+    An API gateway accepts API requests from a client, and directs them to the
+    appropriate services. Typically it handles a request by invoking multiple
+    microservices and aggregating the results \autocite{Nginx_2021}.
+    }
 }
 
 
@@ -234,12 +235,12 @@
 \newglossaryentry{mfa}
 {
     name={microfrontend architecture}, 
-    description={The microfrontend architecture
-    is an architecture style that splits up an application into distributed
-    modules that are focussed around a specific business capability. Most of the
-    time these individual modules are managed by autonomous cross-functional
-    teams. \autocite{Geers_2020}\autocite{Rappl_2021}.\textit{See also}
-    \gls{microfrontend}.}   
+    description={
+    The microfrontend architecture is an architecture style that splits up an
+    application into distributed modules that are focussed around a specific
+    business capability. Most of the time these individual modules are managed
+    by autonomous cross-functional teams \autocite{Geers_2020}\autocite{Rappl_2021}.
+    }   
 }
 
 \newglossaryentry{microfrontend}
@@ -396,8 +397,10 @@
 \newglossaryentry{appshell}
 {
     name={application shell},
-    description={Also called \texit{app shell}, serves as a parent application
-    for the integration of microfrontends \autocite{Geers_2020}\autocite{Rappl_2021}.}
+    description={
+    Also called \texit{app shell}. It serves as a parent application for the
+    integration of microfrontends \autocite{Geers_2020}\autocite{Rappl_2021}.
+    }
 }
 
 \newglossaryentry{cli}

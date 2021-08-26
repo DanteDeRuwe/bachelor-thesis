@@ -102,7 +102,7 @@ the business and data logic are dealt with by a ``\gls{backend}'' system. The
 communication between these two parts can be carried out in multiple ways, but
 one of the most common ways is via a (\gls{restful}) \gls{api}.
 
-Decoupling the frontend presentation logic from the \gls{backend} business logic
+Decoupling the \gls{frontend} presentation logic from the \gls{backend} business logic
 introduces some major benefits: \autocite{Dunkley_2016}
 \begin{itemize}
     \item \textbf{Multiple clients}\\
@@ -159,7 +159,7 @@ contract \autocite{Koren_Klamma_2018}. Of course, time and effort needs to be
 spent creating robust documentation. 
 
 Thirdly, breaking changes have to be avoided at all times. \Gls{frontend} code
-might depend on backend \glsplural{endpoint} that will get deleted in an
+might depend on \gls{backend} \glsplural{endpoint} that will get deleted in an
 upcoming update. This is not acceptable.
 \textbf{Versioning}\hreffootnote{https://restfulapi.net/versioning/} provides a
 way to keep supporting clients that rely on a version of the \gls{api} before
@@ -257,7 +257,7 @@ encouraged as event-based collaboration is highly decoupled
 Communication with the ``outside world'' (i.e. with a client) is usually done
 using a facade over all the underlying \glsplural{microservice}: usually called
 an \textit{\gls{api_gateway}}. This service can aggregate content gathered from
-multiple backend calls, and serve it. Whenever this layer becomes too large, or
+multiple \gls{backend} calls, and serve it. Whenever this layer becomes too large, or
 becomes bloated with logic, a \textit{\gls{bff}} pattern can be more useful:
 this is essentially equivalent to an \textit{\gls{api_gateway}} per client. This
 is shown in Figure~\ref{fig:bff}.
