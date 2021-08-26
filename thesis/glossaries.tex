@@ -18,22 +18,24 @@
 
 
 \newglossaryentry{monolith}
-{
-    name=monolith,
-    description={...} %TODO
+{name=monolith, description={A software monolith or monolithic application
+    describes an application that is built in a single unit, and that produces a
+    single logical executable. This means any changes that are made to a part of
+    the application require building and deploying a new version of the
+    application \autocite{Fowler_Microservices_2014}}
 }
 
 \newglossaryentry{monolithic}
 {
     name=monolithic,
-    description={\textit{See} \gls{monolith}}
+    description={\textit{See} \gls{monolith}.}
 }
 
 \newglossaryentry{gui}
 {
     name=GUI,
     long={graphical user interface},
-    description={\Glsentrylong{gui}. ...},%TODO
+    description={\Glsentrylong{gui}.},
     first=\glsacronymnfirst{gui}
 }
 
@@ -41,7 +43,7 @@
 {
     name=UI,
     long={user interface},
-    description={\Glsentrylong{ui}. ...},%TODO
+    description={\Glsentrylong{ui}.},
     first=\glsacronymnfirst{ui}
 }
 
@@ -49,49 +51,63 @@
 {
     name=URL,
     long={Uniform Resource Locator},
-    description={\Glsentrylong{url}. ...},%TODO
+    description={\Glsentrylong{url}. The address of a specific webpage or file on
+    the internet.},
     first=\glsacronymnfirst{url}
 }
 
 \newglossaryentry{mvc}
 {
-    name=MVC,
-    long={model-view-controller},
-    description={\Glsentrylong{mvc}. ...},
+    name=MVC, 
+    long={model-view-controller}, 
+    description={\Glsentrylong{mvc}. A design pattern, commonly used for user
+    interfaces with the goal of seperating the user interface from the
+    underlying data that represents it \autocite{Leff_Raylfield_2001}.}, 
     first=\glsacronymnfirst{mvc}
 }
 
 \newglossaryentry{frontend}
 {
-    name=frontend,
-    description={...} %TODO
+    name=frontend, 
+    description={The frontend of a software application is the design,
+    architecture and programming that makes the user-facing application
+    function. } 
 }
 
 \newglossaryentry{backend}
 {
-    name=backend,
-    description={...} %TODO
+    name=backend, 
+    description={The backend of a software application is the part of a software
+    system that is not directly accessed by the user, typically responsible for
+    executing business logic and manipulating data.}
 }
 
 \newglossaryentry{api}
 {
     name=API,
     long={application programming interface},
-    description={\Glsentrylong{api}. ...},%TODO
+    description={An API or \Glsentrylong{api} describes a set of commmands and
+    protocols for the communication between software systems without having to
+    know their exact implementation. },
     first=\glsacronymnfirst{api}
 }
 
 \newglossaryentry{restful}
 {
     name=RESTful,
-    description={\textit{See} \gls{rest}}
+    description={\textit{See} \gls{rest}.}
 }
 
 \newglossaryentry{rest}
 {
     name=REST,
     long={representational state transfer},
-    description={\Glsentrylong{rest}. ...},%TODO
+    description={
+    \Glsentrylong{rest} is an architectural style for distributed hypermedia
+    systems. When a RESTful \gls{api} is called, a transfer between the server
+    and the client will occur that represents the state of the requested
+    resource \autocite{Avraham_2017}.
+    }
     first=REST % no full mention
 }
 
@@ -99,20 +115,33 @@
 {
     name=RPC,
     long={remote procedure call},
-    description={\Glsentrylong{rpc}. ...},%TODO
+    description={
+    A \Glsentrylong{rpc} is an interprocess communication mechanism for
+    client-server applications. It is also known as a subroutine call or a
+    function call. 
+    },
     first=\glsacronymnfirst{rpc} % no full mention
 }
 
 \newglossaryentry{endpoint}
 {
     name=endpoint,
-    description={...} %TODO
+    description={
+    Describes the point of entry in a communication channel. Relating to
+    \glsplural{api}, an endpoint is the location or address where a request can
+    be made to.
+    }
 }
 
 \newglossaryentry{load-balancer}
 {
-    name=load-balancer,
-    description={...} %TODO
+    name=load-balancer, 
+    description={
+    A load enables the optimization of computing resources,
+    reduces latency and increases output and the overall performance of a
+    computing infrastructure, by distributing and managing the load across
+    several devices \autocite{Techopedia_2012}.
+    }
 }
 
 \newglossaryentry{ma}
@@ -120,21 +149,27 @@
     name={microservice architecture},
     description={A microservice architecture is a distributed application where
     all its modules are microservices. \autocite{Dragoni_etal_2017}.\textit{See
-    also} \gls{microservice}.} %TODO more explanation?
+    also} \gls{microservice}.}
 }
 
 \newglossaryentry{microservice}
 {
     name=microservice,
     description={A microservice is a cohesive, independent process interacting
-    via messages \autocite{Dragoni_etal_2017}. \textit{See also} \gls{ma}.} %TODO more explanation?
+    via messages \autocite{Dragoni_etal_2017}. Every microservice is loosely
+    coupled, independently deployable and organized around a business
+    capability. \textit{See also} \gls{ma}.} 
 }
 
 \newglossaryentry{soa}
 {
-    name=SOA,
-    long={service oriented architecture},
-    description={\Glsentrylong{soa}. ...},%TODO
+    name=SOA, 
+    long={service-oriented architecture},
+    description={
+    \Glsentrylong{soa} defines a way to make software components reusable and
+    interoperable via service interfaces. Each service in an SOA embodies the
+    code and data required to execute a business function \autocite{IBM_2021}.
+    },
     first=\glsacronymnfirst{soa}
 }
 
@@ -142,15 +177,21 @@
 {
     name=HTTP,
     long={hypertext transfer protocol},
-    description={\Glsentrylong{http}. ...},%TODO
+    description={The \Glsentrylong{http} is an application-level
+    protocol for distributed, collaborative, hypermedia information
+    systems. It is a generic, stateless, request/response protocol
+    \autocite{Fielding_etal_1999}.
+    },
     first=HTTP % no full mention
 }
 
 \newglossaryentry{soap}
 {
-    name=SOAP,
+    name=SOAP, 
     long={simple object access protocol},
-    description={\Glsentrylong{soap}. ...},%TODO
+    description={
+    \Glsentrylong{soap}. SOAP is a method of transferring messages formatted in
+    XML over the Internet.},
     first=SOAP
 }
 
@@ -158,15 +199,19 @@
 {
     name=XML,
     long={extensible markup language},
-    description={\Glsentrylong{xml}. ...},%TODO
+    description={\Glsentrylong{xml} is a markup language for representing
+    structured information that is both human and machine-readable.},
     first=XML
 }
 
 
 \newglossaryentry{api_gateway}
-{
-    name=API gateway,
-    description={...} %TODO
+{  
+    name=API gateway, 
+    description={An API gateway accepts API requests from a
+    client, directs them to the appropriate services. Typically it handles a
+    request by invoking multiple microservices and aggregating the results
+    \autocite{Nginx_2021}.}
 }
 
 
@@ -174,38 +219,33 @@
 {
     name=BFF,
     long={Backend For Frontend},
-    description={\Glsentrylong{bff}. ...},%TODO
+    description={\Glsentrylong{bff}.},
     first=\glsacronymnfirst{bff}
-}
-
-\newglossaryentry{event_bus}
-{
-    name={event bus},
-    description={...} %TODO
 }
 
 \newglossaryentry{sso}
 {
     name=SSO,
     long={single sign-on},
-    description={\Glsentrylong{sso}. ...},%TODO
+    description={\Glsentrylong{sso}.},
     first=\glsacronymnfirst{sso}
 }
 
 \newglossaryentry{mfa}
 {
     name={microfrontend architecture}, 
-    description={
-        ...\textit{See also} \gls{microfrontend}. ...%TODO
-    }   
+    description={The microfrontend architecture
+    is an architecture style that splits up an application into distributed
+    modules that are focussed around a specific business capability. Most of the
+    time these individual modules are managed by autonomous cross-functional
+    teams. \autocite{Geers_2020}\autocite{Rappl_2021}.\textit{See also}
+    \gls{microfrontend}.}   
 }
 
 \newglossaryentry{microfrontend}
 {
     name=microfrontend, 
-    description={
-        ...\textit{See also} \gls{mfa}. ...%TODO
-    }   
+    description={\textit{See} \gls{mfa}.}   
 }
 
 \newglossaryentry{gdd}
@@ -217,7 +257,7 @@
         beyond the traditional bounds of a single building or office structure where
         the development staff is singularly located. In a GDD model, the development
         staffing may be distributed across town, across a state or provincial
-        border, or overseas. \autocite{Yuhong_2008}
+        border, or overseas \autocite{Yuhong_2008}.
     }, 
     first=\glsacronymnfirst{gdd}
 }
@@ -226,7 +266,7 @@
 {
     name=GDD,
     long={Geographically Dispersed Development},
-    description={\Glsentrylong{gdd2}. \textit{See} \glsentryname{gdd}},
+    description={\Glsentrylong{gdd2}. \textit{See} \glsentryname{gdd}.},
     first=\glsacronymnfirst{gdd2}
 }
 
@@ -234,7 +274,7 @@
 {
     name=GSD,
     long={Global Software Development},
-    description={\Glsentrylong{gsd}. \textit{See} \glsentryname{gdd}},
+    description={\Glsentrylong{gsd}. \textit{See} \glsentryname{gdd}.},
     first=\glsacronymnfirst{gsd}
 }
 
@@ -242,20 +282,24 @@
 {
     name=FTS,
     long={follow-the-sun},
-    description={\Glsentrylong{fts}. ...}, %TODO
+    description={\Glsentrylong{fts} (also called 24-hour development or
+    round-the-clock development) is a form of \glsentryname{gdd} in which
+    multiple teams are spread across timezones to ensure one team is always
+    operational during normal business hours. },
     first=\glsacronymnfirst{fts}
 }
 
 \newglossaryentry{outsourcing}
 {
     name=outsourcing, 
-    description={...} %TODO
+    description={The transfer of a business function to a third-party service provider.}
 }
 
 \newglossaryentry{offshoring}
 {
     name=offshoring, 
-    description={...} %TODO
+    description={The tranfer of a business function to another country, usually
+    to take advantage of lower labor costs, tax rates, or for legal reasons.}
 }
 
 \newglossaryentry{wasm}
@@ -265,88 +309,102 @@
         WebAssembly (abbreviated Wasm) is a binary instruction format for a
         stack-based virtual machine. Wasm is designed as a portable compilation
         target for programming languages, enabling deployment on the web for client
-        and server applications.\autocite{Webassembly_2021}
+        and server applications \autocite{Webassembly_2021}.
     }
 }
 
 \newglossaryentry{w3c}
 {
-    name=W3C,
-    long={World Wide Web Consortium},
-    description={\Glsentrylong{w3c}. ...},%TODO
+    name=W3C, 
+    long={World Wide Web Consortium}, 
+    description={The \Glsentrylong{w3c}
+    is an international community where Member organizations, a full-time staff,
+    and the public work together to develop Web standards \autocite{W3C_2021}.},
     first=\glsacronymnfirst{w3c}
 }
 
 \newglossaryentry{transpiling}
 {
     name=transpiling, 
-    description={...} %TODO
+    description={
+        Taking source code written in one language and transforming into another
+    language that has a similar level of abstraction (high-level to
+    high-level or low-level to low-level) \autocite{Fenton_2012}.
+    }
 }
 
 \newglossaryentry{il}
 {
     name=IL,
     long={intermediate language},
-    description={\Glsentrylong{il}, also known as MSIL, ...},%TODO
+    description={
+    \Glsentrylong{il}, also known as MSIL, is a product of compiling high-level
+    .NET languages into a binary instruction format \autocite{Microsoft_2016}.},
     first=\glsacronymnfirst{il}
 }
 
 \newglossaryentry{dom}
 {
-    name=DOM,
-    long={Document Object Model},
-    description={\Glsentrylong{dom}, ...},%TODO
-    first=\glsacronymnfirst{dom}
-}
+    name=DOM, 
+    long={Document Object Model}, 
+    description={\Glsentrylong{dom}, a programming interface for web documents.
+    The DOM represents the document as nodes and objects; that way, programming
+    languages can interact with the page \autocite{Mozilla_DOM}.}, 
+    first=\glsacronymnfirst{dom}}
 
 \newglossaryentry{jsinterop}
 {
     name={JS interop},
     long={Javascript interoperability},
-    description={\Glsentrylong{jsinterop}, ...},%TODO
+    description={\Glsentrylong{jsinterop} describes the invocation of a
+    JavaScript code from another language.},
     first=\glsacronymnfirst{jsinterop}
 }
 
 \newglossaryentry{pe}
 {
     name={progressive enhancement},
-    description={...}%TODO
+    description={
+    A software design philosophy that emphasises the delivery of simple content
+    and basic funtionality to as many users as possible, while providing the
+    best user experience only to the users of capable systems and browsers.
+    }
 }
 
 \newglossaryentry{seo}
 {
     name=SEO,
     long={search engine optimization},
-    description={\Glsentrylong{seo}, ...},%TODO
+    description={\Glsentrylong{seo}.},
     first=\glsacronymnfirst{seo}
 }
 
 \newglossaryentry{iframe}
 {
     name=iframe,
-    description={...}%TODO
+    description={Inline frame.}
 }
 
 \newglossaryentry{poc}
 {
     name=PoC,
     long={proof of concept},
-    description={\Glsentrylong{poc}, ...},%TODO
+    description={\Glsentrylong{poc}.},
     first=\glsacronymnfirst{poc}
 }
 
 \newglossaryentry{appshell}
 {
     name={application shell},
-    description={...}%TODO
+    description={Also called \texit{app shell}, serves as a parent application
+    for the integration of microfrontends \autocite{Geers_2020}\autocite{Rappl_2021}.}
 }
-
 
 \newglossaryentry{cli}
 {
     name=CLI,
     long={Command Line Interface},
-    description={\Glsentrylong{cli}, ...},%TODO
+    description={\Glsentrylong{cli}.},
     first=\glsacronymnfirst{cli}
 }
 
@@ -354,7 +412,7 @@
 {
     name=DI,
     long={dependency injection},
-    description={\Glsentrylong{di}, ...},%TODO
+    description={\Glsentrylong{di}.},
     first=\glsacronymnfirst{di}
 }
 
@@ -362,7 +420,10 @@
 {
     name=CDN,
     long={Content Delivery Network},
-    description={\Glsentrylong{cdn}, ...},%TODO
+    description={
+    A \Glsentrylong{cdn}, is a distributed network of servers that can
+    efficiently deliver web content to users \autocite{Microsoft_2018}.
+        },
     first=\glsacronymnfirst{cdn}
 }
 
@@ -370,7 +431,7 @@
 {
     name=DLL,
     long={dynamic-link library},
-    description={\Glsentrylong{dll}, ...},%TODO
+    description={\Glsentrylong{dll}.},
     first=\glsacronymnfirst{dll}
 }
 
@@ -378,7 +439,7 @@
 {
     name=PDB,
     long={program database},
-    description={\Glsentrylong{pdb}, ...},%TODO
+    description={\Glsentrylong{pdb}.},
     first=\glsacronymnfirst{pdb}
 }
 
@@ -386,7 +447,7 @@
 {
     name=SSI,
     long={Server-Side Includes},
-    description={\Glsentrylong{ssi}, ...},%TODO
+    description={\Glsentrylong{ssi}.},
     first=\glsacronymnfirst{ssi}
 }
 
@@ -394,7 +455,7 @@
 {
     name=ESI,
     long={Edge-Side Includes},
-    description={\Glsentrylong{esi}, ...},%TODO
+    description={\Glsentrylong{esi}.},
     first=\glsacronymnfirst{esi}
 }
 
@@ -402,7 +463,7 @@
 {
     name=SPA,
     long={Single-page application},
-    description={\Glsentrylong{spa}, ...},%TODO
+    description={\Glsentrylong{spa}.},
     first=\glsacronymnfirst{spa}
 }
 
@@ -410,6 +471,6 @@
 {
     name=UX,
     long={user experience},
-    description={\Glsentrylong{ux}, ...},%TODO
+    description={\Glsentrylong{ux}.},
     first=\glsacronymnfirst{ux}
 }
