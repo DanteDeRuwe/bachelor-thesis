@@ -11,9 +11,9 @@ A \gls{monolithic} \gls{frontend} does not have to be a problem.
 heavy lifting was done on the server-side anyway. However, the complexity of
 client-side applications has seen a drastic increase over the last few years.
 This can be attributed to many factors: increased hardware and web browser
-capabilities, a broad variety of client devices, a massive market growth for
+capabilities, a wide variety of client devices, massive market growth for
 digital services, and the web transitioning from a document platform to the
-largest application platform \autocite{Ball_2019}, just to name a few.
+largest application platform \autocite{Ball_2019}; just to name a few.
 
 In these complex applications, the downsides of a \gls{monolithic} architecture
 come back into view: every change requires the entire \gls{frontend} application
@@ -69,10 +69,9 @@ Figure~\ref{fig:microfrontends}.
 
 A significant difference between \glsplural{microfrontend} and other software
 architectures is the impact on \textbf{team structure} and organizational shift
-\autocite{Geers_2020}.
-
-So, while \glsplural{microfrontend} have lots of technical aspects to consider,
-it is important to reflect on the organizational aspects first.
+\autocite{Geers_2020}. So, while \glsplural{microfrontend} have lots of
+technical aspects to consider, it is important to reflect on the organizational
+aspects first.
 
 As discussed in \fullref{ssec:microservices}, when adopting the \gls{ma}, a shift
 has to be made to smaller independent teams around a specific business need.
@@ -143,7 +142,7 @@ least slow and difficult.
 \label{ssec:mf-implementation-patterns}
 
 As is the case with lots of architectural patterns, there are many ways of
-implementation possible. With the \gls{mfa}, this is no different. Various
+implementation possible. With the \gls{mfa}, this is also the case. Various
 options differ in complexity, goal, and mechanism. 
 
 \Glsplural{microfrontend} often need to be composed to be able to reach a
@@ -164,20 +163,20 @@ that exist in the world of the web.
 As described by \textcite{Rappl_2021}, the \textit{web approach}'s main
 mechanism for \gls{microfrontend} reference is by way of their \gls{url}.
 \textbf{Hyperlinks} can be used to let the user navigate between different
-\glsplural{microfrontend}. This however, compromises user experience and
+\glsplural{microfrontend}. This, however, compromises on user experience and
 usability. With this approach, for example, elements from multiple
 \glsplural{microfrontend} cannot be rendered on the same page. 
 
 To enable visual composition of \glsplural{microfrontend} in the most
 straightforward way, \textbf{\glsplural{iframe}} can be used. By using an
 \texttt{<iframe>} tag with a \texttt{src} attribute that points to a \gls{url},
-one could embed visual components of one \gls{microfrontend} within another,
-without sacrificing on strong isolation between the two \autocite{Geers_2020}.
-The disadvantage here is the notoriously bad characteristics of
-\glsplural{iframe}. One of these is bad performance: according to
-\textcite{Souders_2013}, \glsplural{iframe} are up to 2 orders of magnitude more
-expensive to create than any other \gls{dom} element. Moreover, iframes also
-block the loading process of the rest of the page. Other suboptimal
+one could embed visual components of one \gls{microfrontend} (fragments) within
+another, without sacrificing on strong isolation between the two
+\autocite{Geers_2020}. The disadvantage here is the notoriously bad
+characteristics of \glsplural{iframe}. One of these is bad performance:
+according to \textcite{Souders_2013}, \glsplural{iframe} are up to 2 orders of
+magnitude more expensive to create than any other \gls{dom} element. Moreover,
+iframes also block the loading process of the rest of the page. Other suboptimal
 characteristics include accessibility and \gls{seo}.
 
 The simplicity of the web approach is also where it lacks applicability for
@@ -205,7 +204,7 @@ but are not limited to:
   \begin{minted}{html}
 <!-- #include virtual="/fragment" -->
   \end{minted}
-  It also support the execution of commands from the server, and even some
+  It also supports the execution of commands from the server, and even some
   conditional logic \autocite{Apache_2013}. \gls{ssi} has been around for a long
   time, this way most web servers have support for it. Because its directives
   are HTML comments, using these on a server that is not configured for

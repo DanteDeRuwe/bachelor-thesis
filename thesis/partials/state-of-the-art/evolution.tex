@@ -54,17 +54,17 @@ These architectures are compared in Figure~\ref{fig:two-vs-three-tier-architectu
     \label{fig:two-vs-three-tier-architecture}
 \end{figure}
 
-With the introduction of this physical seperation, the next challenge was the
+With the introduction of this physical separation, the next challenge was the
 structure of the software's code.  
 
 Over an extensive period, applications built on top of the client-server model
-extensively used the \textbf{\gls{mvc} pattern} \autocite{Pavlenko_etal_2020}. Like the
-name suggests, this pattern describes 3 parts, that are used as conceptual and
-architectural separations in the software. The business logic of the application
-is encapsulated in the \textbf{model}, the presentation logic is the
-responsibility of the \textbf{view}, and the \textbf{controllers} handles the
-the user actions in the view, and connects these actions to the appropriate
-models and updated views.
+extensively used the \textbf{\gls{mvc} pattern} \autocite{Pavlenko_etal_2020}.
+Like the name suggests, this pattern describes 3 parts, that are used as
+conceptual and architectural separations in the software. The business logic of
+the application is encapsulated in the \textbf{model}, the presentation logic is
+the responsibility of the \textbf{view}, and the \textbf{controllers} handle the
+user actions in the views, and connect these actions to the appropriate models
+and updated views.
 
 However, according to \textcite{Leff_Raylfield_2001}, implementation of the
 \gls{mvc} pattern for web applications in a client-server environment, brings up
@@ -88,11 +88,11 @@ a  ``single point of failure'': whenever one part of the software is
 malfunctioning, the whole system is crippled.
 
 
-\subsection{The split stack development model}
+\subsection{The split-stack development model}
 \label{ssec:split-stack}
 
 
-In more recent times, developer teams started to adopt \textbf{split stack
+In more recent times, developer teams started to adopt \textbf{split-stack
 development}, where the \gls{gui} is handled in the so-called ``\gls{frontend}'' and
 the business and data logic are dealt with by a ``\gls{backend}'' system. The
 communication between these two parts can be carried out in multiple ways, but
@@ -126,14 +126,14 @@ introduces some major benefits: \autocite{Dunkley_2016}
     decoupling, teams can work independently, autonomously and therefore
     simultaneously. For example, a change to the visual styling of a website,
     will not require any of the server-side code to change, and will also not
-    trigger a rebuild there. 
+    trigger a rebuild. 
     %
     \spacedItem  \textbf{Independent deployment and scaling}\\
-    While a \gls{monolith} had to be deployed as one big program, teams could now
+    While a \gls{monolith} has to be deployed as one big program, teams can now
     deploy the \gls{frontend} and \gls{backend} solutions according to their
-    needs. Often a static hosting solution is enough to publish a client, while
-    a \gls{backend} service might need some serious infrastructure to remain
-    operational.
+    needs. Often a static hosting solution is enough to publish a \gls{frontend}
+    application, while a \gls{backend} service might need some serious
+    infrastructure to remain operational.
 \end{itemize}
 
 Of course, these benefits also come at the cost of some drawbacks. 
@@ -167,7 +167,7 @@ scaling applications, it simply isn't enough. After a
 \gls{frontend}}. 
 
 Shifting the frame of reference to the server-side: the \gls{backend}
-\gls{monolith} still posesses the same downsides the overall \gls{monolith} had
+\gls{monolith} still possesses the same downsides the overall \gls{monolith} had
 introduced: one change in the logic and the entire application has to be
 rebuilt and redeployed. Also, the issue of scaling still persists: the server
 can be updated with more powerful hardware (vertical scaling) or the \textit{entire}
@@ -185,13 +185,13 @@ choosing a software architectural style and paradigm shifted towards reusability
 and robustness. According to \textcite{Dragoni_etal_2018}, This was
 characterized by the shift to more modular, loosely coupled applications. The
 benefits of which were outlined in the previous section. The \gls{soa} pattern
-emerged as a step in this direction. Initially the goal was to devise software
+emerged as a step in this direction. Initially, the goal was to devise software
 services as a way to interface with larger software systems (which were often
 monolithic) via messages, using common messaging protocols (e.g. \gls{http},
 \gls{soap} or \gls{xml}).
 
 Taking this approach further, by not necessarily integrating with existing
-\gls{monolithic} applications, but using the service oriented approach to design,
+\gls{monolithic} applications, but using the service-oriented approach to design,
 develop and deploy self-contained and autonomous software services, is what the
 \gls{ma} is about.\footnote{While conceptually derived from \gls{soa}, labeling
 the \gls{ma} as an implementation of \gls{soa} is highly debated. Read more on
@@ -318,16 +318,15 @@ Below some of the major benefits of the \gls{ma} are outlined:
 \subsubsection{Challenges and limitations of the microservice architecture}
 \label{sssec:microservice-challenges}
 
-While lots of the benefits of the \gls{ma} are clearly beneficial to enabling
-distributed development, it cannot be regarded as a silver bullet. In what
-follows, some of the challenges of the \gls{ma} are outlined, based in part on a
-literature review by \textcite{Soldani_2018}.
-Depending on the perspective of the reader, some of these can also be considered
-to be drawbacks.
+While lots of the benefits of the \gls{ma} aid in enabling distributed
+development, the architecture cannot be regarded as a \textit{silver bullet}. In
+what follows, some of the challenges of the \gls{ma} are outlined, based in part
+on a literature review by \textcite{Soldani_2018}. Depending on the perspective
+of the reader, some of these can also be considered to be drawbacks.
 
 \textbf{Partitioning the services} tends to be a big challenge in the design
 phase of \gls{microservice} development. It is often difficult to slice up the
-business capabilities into well defined categories. Another challenge in the
+business capabilities into well-defined categories. Another challenge in the
 conceptual phase is establishing a clear strategy for \textbf{communication}
 mechanisms: \gls{microservice} intercommunication should have clear contracts to
 ensure their compatibility.
@@ -342,16 +341,16 @@ database operation, what will happen to the principle of a transaction?
 
 Another challenge in the development phase is designing and writing adequate
 \textbf{tests}. Because of their independent nature, unit tests are easier or in
-the worst case just unaffected by the \gls{ma}. Performance, integration and
-end-to-end testing, however becomes more difficult, because the system has to be
-tested from the outside, and a lot of times multiple services have to be spun up
-to be able to do a test properly, increasing the performance cost of the tests,
-and lowering their reliability.\footnote{See also
+the worst case simply unaffected by the \gls{ma}. Performance testing, integration
+testing and end-to-end testing, however, become more difficult because the
+system has to be tested from the outside. Often multiple services have to be
+spun up to be able to do a test properly, increasing the performance cost of the
+tests, and lowering their reliability.\footnote{See also
 \hrefself{https://blog.indrek.io/articles/challenges-of-testing-microservices/}}
 
-During the operation phase, most of the challenges of the \gls{ma} boil down to
-\textbf{increased operational complexity}: debugging, logging,  monitoring,
-service coordination, etc. 
+If the \gls{microservice}-application is running, most of the challenges
+of the \gls{ma} boil down to \textbf{increased operational complexity}:
+debugging, logging, monitoring, service coordination, etc. 
 
 It is also worth noting that the \gls{ma} requires a certain \textbf{developer
 skill and knowledge}, that might not be readily available in a company or
